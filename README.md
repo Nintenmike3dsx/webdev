@@ -12,18 +12,34 @@ VM Upload Command:  scp -r "C:\Users\Michael\Documents\Projects\webdev\*" marend
 Tags Used:
 
 Team 2 Tags:
+<br>
 Done    b 
+<br>
 Done    i 
+<br>
 Done    u
+<br>
 Done    abbr 
+<br>
 Done    q
+<br>
 Done    cite 
+<br>
 Done    hr
+<br>
 Done    pre 
+<br>
 Done    figcaption
+<br>
 Done    blockquote 
+<br>
 Done    mark
+<br>
 Done    figure
+<br>
 Done    figcaption 
+<br>
 Done    time
+<br>
 Done    code
+<br>
