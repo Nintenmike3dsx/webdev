@@ -1,12 +1,20 @@
-Michael:
-Worked on 50% of tags, including the paragraphs and highlights. 
-Worked on 1/20 to create website and begin making the first presentation.
-Added more text to website and finished tag slides
-
 David: 
-Worked on 50% of the tags, including the figure.
-Met and worked 1/20/2026 4:40 - 6:00
-
+Website for a lets play for theHunter: Call of the Wild
+    Needs:
+    Done    Bold text <b>  
+    Done    italicized <i>  
+    Done    Underlined <u>
+    Done    abbreviation <abbr> 
+    Done    defines a short quote <q>
+    Done    Defines the title of a work <cite> 
+    Done    Thematic change in content <hr>
+    Done    defines preformatted text <pre> 
+    Done    defines a caption for a figure element <figcaption>
+    Done    A <blockquote> containing a quoted passage
+    Done    Highlighted keywords using <mark>
+    Done    A <figure> containing an image and a <figcaption> 
+    Done    A <time> element for the publication date
+    Done    <code> elements for inline code snippets or technical terms
 
 How to update on VM:
 1. Login and go to the /srv/csc391web/team2/minHTML/
