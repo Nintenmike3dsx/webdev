@@ -2,7 +2,6 @@ Made by Michael:
 VM Upload Command:  scp -r "C:\Users\Michael\Documents\Projects\webdev\*" marend001@csc391-vm1.eng.franciscan.edu:/srv/csc391web/marend001/HTML/
 
 Tags Used:
-
 Team 2 Tags:
 <br>
 Done    b 
@@ -32,6 +31,8 @@ Done    figure
 Done    figcaption 
 <br>
 Done    time
+<br>
+Done    code
 
 Team 1 Tags:
 <br>
@@ -50,7 +51,4 @@ article
 Done aside
 <br>
 Done h1 – h6
-<br>
-<br>
-Done    code
 <br>
