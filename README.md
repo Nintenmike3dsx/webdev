@@ -36,9 +36,9 @@ Done    code
 
 Team 1 Tags:
 <br>
-header
+Done header
 <br> 
-footer
+Done footer
 <br>
 Done nav
 <br>
@@ -46,7 +46,7 @@ Done main
 <br>
 Done section
 <br>
-article
+Done article
 <br>
 Done aside
 <br>
