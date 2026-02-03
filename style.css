@@ -1,0 +1,138 @@
+/*Color Scheme*/
+body {
+    background-color: whitesmoke;
+    color: black
+}
+
+/*links*/
+a:link{
+    color:lightblue
+}
+a:visited{
+    color:blueviolet
+}
+a:hover{
+    color:blue
+}
+
+/*Section colors - add more eventually*/
+h1{
+    background-color: aliceblue;
+}
+
+/*Typography*/
+p.t {
+  font-family: "Times New Roman", Times, serif;
+} /*use type t for general text*/
+
+p.h {
+  font-family: Arial, Helvetica, sans-serif;
+} /*use type h for header*/
+
+div.a {
+  line-height: normal;
+} /*use for general text*/
+
+div.d {
+  line-height: 200%;
+} /*use for header*/
+
+/*
+Font-family
+Size - Spacing
+Distinct headers
+*/
+
+/*Box Model*/
+/*heading spacing*/
+h1 {
+  letter-spacing: 3px;
+}
+h2 {
+  letter-spacing: 2px;
+}
+/*paragraph class spacing*/
+p.small {
+  line-height: 0.9;
+}
+p.big {
+  line-height: 1.2;
+}
+
+/*Padding*/
+div.boxed {
+  padding: 70px;
+  border: 1px solid color gray;
+}
+div.fiftyPx {
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+  padding-left: 50px;
+}
+/*page margin*/
+body {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+/*navigation bar*/
+nav{
+  border: 1px solid black;
+  margin: 5px;
+  background-color: rgb(214, 233, 239);
+
+    link{
+      color:rgb(197, 29, 29)
+    };
+    visited{
+      color:rgb(142, 13, 84)
+    };
+    hover{
+      color:rgb(255, 140, 0)
+    }
+    
+  word-spacing: 5px;
+}
+
+/*
+General team rules:
+Consistent color scheme (background, text, links, section colors; readable contrast)
+Choose a background color and ensure text is readable over it.
+Style links so they are clearly distinguishable (default, hover, and visited states).
+Use different section backgrounds (they must still feel like one cohesive design).
+
+Typography ( font-family , sizes, weights, line-height, spacing)
+Set a font-family for the page (and optionally a different one for headings).
+Use readable font sizes and spacing ( line-height , margins for headings/paragraphs).
+Make headings visually distinct from body text.
+
+Box model / spacing Use margin , padding , and border intentionally for spacing and layout
+Use margin and padding intentionally to create clear spacing (must be explicitly set for at least one
+element)
+Use borders where appropriate (on at least one card, section, table, image, etc.).
+Your layout should not feel “crammed” or “randomly spaced” to the grader's eye.
+
+Styled navigation bar
+Your <nav> must have:
+a background color (or other clear styling)
+spacing between links
+a visible hover effect for links 
+
+Team 2:
+Improve readability and “designed” feel of the page by styling text:
+adjust line-height
+adjust spacing between paragraphs/sections
+adjust letter spacing or text transform in a tasteful way (not chaotic)
+
+Add at least ONE text effect:
+subtle text shadow on headings, or
+distinctive styling for headings/subheadings
+
+Extra Enhancement (1 is required):
+Style at least one of these uniquely:
+<blockquote> (example: border-left, italic, background, padding)
+<figcaption> (example: smaller text, muted color, spacing
+*/
