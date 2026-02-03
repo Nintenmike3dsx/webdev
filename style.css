@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com');
 /*Color Scheme*/
 body {
     background-color: white;
@@ -9,13 +10,25 @@ a:link{
     color:rgb(197, 29, 29)
 }
 a:visited{
-    color:rgb(142, 13, 84)
+    color:rgb(93, 11, 56)
 }
 a:hover{
     color:rgb(255, 140, 0)
 }
+a.direction {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+}
 
 /*Section colors - add more eventually*/
+h1.title{
+  background-color: rgba(192, 192, 192, 0.5);
+  text-align: center;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  font-family:'Montserrat', sans-serif;
+}
+
 h1{
   background-color: rgb(192, 192, 192);
   text-align: center;
@@ -27,6 +40,9 @@ h2{
 h3{
   background-color: rgb(192, 192, 192);
   text-align: center;
+}
+div.lethalbanner{
+  background-color: rgb(110, 28, 28);
 }
 
 /*Typography*/
@@ -81,55 +97,59 @@ div.fiftyPx {
 }
 /*page margin*/
 body {
-  margin-top: 10px;
+  margin-top: 0%;
   margin-bottom: 20px;
   margin-right: 5px;
   margin-left: 5px;
 }
 
 /*navigation bar*/
-nav.Nav{
-  border: 1px solid black;
-  margin: 5px;
-  background-color: rgb(192, 192, 192);
+div.Nav{
+  padding: 2px;
+  background-image: url("LCHiDef.jpg");
+}
+
+nav.Navbar{
+  padding: 2px 0px 2px 0px;
+  margin: 3px;
+  background-color: rgba(192, 192, 192, 0.25);
   text-align: center;
     link{
       color:rgb(197, 29, 29)
     };
     visited{
-      color:rgb(142, 13, 84)
+      color:rgb(93, 11, 56)
     };
     hover{
       color:rgb(255, 140, 0)
     }
-    
-  word-spacing: 5px;
-}
-
-nav {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
+    word-spacing: 5px;
+    display: flex; 
     flex-wrap: wrap;
-    padding: 15px 0;
+    justify-content: center;
+    gap: 10px;
+    
 }
 
 nav a {
-    background-color: #ff0000;
+    background-color: #686868;
     border: none;
-    color: white;
-    padding: 15px 32px;
+    color: rgb(0, 0, 0);
+    padding: 10px 25px;
     text-align: center;
     display: inline-block;
     font-size: 16px;
-    margin: 4px;
+    margin: 2px;
     cursor: pointer;
 }
 
+nav a:hover {background-color: #ff4400;
+}
+
 button {
-    background-color: #878787;
+    background-color: rgba(192, 192, 192, 0.25);
     border: none;
-    color: white;
+    color: rgb(0, 0, 0);
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -139,7 +159,13 @@ button {
 }
 
 /*image*/
-img.banner {width: 100%}
+img.banner {
+  display: block;
+  margin-top: 0%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%
+}
 
 /*
 General team rules:
