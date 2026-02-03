@@ -79,7 +79,7 @@ body {
 }
 
 /*navigation bar*/
-nav{
+nav.Nav{
   border: 1px solid black;
   margin: 5px;
   background-color: rgb(214, 233, 239);
