@@ -70,8 +70,8 @@ p.big {
 
 /*Padding*/
 div.boxed {
-  padding: 70px;
-  border: 1px solid color gray;
+  padding: 5px;
+  border: 1px solid color rgb(0, 0, 0);
 }
 div.fiftyPx {
   padding-top: 10px;
@@ -106,24 +106,40 @@ nav.Nav{
   word-spacing: 5px;
 }
 
+nav {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+}
+
 nav a {
     background-color: #ff0000;
     border: none;
     color: white;
     padding: 15px 32px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin: 4px;
     cursor: pointer;
-   
+}
+
+button {
+    background-color: #878787;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
 }
 
 /*image*/
-img.banner {
-  max-width: 100%;
-  height: auto;
-}
+img.banner {width: 100%}
 
 /*
 General team rules:
