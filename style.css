@@ -104,7 +104,7 @@ div.fiftyPx {
   padding-left: 10px;
 }
 /*page margin*/
-body {
+body{
   margin-top: 0px;
   margin-bottom: 20px;
   margin-right: 5px;
@@ -159,7 +159,6 @@ nav a:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 
 button {
     background-color: rgba(192, 192, 192, 0.25);
@@ -220,5 +219,5 @@ distinctive styling for headings/subheadings
 Extra Enhancement (1 is required):
 Style at least one of these uniquely:
 <blockquote> (example: border-left, italic, background, padding)
-<figcaption> (example: smaller text, muted color, spacing
+<figcaption> (example: smaller text, muted color, spacing)
 */
