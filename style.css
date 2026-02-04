@@ -1,5 +1,130 @@
 @import url('https://fonts.googleapis.com');
 /*Color Scheme*/
+h1.screensaver{
+  background-color: rgb(75, 8, 8);
+  text-align: center;
+  font-family:'Montserrat', sans-serif;
+  padding-bottom: 300px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+body {
+  background-color: rgb(255, 255, 255);
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+div.headtop{
+  height: 300px;
+  padding: 10, 10, 10, 10;
+  margin: 10, 10, 10, 10;
+}
+div.navbar{
+  height: 30px;
+  padding: 10, 10, 10, 10;
+  margin: 10, 0, 10, 0;  
+}
+a.direction {
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  width: 150px;
+}
+nav.navbar{
+  background-color: rgb(41, 105, 35);
+  text-align: center;  
+  link{
+    color:rgb(2, 87, 255)
+  };
+  visited{
+    color:rgb(93, 11, 56)
+  };
+  hover{
+    color: rgb(130, 204, 228)
+  }
+  word-spacing: 3px;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content:center;
+  gap: 50px;
+}
+nav a{
+  background-color: rgb(62, 84, 19);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 0px 15px;
+  font-size: 16px;
+  height: 30px;
+  margin: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav a:hover {
+  background-color: rgb(110, 148, 33);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+button {
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
+  width: 100px;
+  height: auto;
+}
+div.aboutcontent{
+  background-color: aqua;
+  height: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+}
+p.stand1{
+  float: left;
+  height: 220px;
+  width: 1000px;
+  background-color:aquamarine;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 50px;
+  margin-left: 15px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  border: 1px solid black;
+}
+p.stand2{
+  float: right;
+  height: 220px;
+  width: 300px;
+  background-color:aquamarine;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  margin-left: 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.5;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  border: 1px solid black;
+}
+
+
+
+/*
 body {
   background-color: white;
   margin-top: 0px;
@@ -8,7 +133,7 @@ body {
   margin-left: 50px;
 }
 
-/*links*/
+/*links
 a:link{
     color:rgb(197, 29, 29)
 }
@@ -23,7 +148,7 @@ a.direction {
   font-family: 'Inter', sans-serif;
 }
 
-/*Section colors - add more eventually*/
+/*Section colors - add more eventually
 h1.title{
   background-color: rgba(192, 192, 192, 0.5);
   text-align: center;
@@ -65,13 +190,13 @@ div.lethalbanner{
   height: auto;
 }
 
-/*Typography*/
+/*Typography
 p.impact {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   line-height: 1.2;
   text-align: justify;
   width: 1400;
-} /*use type t for general text*/
+} /*use type t for general text
 
 p.arial {
   font-family: Arial, Helvetica, sans-serif;
@@ -80,7 +205,7 @@ p.arial {
   width: 1400;
 } /*use type h for header*/
 
-/* Div classes */
+/* Div classes 
 div.arial {
   line-height: normal;
   background-color: rgb(251, 195, 195);
@@ -95,7 +220,7 @@ div.arial {
   margin-right: 50px;
   margin-left: 50px;
 
-} /*use for general text*/
+} /*use for general text
 
 div.impact {
   background-color: rgb(177, 153, 153);
@@ -128,7 +253,7 @@ hr.line{
 }
 /*page margin*/
 
-/*navigation bar*/
+/*navigation bar
 div.Nav{
   padding: 2px;
   background-image: url("LCHiDef.jpg");
@@ -188,7 +313,7 @@ button {
     cursor: pointer;
 }
 
-/*image*/
+/*image
 img.banner {
   display: block;
   margin-top: auto;
@@ -223,7 +348,7 @@ footer{
   text-align: justify;
   width: 1400;
 }
-
+*/
 /*use for header*/
 
 /*
