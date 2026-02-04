@@ -40,19 +40,25 @@ h1{
   width: 1440px;
   height: auto;
   letter-spacing: 3px;
+  font-family:'Montserrat', sans-serif;
 }
+
 h2{
   background-color: rgb(192, 192, 192);
   text-align: center;
   letter-spacing: 2px;
+  font-family:'Montserrat', sans-serif;
 }
+
 h3{
   background-color: rgb(192, 192, 192);
   text-align: center;
   width: 1440px;
   height: auto;
   letter-spacing: 2px;
+  font-family:'Montserrat', sans-serif;
 }
+
 div.lethalbanner{
   background-color: rgb(110, 28, 28);
   width: 1440px;
@@ -64,12 +70,14 @@ p.impact {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   line-height: 1.2;
   text-align: justify;
+  width: 1400;
 } /*use type t for general text*/
 
 p.arial {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 0.9;
   text-align: justify;
+  width: 1400;
 } /*use type h for header*/
 
 /* Div classes */
@@ -113,6 +121,11 @@ div.fiftyPx {
   padding-left: 10px;
 }
 
+hr.line{
+  height: 2px;
+  width: 1400;
+  text-align: justify;
+}
 /*page margin*/
 
 /*navigation bar*/
@@ -185,6 +198,15 @@ img.banner {
   height: auto;
 }
 
+img.pc{
+  display: block;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: auto;
+}
+
 figcaption {
     color: #666;
     font-style: italic;
@@ -195,6 +217,13 @@ figcaption {
     border-left: 3px solid #aa0404; 
     display: inline-block;  
 }
+footer{
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 0.9;
+  text-align: justify;
+  width: 1400;
+}
+
 /*use for header*/
 
 /*
