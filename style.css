@@ -24,14 +24,18 @@ a.direction {
 h1.title{
   background-color: rgba(192, 192, 192, 0.5);
   text-align: center;
-  padding-top: 3%;
-  padding-bottom: 3%;
+  padding-top: 50px;
+  padding-bottom: 50px;
   font-family:'Montserrat', sans-serif;
+  width: 1440px;
+  height: auto;
 }
 
 h1{
   background-color: rgb(192, 192, 192);
   text-align: center;
+  width: 1440px;
+  height: auto;
 }
 h2{
   background-color: rgb(192, 192, 192);
@@ -40,9 +44,13 @@ h2{
 h3{
   background-color: rgb(192, 192, 192);
   text-align: center;
+  width: 1440px;
+  height: auto;
 }
 div.lethalbanner{
   background-color: rgb(110, 28, 28);
+  width: 1440px;
+  height: auto;
 }
 
 /*Typography*/
@@ -97,7 +105,7 @@ div.fiftyPx {
 }
 /*page margin*/
 body {
-  margin-top: 0%;
+  margin-top: 0px;
   margin-bottom: 20px;
   margin-right: 5px;
   margin-left: 5px;
@@ -107,40 +115,43 @@ body {
 div.Nav{
   padding: 2px;
   background-image: url("LCHiDef.jpg");
+  width: 1440px;
+  height: auto;
+
 }
 
 nav.Navbar{
   padding: 2px 0px 2px 0px;
   margin: 3px;
   background-color: rgba(192, 192, 192, 0.25);
-  text-align: center;
-    link{
-      color:rgb(197, 29, 29)
-    };
-    visited{
-      color:rgb(93, 11, 56)
-    };
-    hover{
-      color:rgb(255, 140, 0)
-    }
-    word-spacing: 5px;
-    display: flex; 
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    
+  text-align: center;  
+  link{
+    color:rgb(197, 29, 29)
+  };
+  visited{
+    color:rgb(93, 11, 56)
+  };
+  hover{
+    color:rgb(255, 140, 0)
+  }
+  word-spacing: 5px;
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
 }
 
 nav a {
-    background-color: #686868;
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 10px 25px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 2px;
-    cursor: pointer;
+  background-color: #686868;
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 10px 25px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+  cursor: pointer;
 }
 
 nav a:hover {background-color: #ff4400;
@@ -161,10 +172,11 @@ button {
 /*image*/
 img.banner {
   display: block;
-  margin-top: 0%;
+  margin-top: auto;
   margin-left: auto;
   margin-right: auto;
-  width: 80%
+  width: 1250px;
+  height: auto;
 }
 
 /*
