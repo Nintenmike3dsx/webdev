@@ -224,6 +224,14 @@ footer{
   width: 1400;
 }
 
+div.end-box {
+  border: 2px solid #ccc;
+  border-top: 8px solid #4c99af;
+  padding: 15px;
+  margin: 20px;
+  background: #fff;
+}
+
 /*use for header*/
 
 /*
