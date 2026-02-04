@@ -58,7 +58,7 @@ p.t {
   font-family: "Times New Roman", Times, serif;
 } /*use type t for general text*/
 
-p.h {
+p.Arial {
   font-family: Arial, Helvetica, sans-serif;
 } /*use type h for header*/
 
@@ -103,12 +103,13 @@ div.fiftyPx {
   padding-bottom: 10px;
   padding-left: 10px;
 }
+
 /*page margin*/
 body{
   margin-top: 0px;
   margin-bottom: 20px;
-  margin-right: 5px;
-  margin-left: 5px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 /*navigation bar*/
