@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com');
 /*Color Scheme*/
 body {
-    background-color: white;
-    color: black
+  background-color: white;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  margin-left: 50px;
 }
 
 /*links*/
@@ -36,16 +39,19 @@ h1{
   text-align: center;
   width: 1440px;
   height: auto;
+  letter-spacing: 3px;
 }
 h2{
   background-color: rgb(192, 192, 192);
   text-align: center;
+  letter-spacing: 2px;
 }
 h3{
   background-color: rgb(192, 192, 192);
   text-align: center;
   width: 1440px;
   height: auto;
+  letter-spacing: 2px;
 }
 div.lethalbanner{
   background-color: rgb(110, 28, 28);
@@ -54,45 +60,48 @@ div.lethalbanner{
 }
 
 /*Typography*/
-p.t {
-  font-family: "Times New Roman", Times, serif;
+p.impact {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.2;
+  text-align: justify;
 } /*use type t for general text*/
 
-p.Arial {
+p.arial {
   font-family: Arial, Helvetica, sans-serif;
+  line-height: 0.9;
+  text-align: justify;
 } /*use type h for header*/
 
-div.a {
+/* Div classes */
+div.arial {
   line-height: normal;
+  background-color: rgb(251, 195, 195);
+  color: black;
+  line-height: 20px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 50px;
+  margin-left: 50px;
+
 } /*use for general text*/
 
-div.d {
-  line-height: 200%;
-} /*use for header*/
-
-/*
-Font-family
-Size - Spacing
-Distinct headers
-*/
-
-/*Box Model*/
-/*heading spacing*/
-h1 {
-  letter-spacing: 3px;
-}
-h2 {
-  letter-spacing: 2px;
-}
-/*paragraph class spacing*/
-p.small {
-  line-height: 0.9;
-}
-p.big {
-  line-height: 1.2;
-}
-
-/*Padding*/
+div.impact {
+  background-color: rgb(177, 153, 153);
+  color: black;
+  line-height: 25%;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 50px;
+  margin-left: 50px;
+} 
 div.boxed {
   padding: 5px;
   border: 1px solid color rgb(0, 0, 0);
@@ -105,12 +114,6 @@ div.fiftyPx {
 }
 
 /*page margin*/
-body{
-  margin-top: 0px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-  margin-left: 50px;
-}
 
 /*navigation bar*/
 div.Nav{
@@ -118,7 +121,6 @@ div.Nav{
   background-image: url("LCHiDef.jpg");
   width: 1440px;
   height: auto;
-
 }
 
 nav.Navbar{
@@ -193,7 +195,20 @@ figcaption {
     border-left: 3px solid #aa0404; 
     display: inline-block;  
 }
+/*use for header*/
 
+/*
+Font-family
+Size - Spacing
+Distinct headers
+*/
+
+/*Box Model*/
+/*heading spacing*/
+
+/*paragraph class spacing*/
+
+/*Padding*/
 /*
 General team rules:
 Consistent color scheme (background, text, links, section colors; readable contrast)
