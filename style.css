@@ -143,8 +143,12 @@ nav a {
     cursor: pointer;
 }
 
-nav a:hover {background-color: #ff4400;
+nav a:hover {
+  background-color: #ff4400;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
 
 button {
     background-color: rgba(192, 192, 192, 0.25);
