@@ -1,287 +1,166 @@
-@import url('https://fonts.googleapis.com');
-/*Color Scheme*/
 body {
-  background-color: white;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-  margin-left: 50px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
 }
 
-/*links*/
-a:link{
-    color:rgb(197, 29, 29)
-}
-a:visited{
-    color:rgb(93, 11, 56)
-}
-a:hover{
-    color:rgb(255, 140, 0)
-}
-a.direction {
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
+.Nav {
+    background-color: #333;
+    padding: 10px;
+    position: sticky;  
+    top: 0;           /* REQUIREMENT 1 */
+    z-index: 100;     
 }
 
-/*Section colors - add more eventually*/
-h1.title{
-  background-color: rgba(192, 192, 192, 0.5);
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  font-family:'Montserrat', sans-serif;
-  width: 1440px;
-  height: auto;
-}
-
-h1{
-  background-color: rgb(192, 192, 192);
-  text-align: center;
-  width: 1440px;
-  height: auto;
-  letter-spacing: 3px;
-  font-family:'Montserrat', sans-serif;
-}
-
-h2{
-  background-color: rgb(192, 192, 192);
-  text-align: center;
-  letter-spacing: 2px;
-  font-family:'Montserrat', sans-serif;
-}
-
-h3{
-  background-color: rgb(192, 192, 192);
-  text-align: center;
-  width: 1440px;
-  height: auto;
-  letter-spacing: 2px;
-  font-family:'Montserrat', sans-serif;
-}
-
-div.lethalbanner{
-  background-color: rgb(110, 28, 28);
-  width: 1440px;
-  height: auto;
-}
-
-/*Typography*/
-p.impact {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  line-height: 1.2;
-  text-align: justify;
-  width: 1400;
-} /*use type t for general text*/
-
-p.arial {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 0.9;
-  text-align: justify;
-  width: 1400;
-} /*use type h for header*/
-
-/* Div classes */
-div.arial {
-  line-height: normal;
-  background-color: rgb(251, 195, 195);
-  color: black;
-  line-height: 20px;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 50px;
-  margin-left: 50px;
-
-} /*use for general text*/
-
-div.impact {
-  background-color: rgb(177, 153, 153);
-  color: black;
-  line-height: 25%;
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-  margin-left: 50px;
-} 
-div.boxed {
-  padding: 5px;
-  border: 1px solid color rgb(0, 0, 0);
-}
-div.fiftyPx {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-}
-
-hr.line{
-  height: 2px;
-  width: 1400;
-  text-align: justify;
-}
-/*page margin*/
-
-/*navigation bar*/
-div.Nav{
-  padding: 2px;
-  background-image: url("LCHiDef.jpg");
-  width: 1440px;
-  height: auto;
-}
-
-nav.Navbar{
-  padding: 2px 0px 2px 0px;
-  margin: 3px;
-  background-color: rgba(192, 192, 192, 0.25);
-  text-align: center;  
-  link{
-    color:rgb(197, 29, 29)
-  };
-  visited{
-    color:rgb(93, 11, 56)
-  };
-  hover{
-    color:rgb(255, 140, 0)
-  }
-  word-spacing: 5px;
-  display: flex; 
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-
-}
-
-nav a {
-  background-color: #686868;
-  border: none;
-  color: rgb(0, 0, 0);
-  padding: 10px 25px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px;
-  cursor: pointer;
-}
-
-nav a:hover {
-  background-color: #ff4400;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-button {
-    background-color: rgba(192, 192, 192, 0.25);
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 15px 32px;
+.title {
+    color: white;
     text-align: center;
-    display: inline-block;
+    font-size: 24px;
+}
+
+.Navbar {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.direction {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
     font-size: 16px;
-    margin: 4px;
-    cursor: pointer;
 }
 
-/*image*/
-img.banner {
-  display: block;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1250px;
-  height: auto;
+.direction:hover {
+    color: white;
+    background-color: #4CAF50;   /* REQUIREMENT 2 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-img.pc{
-  display: block;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 700px;
-  height: auto;
+.banner {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-figcaption {
-    color: #666;
-    font-style: italic;
-    text-align: center;           
-    margin-top: 8px;            
-    margin-bottom: 20px;            
-    padding: 5px 10px;              
-    border-left: 3px solid #aa0404; 
-    display: inline-block;  
-}
-footer{
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 0.9;
-  text-align: justify;
-  width: 1400;
+.profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    display: block;
+    margin: 10px auto;
 }
 
-div.styled-box {
-  border: 2px solid #ccc;
-  border-top: 8px solid #4c99af;
-  padding: 15px;
-  margin: 20px;
-  background: #fff;
+dialog {
+    background: white;
+    border: 2px solid #333;
+    padding: 20px;
 }
 
-/*use for header*/
+dialog h2 {
+    color: #333;
+}
 
-/*
-Font-family
-Size - Spacing
-Distinct headers
-*/
+dialog button {
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+}
 
-/*Box Model*/
-/*heading spacing*/
+.arial {
+    font-family: Arial;
+    font-size: 16px;
+}
 
-/*paragraph class spacing*/
+.impact {
+    font-family: Impact;
+}
 
-/*Padding*/
-/*
-General team rules:
-Consistent color scheme (background, text, links, section colors; readable contrast)
-Choose a background color and ensure text is readable over it.
-Style links so they are clearly distinguishable (default, hover, and visited states).
-Use different section backgrounds (they must still feel like one cohesive design).
+.boxed {
+    border: 1px solid #333;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: white;
+}
 
-Typography ( font-family , sizes, weights, line-height, spacing)
-Set a font-family for the page (and optionally a different one for headings).
-Use readable font sizes and spacing ( line-height , margins for headings/paragraphs).
-Make headings visually distinct from body text.
+.fiftyPx {
+    height: 50px;
+}
 
-Box model / spacing Use margin , padding , and border intentionally for spacing and layout
-Use margin and padding intentionally to create clear spacing (must be explicitly set for at least one
-element)
-Use borders where appropriate (on at least one card, section, table, image, etc.).
-Your layout should not feel “crammed” or “randomly spaced” to the grader's eye.
+hr {
+    border: 1px solid #333;
+    margin: 20px 0;
+}
 
-Styled navigation bar
-Your <nav> must have:
-a background color (or other clear styling)
-spacing between links
-a visible hover effect for links 
+blockquote {
+    background-color: #e0e0e0;
+    padding: 10px;
+    border-left: 5px solid #333;
+}
 
-Team 2:
-Improve readability and “designed” feel of the page by styling text:
-adjust line-height
-adjust spacing between paragraphs/sections
-adjust letter spacing or text transform in a tasteful way (not chaotic)
+pre {
+    font-family: monospace;
+    margin: 0;
+}
 
-Add at least ONE text effect:
-subtle text shadow on headings, or
-distinctive styling for headings/subheadings
+table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+}
 
-Extra Enhancement (1 is required):
-Style at least one of these uniquely:
-<blockquote> (example: border-left, italic, background, padding)
-<figcaption> (example: smaller text, muted color, spacing)
-*/
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+footer button {
+    background: #4CAF50;
+    border: none;
+    padding: 8px 16px;
+    margin-top: 10px;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.squares {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    justify-content: center;
+}
+
+.boxeffect {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.project-box h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
