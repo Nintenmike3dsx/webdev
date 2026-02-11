@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 0;
@@ -9,10 +9,12 @@ body {
     background-color: #333;
     padding: 10px;
     position: sticky;  
-    top: 0;           /* REQUIREMENT 1 */
-    z-index: 100;     
+    top: 0;
+    z-index: 1001;     
 }
-
+html { /* Gotten from: https://www.w3schools.com/cssref/css_pr_scroll-padding-top.php*/
+    scroll-padding-top: 80px;
+}
 .title {
     color: white;
     text-align: center;
@@ -32,8 +34,7 @@ body {
 }
 
 .direction:hover {
-    color: white;
-    background-color: #4CAF50;   /* REQUIREMENT 2 */
+    background-color: #4CAF50;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -43,38 +44,8 @@ body {
     object-fit: cover;
 }
 
-.profile {
-    width: 150px;
-    height: 150px;
-    border-radius: 10px;
-    display: block;
-    margin: 10px auto;
-}
-
-dialog {
-    background: white;
-    border: 2px solid #333;
-    padding: 20px;
-}
-
-dialog h2 {
-    color: #333;
-}
-
-dialog button {
-    background: #4CAF50;
-    color: white;
-    padding: 5px 10px;
-    border: none;
-}
-
 .arial {
-    font-family: Arial;
     font-size: 16px;
-}
-
-.impact {
-    font-family: Impact;
 }
 
 .boxed {
@@ -93,26 +64,17 @@ hr {
     margin: 20px 0;
 }
 
-blockquote {
-    background-color: #e0e0e0;
-    padding: 10px;
-    border-left: 5px solid #333;
-}
-
-pre {
-    font-family: monospace;
-    margin: 0;
-}
-
 table {
     width: 100%;
     margin: 20px 0;
     border-collapse: collapse;
+    border: 1px solid black;
 }
 
 th, td {
     padding: 8px;
     text-align: left;
+    border: 1px solid black;
 }
 
 footer {
@@ -139,13 +101,12 @@ footer a {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    max-width: 1200px;
     margin: 20px auto;
     padding: 0 20px;
     justify-content: center;
 }
 
-.boxeffect {
+.box {
     flex: 1;
     min-width: 300px;
     max-width: 500px;
@@ -157,10 +118,56 @@ footer a {
     box-sizing: border-box;
 }
 
-.project-box h3 {
+.box h3 {
     text-align: center;
     margin-top: 0;
     color: #333;
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 10px;
+}
+
+.boxsmall {
+    position: relative;
+    top: 30px;
+    left: 500px;
+    width: 800px;
+    max-width: 800px;
+    min-width: 300px;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 5px 5px 50px 5px; 
+    box-sizing: border-box;
+}
+
+.textbox {
+    width: 100%;
+    background-color: white;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+}
+
+.textbox h3 {
+    text-align: center;
+    margin-top: 0;
+    color: #333;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+.pfp {
+    position: absolute;
+    top: 330px;
+    left: 300px;
+    width: 175px;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 10px;
+    padding: 5px;
+    background-color: white;
+    z-index: 100;
 }
