@@ -5,10 +5,12 @@ ul.breadcrumb {
   background-color:blanchedalmond;
 }
 ul.breadcrumb li {
+  font-family:'Montserrat';
   display: inline;
   font-size: 18px;
 }
 ul.breadcrumb li+li:before {
+  font-family:'Montserrat';
   padding: 8px;
   color: black;
   content: "/\00a0";
