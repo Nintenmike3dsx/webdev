@@ -136,7 +136,7 @@ img.pfp {
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 75px 200px;
-  gap: 1em;
+  gap: .5em;
   grid-template-areas:
   "content-header content-image" 
   "content-words content-image";
@@ -145,7 +145,7 @@ img.pfp {
 }
 .item-about{ 
   height: 200px;
-  padding: 2em;
+  padding: 2rem;
   background-color: bisque;
   color: black;
   text-align: center;
@@ -153,7 +153,7 @@ img.pfp {
   font-size: 1.5rem;
 }
 .item-content-1{ 
-  padding: 2em;
+  padding: 2rem;
   background-color: rgb(249, 204, 149);
   color: black;
   text-align: center;
@@ -161,7 +161,7 @@ img.pfp {
   font-size: 1.5rem;
 }
 .item-content-2{ 
-  padding: 2em;
+  padding: 1.5em;
   background-color: rgb(255, 175, 126);
   color: black;
   text-align: center;
@@ -169,8 +169,16 @@ img.pfp {
   font-size: 1.5rem;
 }
 .item-content-3{ 
-  padding: 2em;
+  padding: 2rem;
   background-color: rgb(253, 151, 120);
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+  .item-content-4{ 
+  padding: 2rem;
+  background-color: rgb(252, 115, 99);
   color: black;
   text-align: center;
   border-radius: 8px;
@@ -220,10 +228,14 @@ p.bigfoot{
   width: 1fr;
 }
 .img-lavabee{
-  height: 200px;
-  width: 200px;
+  height: 215px;
+  width: auto;
 }
 .img-stormtrooper{
-  height: 200px;
+  height: 215px;
+  width: auto;
+}
+.img-lethal{
+  height: 215px;
   width: auto;
 }
