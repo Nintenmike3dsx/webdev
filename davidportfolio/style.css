@@ -129,19 +129,23 @@ img.pfp {
   display: grid;
   grid-template-columns: 2fr 1fr;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  margin-left: 75px;
+  margin-right: 75px;
   gap: 1em;
 }
 .grid-container-content{
   display: grid;
   grid-template-columns: 2fr 1fr;
-  grid-template-rows: 75px 200px;
+  grid-template-rows: 100px 200px;
   gap: .5em;
   grid-template-areas:
   "content-header content-image" 
   "content-words content-image";
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 75px;
+  margin-right: 75px;
 }
 .item-about{ 
   height: 200px;
@@ -200,6 +204,7 @@ h2.aboutme{
   font-family:'Montserrat';
   line-height: 1.5;
   text-align: left;
+  padding-bottom: 10px;
 }
 p.aboutme {
   font-family: 'Franklin Gothic Medium';

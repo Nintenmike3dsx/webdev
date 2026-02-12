@@ -1,5 +1,7 @@
 David Born 2026
 
+AI Use. The photo PFPnoback.jpg was made from a phtoto that I gave to chatgpt. I asked it to put the words David Born Portfolio around the image. T
+
 Objectives:
 Turn your wireframe from A02 into a clean, well-structured personal class portfolio homepage using
 HTML and CSS.
