@@ -1,29 +1,85 @@
 @import url('https://fonts.googleapis.com');
 /*Color Scheme*/
-h1.screensaver{
+/*h1.screensaver{
   background-color: rgb(75, 8, 8);
   text-align: center;
   font-family:'Montserrat';
   padding-bottom: 300px;
   margin-top: 0;
   margin-bottom: 0;
+} */
+*{
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+}
+.container-slide{
+  padding: 2px;
+  background-color: maroon;
+}
+.slider-wrapper{
+  position: relative;
+  max-width: 50rem;
+  margin: 0 auto;
+}
+.slider{
+  display: flex;
+  aspect-ratio: 16/9;
+  overflow-x: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem
+  hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.5rem;
+}
+.slider img{
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+.transition-all { 
+  transition: all 0.5s ease; 
+}
+.slider-nav{
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.slider-nav a{
+  width: .5rem;
+  height: .5rem;
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 0.25s;
+}
+.slider-nav a:hover{
+  opacity: 1;
 }
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 241, 216);
   margin-top: 0px;
   margin-bottom: 20px;
   margin-right: 0px;
   margin-left: 0px;
 }
-div.headtop{
-  height: 300px;
+/*div.headtop{
+  height: 100px;
   padding: 10, 10, 10, 10;
   margin: 10, 10, 10, 10;
+}*/
+.sticky{
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 div.navbar{
-  height: 30px;
-  padding: 10, 10, 10, 10;
-  margin: 10, 0, 10, 0;  
+  height: 80px;
 }
 a.direction {
   text-decoration: none;
@@ -31,7 +87,7 @@ a.direction {
   width: 150px;
 }
 nav.navbar{
-  background-color: rgb(41, 105, 35);
+  background-color: rgba(0, 0, 0, .1);
   text-align: center;  
   link{
     color:rgb(2, 87, 255)
@@ -40,7 +96,7 @@ nav.navbar{
     color:rgb(93, 11, 56)
   };
   hover{
-    color: rgb(130, 204, 228)
+    color: rgb(252, 93, 93)
   }
   word-spacing: 3px;
   display: flex; 
@@ -49,20 +105,20 @@ nav.navbar{
   gap: 50px;
 }
 nav a{
-  background-color: rgb(62, 84, 19);
+  background-color: rgb(207, 176, 119);
   border: none;
   color: rgb(0, 0, 0);
-  padding: 0px 15px;
   font-size: 16px;
   height: 30px;
-  margin: 2px;
+  margin-top: 25px;
+  margin-bottom: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 nav a:hover {
-  background-color: rgb(110, 148, 33);
+  background-color: wheat;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -77,47 +133,48 @@ button {
   width: 100px;
   height: auto;
 }
-.container {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: rgb(160, 194, 158);
-  padding: 5px;
-  gap: 5px;
-  margin-top: 20px;
+img.pfp {
+  justify-content: left;
+  text-align: center;
+  width: 80px;
+  height: 80px;
 }
-.container div{
-  background-color: aqua;
-  height: 250px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  margin-right: 0px;
-  margin-left: 0px;
-}
-/*
-.container {
+.grid-container-about{
   display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: rgb(160, 194, 158);
-  padding: 5px;
-  gap: 5px;
-}*/
-/*
-.container div.contentarea{
-  background-color: rgb(0, 106, 255);
-  height: 275px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  padding-left: 10px;
+  grid-template-columns: 2fr 1fr;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-right: 0px;
-  margin-left: 0px;
+  gap: 1em;
 }
+.grid-container-content{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 75px 200px;
+  gap: 1em;
+  grid-template-areas:
+  "content-header content-image" 
+  "content-words content-image";
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.item-about{ 
+  height: 200px;
+  padding: 2em;
+  background-color: bisque;
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+.item-content{ 
+  padding: 2em;
+  background-color: rgb(196, 255, 204);
+  color: black;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 1.5rem;
+}
+
 div.bigfoot{
   background-color: rgb(205, 226, 255);
   height: 200px;
@@ -129,110 +186,18 @@ div.bigfoot{
   margin-bottom: 0px;
   margin-right: 0px;
   margin-left: 0px;
-}*/
-p.stand1{
-  float: left;
-  height: 220px;
-  width: 1000px;
-  background-color:aquamarine;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-right: 50px;
-  margin-left: 15px;
-  font-family: 'Franklin Gothic Medium';
-  line-height: 1.5;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid black;
 }
-p.stand2{
-  float: right;
-  height: 220px;
-  width: 300px;
-  background-color:aquamarine;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  margin-left: 10px;
-  font-family: 'Franklin Gothic Medium';
-  line-height: 1.5;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid black;
-}/*
-h2.contentareaheading{
-  float: left;
-  height: 30px;
-  width: 1000px;
-  background-color: rgba(0,0,0,0.3);
-  opacity: 0.5;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-right: 15px;
-  margin-left: 15px;
+h2.aboutme{
   font-family:'Montserrat';
-  line-height: 1.9;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  border: 1px solid black;
-}
-p.contentarea1{
-  float: left;
-  height: 215px;
-  width: 1000px;
-  background-color:rgb(232, 244, 13);
-  margin-top: 5px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  margin-left: 15px;
-  font-family: 'Franklin Gothic Medium';
   line-height: 1.5;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid black;
+  text-align: left;
 }
-p.contentarea2{
-  float: right;
-  height: 205px;
-  width: 300px;
-  background-color:rgb(255, 127, 219);
-  margin-top: 15px;
-  margin-bottom: 15px;
-  margin-right: 15px;
-  margin-left: 15px;
+p.aboutme {
   font-family: 'Franklin Gothic Medium';
-  line-height: 1.5;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid black;
+  line-height: 1.2;
+  text-align: left;
+  width: 1fr;
 }
-p.bigfoot{
-  height: 100px;
-  font-family: Helvetica;
-  line-height: 0.9;
-  width: 1400px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  margin-right: 45px;
-  margin-left: 45px;
-  display: flex;  
-  text-align: justify;
-  justify-content: center; 
-  align-items: center;
-  border: 1px solid black;
-}
-
-
-
-
-
-
-
 /*
 body {
   background-color: white;

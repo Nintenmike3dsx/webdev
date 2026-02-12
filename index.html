@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> <link rel="stylesheet" href="style.css">
+<head> 
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
     <link href='https://fonts.googleapis.com' rel='stylesheet'>
 </head>
 
+<body>
 <section id="Home"></section>
-<div class ="headtop">
+
+<!--<div class ="headtop">
     <head>
         <h1 class = "screensaver">Screen Saver</h1>
     </head>
-</div>
+</div>-->
 
-<div class = "navbar">
+<div class="sticky">
+  <div class = "navbar">
     <nav class = "navbar">
+        <img class="pfp" src="PFPnoback.jpg" alt="" id="">
         <a class="direction" href="#Home">Home</a>
         <a class="direction" href="#Work Experience">Work Experience</a>
         <a class="direction" href="#Hobbies">Hobbies</a>
         <a class="direction" href="#Projects">Projects</a>
         <a class="direction" href="#About Me">About Me</a>
     </nav>
+  </div>
 </div>
 
+<section class = "container-slide">
+  <div class="slider-wrapper">
+    <div class="slider">
+      <img src="img1.jpg" alt="" id="slide-1">
+      <img src="img2.jpg" alt="" id="slide-2">
+      <img src="img3.jpg" alt="" id="slide-3">
+    </div>
+
+    <div class="slider-nav">
+        <a href="#slide-1"></a>
+        <a href="#slide-2"></a>
+        <a href="#slide-3"></a>
+    </div>
+  </div>
+</section>
+
 <main>
+
 <section id="Work Experience"></section>
 <section id="Hobbies"></section>
 <section id="About Me"></section>
-<div class = "container">
-    <div> <!--class = "aboutcontent"-->
-        <p class = "stand1">
-        box goes here
+
+<div class="grid-container-about">
+    <div class="item-about">
+        <h2 class="aboutme">About Me</h2>
+        <p class="aboutme">
+            Thank you for stopping by my webpage. My Name is David Born. This page it dedicated to my school and projects as an example of my hard work.
         </p>
     </div>
-    <div>    
-        <p class = "stand2">
-        second box goes here
-        </p>
+    <div class="item-about">
+        <a class="button" href="#Hobbies">Hobbies</a>
     </div>
 </div>
-<!--
+
 <section id="Projects"></section>
-
-<div class = "contentarea">
-    <h2 class = "contentareaheading">
-        content heading
-    </h2>
-    <p class = "contentarea1">
-        box goes here
-    </p>
-    <p class = "contentarea2">
-        second box goes here
-    </p>
+<div class="grid-container-content">
+    <div class="item-content" style="grid-area: content-header">Title</div>
+    <div class="item-content" style="grid-area: content-words">Part 2</div>
+    <div class="item-content" style="grid-area: content-image">image</div>
 </div>
 
-<div class = "contentarea">
-    <h2 class = "contentareaheading">
-        content heading
-    </h2>
-    <p class = "contentarea1">
-        box goes here
-    </p>
-    <p class = "contentarea2">
-        second box goes here
-    </p>
+<div class="grid-container-content">
+    <div class="item-content" style="grid-area: content-header">Title</div>
+    <div class="item-content" style="grid-area: content-words">Part 2</div>
+    <div class="item-content" style="grid-area: content-image">image</div>
 </div>
 
-<div class = "contentarea">
-    <h2 class = "contentareaheading">
-        content heading
-    </h2>
-    <p class = "contentarea1">
-        box goes here
-    </p>
-    <p class = "contentarea2">
-        second box goes here
-    </p>
+<div class="grid-container-content">
+    <div class="item-content" style="grid-area: content-header">Title</div>
+    <div class="item-content" style="grid-area: content-words">Part 2</div>
+    <div class="item-content" style="grid-area: content-image">image</div>
 </div>
-</main>
 
+
+</body>
 <footer>
 <div class = "bigfoot">
   <p class = "bigfoot">
@@ -84,6 +90,9 @@
   </p>
 </div>
 </footer>
+</main>
+</body>
+</html>
 <!--
 <body>
 <div class="Nav">
@@ -330,5 +339,4 @@ table, th, td {
     Done    <summary>   goes along with details element
     Done    <dialog>    element displaying detailed product specifications
         -->
-</body>
-</html>
+
