@@ -8,21 +8,6 @@ body {
   top: 0;
   width: 100%;
 }
-/*links*/
-a:link{
-    color:rgb(197, 29, 29)
-}
-a:visited{
-    color:rgb(93, 11, 56)
-}
-a:hover{
-    color:rgb(255, 255, 255)
-}
-a.direction {
-  text-decoration: none;
-  font-family: 'Inter';
-}
-
 /*Section colors - add more eventually*/
 h1.title{
   background-color: rgba(130, 1, 1, .50);
@@ -32,15 +17,6 @@ h1.title{
   font-family:'Montserrat';
   width: auto;
   height: auto;
-}
-
-h1{
-  background-color: rgb(192, 192, 192);
-  text-align: center;
-  width: auto;
-  height: auto;
-  letter-spacing: 3px;
-  font-family:'Montserrat';
 }
 h2{
   background-color: rgb(192, 192, 192);
@@ -93,7 +69,6 @@ div.arial {
   margin-bottom: 10px;
   margin-right: 50px;
   margin-left: 50px;
-
 } /*use for general text*/
 
 div.impact {
@@ -125,9 +100,6 @@ hr.line{
   margin: 0 auto;
 }
 div.Nav{
-  position: sticky; 
-  top: 0;
-  z-index: 10;
   margin-top: 0px;
   margin-left: 0px;
   margin-right: 0px;
@@ -137,10 +109,13 @@ div.Nav{
   height: auto;
 }
 nav.Navbar{
+  position: sticky; 
+  top: 0;
+  z-index: 10;
   padding: 2px 0px 2px 0px;
   margin-left: 0px;
   margin-right: 0px;
-  background-color: rgba(127, 0, 0, .50);
+  background-color: rgb(127, 0, 0);
   text-align: center;  
   link{
     color:rgb(197, 29, 29)
@@ -156,22 +131,6 @@ nav.Navbar{
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-}
-nav a {
-  background-color: #686868;
-  border: none;
-  color: rgb(0, 0, 0);
-  padding: 10px 25px;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px;
-  cursor: pointer;
-}
-nav a:hover {
-  background-color: #ff4400;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 button {
   background-color: rgba(192, 192, 192, 0.25);
@@ -226,20 +185,6 @@ div.end-box {
   background: #fff;
 }
 
-/*use for header*/
-
-/*
-Font-family
-Size - Spacing
-Distinct headers
-*/
-
-/*Box Model*/
-/*heading spacing*/
-
-/*paragraph class spacing*/
-
-/*Padding*/
 /*
 General team rules:
 Consistent color scheme (background, text, links, section colors; readable contrast)
