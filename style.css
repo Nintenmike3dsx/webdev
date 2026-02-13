@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com');
 /*Color Scheme*/
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color:rgb(166, 133, 133);
+}
+ul.breadcrumb li {
+  font-family:'Montserrat';
+  display: inline;
+  font-size: 18px;
+}
+ul.breadcrumb li+li:before {
+  font-family:'Montserrat';
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+ul.breadcrumb li a {
+  color: #980081;
+  text-decoration: none;
+}
+ul.breadcrumb li a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
 body {
   background-color: rgb(137, 0, 0);
 }
@@ -180,11 +204,10 @@ a:hover{
     color:rgb(255, 255, 255)
 }
 a.direction {
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
+  font-family: sans-serif;
 }
 nav a {
-  background-color: #686868;
+  background-color: rgb(166, 133, 133);
   border: none;
   color: rgb(0, 0, 0);
   padding: 10px 25px;
@@ -195,7 +218,7 @@ nav a {
   cursor: pointer;
 }
 nav a:hover {
-  background-color: #ff4400;
+  background-color: rgb(199, 173, 173);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -251,6 +274,23 @@ div.end-box {
   margin: 20px;
   background: #fff;
 }
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.screenimg {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 3px solid #333;
+    border-radius: 8px;
+    transition: filter 0.3s ease;
+}
+
 
 /*
 General team rules:
