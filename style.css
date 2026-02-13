@@ -64,9 +64,27 @@ body {
   font-size: 1rem;
 }
 .item-gameplay{ 
-  height: 650px;
+  height: 1000px;
   padding: .75rem;
-  background-color: rgb(236, 124, 44);
+  background-color: rgb(208, 88, 33);
+  color: black;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.item-monsters{ 
+  height: 200px;
+  padding: .75rem;
+  background-color: rgb(178, 49, 23);
+  color: black;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+.item-moons{ 
+  height: 300px;
+  padding: .75rem;
+  background-color: rgb(167, 42, 28);
   color: black;
   text-align: left;
   border-radius: 8px;
@@ -98,7 +116,7 @@ h3{
   background-color: rgb(157, 107, 107);
   text-align: left;
   justify-content: center;
-  width: 200px;
+  width: 400px;
   height: 25px;
   letter-spacing: 3px;
   font-family:'Montserrat';
