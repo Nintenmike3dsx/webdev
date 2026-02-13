@@ -63,6 +63,15 @@ body {
   border-radius: 8px;
   font-size: 1rem;
 }
+.item-gameplay{ 
+  height: 650px;
+  padding: .75rem;
+  background-color: rgb(236, 124, 44);
+  color: black;
+  text-align: left;
+  border-radius: 8px;
+  font-size: 1rem;
+}
 .sticky {
   position: fixed;
   top: 0;
@@ -282,11 +291,11 @@ div.end-box {
   gap: 15px;
 }
 
-.screenimg {
+.shotbox {
     width: 100%;
     max-width: 300px;
     height: auto;
-    border: 3px solid #333;
+    border: 3px solid #cd0808;
     border-radius: 8px;
     transition: filter 0.3s ease;
 }
