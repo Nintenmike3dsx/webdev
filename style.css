@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com');
 /*Color Scheme*/
 body {
-  background-color: white;
-  margin-top: 0px;
-  margin-bottom: 20px;
-  margin-right: 50px;
-  margin-left: 50px;
+  background-color: rgb(137, 0, 0);
 }
-
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
 /*links*/
 a:link{
     color:rgb(197, 29, 29)
@@ -16,75 +16,74 @@ a:visited{
     color:rgb(93, 11, 56)
 }
 a:hover{
-    color:rgb(255, 140, 0)
+    color:rgb(255, 255, 255)
 }
 a.direction {
   text-decoration: none;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter';
 }
 
 /*Section colors - add more eventually*/
 h1.title{
-  background-color: rgba(192, 192, 192, 0.5);
+  background-color: rgba(130, 1, 1, .50);
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
-  font-family:'Montserrat', sans-serif;
-  width: 1440px;
+  font-family:'Montserrat';
+  width: auto;
   height: auto;
 }
 
 h1{
   background-color: rgb(192, 192, 192);
   text-align: center;
-  width: 1440px;
+  width: auto;
   height: auto;
   letter-spacing: 3px;
-  font-family:'Montserrat', sans-serif;
+  font-family:'Montserrat';
 }
-
 h2{
   background-color: rgb(192, 192, 192);
   text-align: center;
   letter-spacing: 2px;
-  font-family:'Montserrat', sans-serif;
+  font-family:'Montserrat';
 }
-
 h3{
   background-color: rgb(192, 192, 192);
   text-align: center;
-  width: 1440px;
+  width: auto;
   height: auto;
   letter-spacing: 2px;
-  font-family:'Montserrat', sans-serif;
+  font-family:'Montserrat';
 }
-
 div.lethalbanner{
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   background-color: rgb(110, 28, 28);
-  width: 1440px;
+  width: auto;
   height: auto;
 }
-
 /*Typography*/
 p.impact {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Franklin Gothic Medium';
   line-height: 1.2;
   text-align: justify;
-  width: 1400;
+  width: auto;
 } /*use type t for general text*/
-
 p.arial {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Helvetica;
   line-height: 0.9;
   text-align: justify;
-  width: 1400;
+  width: auto;
 } /*use type h for header*/
 
 /* Div classes */
 div.arial {
+  width: auto;
   line-height: normal;
-  background-color: rgb(251, 195, 195);
-  color: black;
+  background-color: rgb(181, 94, 94);
+  color: rgb(255, 255, 255);
   line-height: 20px;
   padding-top: 10px;
   padding-right: 10px;
@@ -98,8 +97,9 @@ div.arial {
 } /*use for general text*/
 
 div.impact {
-  background-color: rgb(177, 153, 153);
-  color: black;
+  width: auto;
+  background-color: rgb(181, 94, 94);
+  color: rgb(255, 255, 255);
   line-height: 25%;
   padding-top: 10px;
   padding-right: 10px;
@@ -115,31 +115,32 @@ div.boxed {
   border: 1px solid color rgb(0, 0, 0);
 }
 div.fiftyPx {
-  padding-top: 10px;
-  padding-right: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
+  height: 50px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-
 hr.line{
   height: 2px;
-  width: 1400;
-  text-align: justify;
+  width: 50%;
+  margin: 0 auto;
 }
-/*page margin*/
-
-/*navigation bar*/
 div.Nav{
+  position: sticky; 
+  top: 0;
+  z-index: 10;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
   padding: 2px;
   background-image: url("LCHiDef.jpg");
-  width: 1440px;
+  width: auto;
   height: auto;
 }
-
 nav.Navbar{
   padding: 2px 0px 2px 0px;
-  margin: 3px;
-  background-color: rgba(192, 192, 192, 0.25);
+  margin-left: 0px;
+  margin-right: 0px;
+  background-color: rgba(127, 0, 0, .50);
   text-align: center;  
   link{
     color:rgb(197, 29, 29)
@@ -156,7 +157,6 @@ nav.Navbar{
   justify-content: center;
   gap: 10px;
 }
-
 nav a {
   background-color: #686868;
   border: none;
@@ -168,35 +168,32 @@ nav a {
   margin: 2px;
   cursor: pointer;
 }
-
 nav a:hover {
   background-color: #ff4400;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
-
 button {
-    background-color: rgba(192, 192, 192, 0.25);
-    border: none;
-    color: rgb(0, 0, 0);
-    padding: 15px 32px;
-    text-align: center;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px;
-    cursor: pointer;
+  background-color: rgba(192, 192, 192, 0.25);
+  border: none;
+  color: rgb(0, 0, 0);
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px;
+  cursor: pointer;
 }
-
 /*image*/
 img.banner {
   display: block;
-  margin-top: auto;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1250px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 200px;
+  margin-right: 200px;
+  width: 1000px;
   height: auto;
 }
-
 img.pc{
   display: block;
   margin-top: auto;
@@ -205,7 +202,6 @@ img.pc{
   width: 700px;
   height: auto;
 }
-
 figcaption {
     color: #666;
     font-style: italic;
@@ -222,7 +218,6 @@ footer{
   text-align: justify;
   width: 1400;
 }
-
 div.end-box {
   border: 2px solid #ccc;
   border-top: 8px solid #4c99af;
