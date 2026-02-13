@@ -91,7 +91,7 @@ Michael and David finsihed TO1 and shared the workload
     Done    <summary>   goes along with details element
     Done    <dialog>    element displaying detailed product specifications
 
-  <!-- TO1
+TO1
     Done    Bold text <b>  
     Done    italicized <i>  
     Done    Underlined <u>
@@ -131,4 +131,3 @@ Michael and David finsihed TO1 and shared the workload
     Done    <details>    tag specifies additional details that the user can open and close on demand.
     Done    <summary>   goes along with details element
     Done    <dialog>    element displaying detailed product specifications
-        -->
