@@ -313,9 +313,19 @@ div.end-box {
     width: 100%;
     max-width: 300px;
     height: auto;
-    border: 3px solid #cd0808;
+    border: 3px solid #000000;
     border-radius: 8px;
     transition: filter 0.3s ease;
+}
+.shotbox:hover {
+    filter: grayscale(100%);
+}
+.videobox {
+    border: 3px solid #333;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: black;
 }
 
 
