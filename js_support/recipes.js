@@ -107,6 +107,7 @@ async function loadRecipes() {
   window.recipes = allRecipes;
 
   showRecipes(allRecipes);
+  renderFeaturedCarousel();
 }
 
 document.addEventListener('DOMContentLoaded', loadRecipes);
@@ -174,4 +175,121 @@ function showFavoriteToast(message) {
   });
 
   toast.show();
+}
+
+
+let featuredRecipes = []; // for featured recipe on homepage
+const featuredContainer = document.getElementById('featured-recipe');
+
+function renderFeaturedCarousel() {
+    if (!allRecipes || allRecipes.length === 0) return;
+
+    const d = new Date();
+    let index = ((d.getDate() + d.getMonth()) * d.getFullYear()) % allRecipes.length;
+    const recipe = allRecipes[index];
+
+    const carouselInner = document.getElementById("featured-carousel-inner");
+    if (!carouselInner) return;
+
+    // If no images, don't crash
+    const images = recipe.images && recipe.images.length > 0
+        ? recipe.images
+        : ["placeholder.jpg"];
+
+    carouselInner.innerHTML = images.map((img, i) => `
+        <div class="carousel-item ${i === 0 ? "active" : ""}">
+            <img src="dataset/images/${img}" class="d-block w-100" alt="${recipe.name}">
+        </div>
+    `).join("");
+
+    const indicators = document.querySelector("#carouselIndicators .carousel-indicators");
+    if (indicators) {
+        indicators.innerHTML = images.map((_, i) => `
+            <button type="button"
+                data-bs-target="#carouselIndicators"
+                data-bs-slide-to="${i}"
+                class="${i === 0 ? "active" : ""}"
+                ${i === 0 ? 'aria-current="true"' : ""}
+                aria-label="Slide ${i + 1}">
+            </button>
+        `).join("");
+    }
+
+    const nameEl = document.getElementById("recipe-of-the-day-name");
+    if (nameEl) nameEl.textContent = recipe.name;
+
+    const carouselEl = document.getElementById("carouselIndicators");
+    if (carouselEl && window.bootstrap) {
+        const existing = bootstrap.Carousel.getInstance(carouselEl);
+        if (existing) existing.dispose();
+        new bootstrap.Carousel(carouselEl, { interval: 4000, ride: true });
+    }
+}
+
+function renderFeatured() {
+    const d     = new Date();
+    let index   = ((d.getDate() + d.getMonth()) * d.getFullYear()) % allRecipes.length;
+    const recipe = allRecipes[index];
+
+    const cardHTML = `
+        <figure>
+            <a href="recipedetails.html?id=${recipe.id}" class="card-link">
+                <div class="recipe-card fade-in">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <div class="card-header">
+                                <span class="card-number">No. ${recipe.id}</span>
+                                <h3 class="card-title">${recipe.name}</h3>
+                            </div>
+                            <img src="images/images/${recipe.images[0]}" alt="${recipe.name}" class="recipefeat">
+                            <div class="card-tags">
+                                <span class="tag">${recipe.season}</span>
+                                <span class="tag">${recipe.cuisine}</span>
+                                <span class="tag">${recipe.prep_time}</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <div class="card-header">
+                                <button class="heart-btn" data-card="${recipe.id}"
+                                        onclick="event.preventDefault();"
+                                        aria-label="Favorite">&#9829;</button>
+                                <h3 class="card-title">${recipe.name}</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="ingredient-text">Ingredients List:</p>
+                                <span class="tag line-tag"></span>
+                                <ul class="card-ingredients">
+                                    ${recipe.ingredients.map(ing => `<li>${ing}</li>`).join('')}
+                                </ul>
+                            </div>
+                            <div class="ratings-section" data-recipe="recipe-${recipe.id}">
+                                <div class="star-display">
+                                    <span class="avg-rating">&#9734;&#9734;&#9734;&#9734;&#9734;</span>
+                                    <span class="rating-count">(0 ratings)</span>
+                                </div>
+                                <div class="star-input">
+                                    <button class="star" data-value="1" onclick="event.preventDefault();">&#9733;</button>
+                                    <button class="star" data-value="2" onclick="event.preventDefault();">&#9733;</button>
+                                    <button class="star" data-value="3" onclick="event.preventDefault();">&#9733;</button>
+                                    <button class="star" data-value="4" onclick="event.preventDefault();">&#9733;</button>
+                                    <button class="star" data-value="5" onclick="event.preventDefault();">&#9733;</button>
+                                </div>
+                                <div class="review-form">
+                                    <textarea class="review-input" placeholder="Leave a review..." rows="2"
+                                              onclick="event.preventDefault();"></textarea>
+                                    <button class="submit-review" onclick="event.preventDefault();">Post Review</button>
+                                </div>
+                                <div class="reviews-list"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <figcaption><i>Check out today's featured recipe!</i></figcaption>
+        </figure>`;
+
+    featuredContainer.innerHTML = cardHTML;
+
+    initNewHeartButtons();
+    initNewRatings();
 }
