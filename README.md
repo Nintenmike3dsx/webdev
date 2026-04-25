@@ -26,6 +26,9 @@ Sources:
 
 https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 
+https://www.experts-exchange.com/questions/29267942/amend-this-jQuery-code-to-allow-me-to-alter-the-ingredients-amount-based-on-the-ingredient.html
+
+
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter

@@ -110,6 +110,10 @@
     </div>
     <div class="textbox" id="box-ingredients">
       <h3>Ingredients</h3>
+      <div class="mb-2 d-flex align-items-center gap-2">
+        <label for="serving-input"><b>Servings:</b></label>
+        <input type="number" id="serving-input" class="form-control form-control-sm" value="1" min="1" style="width: 80px;">
+      </div>
       <ul id="ingredients-content"></ul>
     </div>
     <div class="textbox" id="box-steps">
@@ -150,6 +154,18 @@
     navigator.clipboard.writeText(window.location.href);
     alert("Link Copied!");
   }
+  //Function for changing serving size
+  let baseIngredients = [];
+
+  function scaleIngredients(multiplier) { //multiplies serving size
+    document.getElementById('ingredients-content').innerHTML = baseIngredients
+      .map(i => `<li>${i.replace(/^(\d+\.?\d*)/, (_, n) => parseFloat((n * multiplier).toFixed(2)))}</li>`)
+      .join('');
+  }
+
+  document.getElementById('serving-input').addEventListener('input', function () {
+    if (this.value > 0) scaleIngredients(this.value);
+  });
 
   function renderRecipe(recipe) {
 // Gets name
@@ -169,6 +185,8 @@
       <p><b>Dietary:</b> ${recipe.dietary ? recipe.dietary.join(', ') : 'N/A'}</p>
     `;
 //Formatting ingrediants
+    baseIngredients = recipe.ingredients;
+    document.getElementById('serving-input').value = 1;
     document.getElementById('ingredients-content').innerHTML =
       recipe.ingredients.map(i => `<li>${i}</li>`).join('');
 //Formatting steps
