@@ -14,9 +14,15 @@ function displayRecipes() {
   filteredRecipes.slice(0, limiter).forEach(recipe => { // only show up to limiter recipes
     const col = document.createElement('div');
     col.className = 'col-6 col-md-3 mb-4';
+    const favorited = isFavorite(recipe.id);
     col.innerHTML = `
       <div class="card h-100" style="cursor:pointer;">
-        <img src="../dataset/images/${recipe.images[0]}" class="card-img-top" style="height:180px;object-fit:cover;"> <!-- first image from the recipe's image list -->
+        <div style="position:relative;">
+          <img src="../dataset/images/${recipe.images[0]}" class="card-img-top" style="height:180px;object-fit:cover;"> <!-- first image from the recipe's image list -->
+          <button class="heart-btn" data-id="${recipe.id}" style="position:absolute;top:6px;right:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
+            <span class="material-icons" style="font-size:26px;color:${favorited ? '#e74c3c' : 'rgba(255,255,255,0.8)'};text-shadow:0 1px 3px rgba(0,0,0,0.6);">${favorited ? 'favorite' : 'favorite_border'}</span>
+          </button>
+        </div>
         <div class="card-body bg-dark text-white">
           <h6 class="card-title fw-bold text-center">${recipe.name}</h6> <!-- display the recipe name -->
         </div>
@@ -24,6 +30,22 @@ function displayRecipes() {
     col.addEventListener('click', () => { // clicking a card saves the recipe and navigates to the detail page
       localStorage.setItem('selectedRecipe', JSON.stringify(recipe)); // save recipe data so recipe.html can read it
       window.location.href = 'recipe.html?id=' + recipe.id;
+    });
+    col.querySelector('.heart-btn').addEventListener('click', e => {
+      e.stopPropagation(); // prevent card navigation
+      const icon = e.currentTarget.querySelector('.material-icons');
+      if (isFavorite(recipe.id)) {
+        removeFromFavorites(recipe.id);
+        icon.textContent = 'favorite_border';
+        icon.style.color = 'rgba(255,255,255,0.8)';
+      } else {
+        addToFavorites(recipe);
+        icon.textContent = 'favorite';
+        icon.style.color = '#e74c3c';
+      }
+      icon.classList.remove('heart-pop');
+      void icon.offsetWidth;
+      icon.classList.add('heart-pop');
     });
     grid.appendChild(col); // adds the finished card
   });

@@ -28,6 +28,10 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document/DOMContentLoaded_event
 
 https://www.experts-exchange.com/questions/29267942/amend-this-jQuery-code-to-allow-me-to-alter-the-ingredients-amount-based-on-the-ingredient.html
 
+https://teamtreehouse.com/community/how-do-i-make-my-favorites-button-show-a-heart-emoji-above-my-recipetitle-with-localstorage-when-it-is-clicked
+
+https://dev.to/larainnepasion/make-a-beating-heart-using-css-beginner-friendly-tutorial-25ff#:~:text=Bring%20the%20.,it%2050px%20from%20the%20left.&text=Time%20for%20the%20fun%20part,t%20tilt%20during%20the%20animation.&text=The%20last%20thing%20we%20need,give%20it%20an%20infinite%20loop.&text=This%20Pen%20is%20owned%20by%20La%20Rainne%20Pasion%20on%20CodePen.
+
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 
