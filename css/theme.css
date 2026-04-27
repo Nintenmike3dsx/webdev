@@ -3,6 +3,11 @@
   --bs-body-bg: rgb(137, 0, 0);
   --bs-body-color: #212529;
   --title-color: white;
+  --form-label-color: black;
+  --form-control-bg: #2b2b2b;
+  --form-control-color: white;
+  --form-control-border: #555;
+  
 }
 
 [main-theme="light"] {
@@ -10,6 +15,10 @@
   --bs-body-bg: #fff5f5;
   --bs-body-color: #212529;
   --title-color: black;
+  --form-label-color: black;
+  --form-control-bg: #ffffff;
+  --form-control-color: #212529;
+  --form-control-border: #ced4da;
 }
 
 [main-theme="seizure"] {
@@ -17,6 +26,10 @@
   --bs-body-bg: #000;
   --bs-body-color: #fff;
   --title-color: white;
+  --form-label-color: black;
+  --form-control-bg: #000;
+  --form-control-color: white;
+  --form-control-border: #fff;
 }
 
 @keyframes seizuremode {
@@ -46,6 +59,23 @@ body {
 
 #recipe-title {
   color: var(--title-color);
+}
+
+.form-label {
+  color: var(--form-label-color) !important;
+}
+
+.form-control,
+.form-select,
+textarea.form-control,
+input.form-control {
+  background-color: var(--form-control-bg);
+  color: var(--form-control-color);
+  border-color: var(--form-control-border);
+}
+
+.form-control::placeholder {
+  color: color-mix(in srgb, var(--form-control-color) 65%, transparent);
 }
 
 [main-theme="dark"] .navbar .dropdown-menu .dropdown-item {
