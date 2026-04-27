@@ -141,7 +141,37 @@
 
   <div class="textbox mt-4">
     <h3>Recipe Submission Form</h3>
-    <p class="text-center text-muted mb-0"><em>In progress</em></p>
+
+    <form id="recipe-submit-form" novalidate>
+
+      <div class="mb-3">
+        <label for="submit-name" class="form-label fw-bold">Recipe Name <span class="text-danger">*</span></label>
+        <input type="text" class="form-control" id="submit-name">
+      </div>
+
+      <div class="mb-3">
+        <label for="submit-ingredients" class="form-label fw-bold">Ingredients <span class="text-danger">*</span></label>
+        <textarea class="form-control" id="submit-ingredients" rows="5"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="submit-steps" class="form-label fw-bold">Steps <span class="text-danger">*</span></label>
+        <textarea class="form-control" id="submit-steps" rows="6"></textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="submit-image" class="form-label fw-bold">Recipe Image <span class="text-muted fw-normal"></span></label>
+        <input type="file" class="form-control" id="submit-image" accept="image/*">
+        <div id="image-preview-wrap" class="mt-2 d-none">
+          <img id="image-preview" src="" alt="Image preview" class="img-fluid rounded" style="max-height:200px;object-fit:cover;">
+        </div>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary text-white px-4">Submit Recipe</button>
+      </div>
+
+    </form>
   </div>
 </div>
 
