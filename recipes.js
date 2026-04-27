@@ -1,17 +1,26 @@
 let allRecipes = []; // full list of recipes loaded from JSON
 let limiter = 4; //we can change this to whatever but the page shows 4 at a time rn
+let previousLimiter = 0; // tracks cards before more 
 
 function showRecipes(recipes) {
   filteredRecipes = recipes; // update the current list to whatever was passed in (right now its just all because we do not have filters yet :p)
   limiter = 4; // reset to 4 so a new search/filter starts from the top
+  previousLimiter = 0; // fix for re animating displayed cards
   displayRecipes(); // function to render the cards
 }
 
 function displayRecipes() {
-  const grid = document.getElementById('recipe-grid'); 
-  grid.innerHTML = ''; // clear existing cards 
+  const grid = document.getElementById('recipe-grid');
+  const isLoadingMore = previousLimiter > 0;
 
-  filteredRecipes.slice(0, limiter).forEach(recipe => { // only show up to limiter recipes
+  if (!isLoadingMore) {
+    grid.innerHTML = ''; // clear existing cards on fresh render
+  } else {
+    const moreBtn = document.getElementById('more');
+    if (moreBtn) moreBtn.closest('.col-12').remove();
+  }
+
+  filteredRecipes.slice(isLoadingMore ? previousLimiter : 0, limiter).forEach(recipe => {
     const col = document.createElement('div');
     col.className = 'col-6 col-md-3 mb-4 fade-in';
     const favorited = isFavorite(recipe.id);
@@ -70,6 +79,7 @@ function displayRecipes() {
     btnCol.innerHTML = `<button class="btn btn-dark" id="more">More</button>`; // button maybe change this later
     grid.appendChild(btnCol);
     document.getElementById('more').addEventListener('click', () => {
+      previousLimiter = limiter; // for making sure only the new cards fade in
       limiter += 4; //this can also be adjusted but 4 is what the page shows
       displayRecipes(); // redner the cards
     });
