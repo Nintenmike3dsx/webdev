@@ -31,7 +31,14 @@
 body {
   background-color: var(--bs-body-bg) !important;
   color: var(--bs-body-color);
+  overflow-x: hidden;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 1.0s ease forwards; }
 
 .header-bar {
   background-color: var(--header-bar-bg) !important;

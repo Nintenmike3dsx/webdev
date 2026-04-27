@@ -211,6 +211,7 @@
       const recipe = recipes.find(r => r.id == url);
       if (recipe) {
         localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
+        document.querySelector('.boxes-grid').classList.add('fade-in');
         renderRecipe(recipe);
       }
     })();
