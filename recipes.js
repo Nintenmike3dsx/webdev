@@ -13,7 +13,7 @@ function displayRecipes() {
 
   filteredRecipes.slice(0, limiter).forEach(recipe => { // only show up to limiter recipes
     const col = document.createElement('div');
-    col.className = 'col-6 col-md-3 mb-4';
+    col.className = 'col-6 col-md-3 mb-4 fade-in';
     const favorited = isFavorite(recipe.id);
     col.innerHTML = `
       <div class="card h-100" style="cursor:pointer;">
