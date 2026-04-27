@@ -27,26 +27,35 @@ function displayRecipes() {
           <h6 class="card-title fw-bold text-center">${recipe.name}</h6> <!-- display the recipe name -->
         </div>
       </div>`;
-    col.addEventListener('click', () => { // clicking a card saves the recipe and navigates to the detail page
+    
+      col.addEventListener('click', () => { // clicking a card saves the recipe and navigates to the detail page
       localStorage.setItem('selectedRecipe', JSON.stringify(recipe)); // save recipe data so recipe.html can read it
       window.location.href = 'recipe.html?id=' + recipe.id;
     });
+
     col.querySelector('.heart-btn').addEventListener('click', e => {
       e.stopPropagation(); // prevent card navigation
       const icon = e.currentTarget.querySelector('.material-icons');
+
       if (isFavorite(recipe.id)) {
         removeFromFavorites(recipe.id);
         icon.textContent = 'favorite_border';
         icon.style.color = 'rgba(255,255,255,0.8)';
-      } else {
+        showFavoriteToast(`${recipe.name} removed from favorites`);
+      } 
+      
+      else {
         addToFavorites(recipe);
         icon.textContent = 'favorite';
         icon.style.color = '#e74c3c';
+        showFavoriteToast(`${recipe.name} added to favorites`);
       }
+
       icon.classList.remove('heart-pop');
       void icon.offsetWidth;
       icon.classList.add('heart-pop');
     });
+
     grid.appendChild(col); // adds the finished card
   });
 
@@ -116,3 +125,39 @@ function removeFromFavorites(id) {
   saveFavorites(favorites);
 }
 
+//show pop up
+function ensureFavoriteToast() {
+  let toastEl = document.getElementById("favoriteToast");
+  if (toastEl) return toastEl;
+
+  const container = document.createElement("div");
+  container.className = "toast-container position-fixed bottom-0 end-0 p-3";
+  container.innerHTML = `
+    <div id="favoriteToast" class="toast bg-dark text-white" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-header bg-dark text-white border-secondary">
+        <strong class="me-auto">Favorites</strong>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+      <div class="toast-body text-white" id="favoriteToastBody"></div>
+    </div>
+  `;
+
+  document.body.appendChild(container);
+  return document.getElementById("favoriteToast");
+}
+
+function showFavoriteToast(message) {
+  const toastEl = ensureFavoriteToast();
+  const toastBody = document.getElementById("favoriteToastBody");
+
+  if (!toastEl || !toastBody || !window.bootstrap || !bootstrap.Toast) return;
+
+  toastBody.textContent = message;
+
+  const toast = bootstrap.Toast.getOrCreateInstance(toastEl, {
+    autohide: true,
+    delay: 2500
+  });
+
+  toast.show();
+}
