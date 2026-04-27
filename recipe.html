@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/theme.css">
   <script src="theme.js"></script>
@@ -85,7 +86,7 @@
 <div class="container py-4">
   <a class="btn btn-secondary" href="index.html">Back to Home</a>
 
-  <button type="button" class="btn btn-secondary" id="favoriteBtn">Favorite</button>
+  <button type="button" class="btn btn-secondary" id="favoriteBtn"><i class="bi bi-heart"></i></button>
   <button type="button" class="btn btn-secondary" onclick="copyLink()">Copy Link</button>
   <button type="button" class="btn btn-secondary" onclick="shareOnTwitter()">Share on X</button>
   <button type="button" class="btn btn-secondary" onclick="shareOnFacebook()">Share on Facebook</button>
@@ -241,9 +242,10 @@ function setupFavoriteButton(recipe) {
   if (!favBtn) return;
 
   function setFavorited() {
-    favBtn.textContent = "Favorited";
+    favBtn.querySelector("i").classList.remove("bi-heart");
+    favBtn.querySelector("i").classList.add("bi-heart-fill");
     favBtn.classList.remove("btn-secondary");
-    favBtn.classList.add("btn-success");
+    favBtn.classList.add("btn-danger");
     favBtn.disabled = true;
   }
 
