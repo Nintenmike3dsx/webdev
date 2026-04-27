@@ -246,7 +246,13 @@ function setupFavoriteButton(recipe) {
     favBtn.querySelector("i").classList.add("bi-heart-fill");
     favBtn.classList.remove("btn-secondary");
     favBtn.classList.add("btn-danger");
-    favBtn.disabled = true;
+  }
+
+  function setUnfavorited() {
+    favBtn.querySelector("i").classList.remove("bi-heart-fill");
+    favBtn.querySelector("i").classList.add("bi-heart");
+    favBtn.classList.remove("btn-danger");
+    favBtn.classList.add("btn-secondary");
   }
 
   if (isFavorite(recipe.id)) {
@@ -254,9 +260,12 @@ function setupFavoriteButton(recipe) {
   }
 
   favBtn.addEventListener("click", () => {
-    const added = addToFavorites(recipe);
-
-    if (added) {
+    if (isFavorite(recipe.id)) {
+      removeFromFavorites(recipe.id);
+      setUnfavorited();
+      showFavoriteToast(`${recipe.name} removed from favorites`);
+    } else {
+      addToFavorites(recipe);
       setFavorited();
       showFavoriteToast(`${recipe.name} added to favorites`);
     }
