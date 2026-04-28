@@ -12301,6 +12301,19 @@ dialog {
   animation: heart-animation 0.35s ease;
 }
 
+.logo-click {
+  display: inline-block;
+  transition: transform 0.15s ease;
+}
+
+.logo-click:hover {
+  transform: scale(1.2);
+}
+
+.logo-click:active {
+  transform: scale(1.0);
+  transition: transform 0.10s ease;
+}
 
 
 /*# sourceMappingURL=custom.css.map */
