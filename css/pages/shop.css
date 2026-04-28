@@ -1,0 +1,211 @@
+/* ── Shop: Armory ── */
+
+.shop-hero {
+  padding: var(--space-12) var(--space-6) var(--space-8);
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-stone-dark) 0%, var(--color-stone) 100%);
+  border-bottom: var(--border-gold);
+}
+
+.shop-hero h1 { margin-bottom: var(--space-3); }
+.shop-hero p { color: var(--color-bone); margin-inline: auto; font-size: var(--fs-h3); }
+
+/* Shop layout */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: var(--space-6);
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: var(--space-8) var(--space-6);
+  align-items: start;
+}
+
+/* Product listings */
+.shop-section-title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.shop-section-title h2 { margin-bottom: 0; }
+
+/* Shield-mounted card listings */
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+
+.shop-item {
+  background: var(--color-stone);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.shop-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+}
+
+.shop-item-img-wrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-stone-dark);
+}
+
+.shop-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-item-body {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.shop-item-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-gold);
+}
+
+.shop-item-type {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-bone);
+  opacity: 0.7;
+}
+
+.shop-item-price {
+  font-family: var(--font-mono);
+  font-size: var(--fs-stat);
+  color: var(--color-gold-bright);
+  margin-top: auto;
+}
+
+.price-tbd {
+  display: inline-block;
+  background: var(--color-stone-light);
+  color: var(--color-bone);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+}
+
+.shop-item-footer {
+  padding: var(--space-3) var(--space-4);
+  border-top: var(--border-thin);
+}
+
+/* Cart sidebar */
+.cart-sidebar {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.cart-empty {
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: var(--fs-small);
+  padding: var(--space-8) var(--space-4);
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border-bottom: var(--border-thin);
+}
+
+.cart-item-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  background: var(--color-stone);
+  flex-shrink: 0;
+}
+
+.cart-item-info { flex: 1; min-width: 0; }
+
+.cart-item-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--color-ink);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cart-item-price {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-treat);
+}
+
+.cart-item-remove {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-blood);
+  font-size: var(--fs-body);
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+}
+.cart-item-remove:hover { background: rgba(122,31,31,0.15); }
+
+.cart-total {
+  padding: var(--space-4) var(--space-3);
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-display);
+  font-size: var(--fs-body);
+  color: var(--color-ink);
+  border-top: var(--border-gold);
+}
+
+.cart-total-value {
+  font-family: var(--font-mono);
+  color: var(--color-treat);
+  font-weight: 700;
+}
+
+/* Starter deck banner */
+.starter-deck-banner {
+  background: linear-gradient(135deg, var(--color-forest), #1a3019);
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  text-align: center;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  margin-bottom: var(--space-8);
+}
+
+.starter-deck-banner h2 { color: var(--color-gold-bright); margin-bottom: var(--space-3); }
+.starter-deck-banner p  { color: var(--color-bone); margin-inline: auto; margin-bottom: var(--space-6); }
+
+@media (max-width: 900px) {
+  .shop-layout { grid-template-columns: 1fr; }
+  .cart-sidebar { position: static; max-height: none; }
+}

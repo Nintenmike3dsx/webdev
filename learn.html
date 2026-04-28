@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learn Nano — The Library</title>
+  <meta name="description" content="Learn how to play Nano TCG: rules, card types, deck building, and lore.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="data-error-banner" role="alert" aria-live="assertive"></div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Nano TCG Home">⚔ NANO</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Main Hall<span class="nav-sub">Home</span></a></li>
+        <li><a href="learn.html" aria-current="page">Library<span class="nav-sub">Learn Nano</span></a></li>
+        <li><a href="deck.html">Scriptorium<span class="nav-sub">Cards &amp; Deck</span></a></li>
+        <li><a href="play.html">Battlefield<span class="nav-sub">Play Demo</span></a></li>
+        <li><a href="shop.html">Armory<span class="nav-sub">Shop</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <span id="nav-user-display" aria-live="polite"></span>
+        <button id="nav-signup-btn" class="btn btn-sm">Sign Up</button>
+        <button id="nav-signout-btn" class="btn btn-sm btn-ghost" hidden>Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="learn-hero">
+    <h1 class="animate-hero-rise">The Library</h1>
+    <p>Everything a young warrior needs to master the art of Nano.</p>
+  </header>
+
+  <main>
+
+    <!-- Lore section -->
+    <div class="tapestry-section">
+      <div class="tapestry-text">
+        <h2>The Legend of Nano</h2>
+        <p>In a castle deep in the highlands, a band of terriers rose to power. Known as the Nanos, these bold warriors proved that size means nothing when your heart — and your treat pouch — is full.</p>
+        <p>The kingdom is governed by one law: the strongest deck rules. Summon your Nanos, spend your Treats wisely, and outwit your opponent across three fierce turns.</p>
+        <blockquote class="lore-quote">"He who controls the treats controls the throne."</blockquote>
+      </div>
+      <div class="tapestry-visual" aria-hidden="true">
+        <div class="tapestry-visual-icon">🏰</div>
+        <p style="color:var(--color-gold);font-family:var(--font-display);text-align:center;font-size:var(--fs-small)">The Castle of Nano</p>
+        <p style="color:var(--color-bone);font-size:var(--fs-small);text-align:center">Where legends are made and treats are earned.</p>
+      </div>
+    </div>
+
+    <!-- How to play -->
+    <div class="tapestry-section">
+      <div class="tapestry-visual" aria-hidden="true">
+        <div class="tapestry-visual-icon">⚔️</div>
+        <ol class="rules-list" aria-hidden="true">
+          <li><span>Draw a hand of cards</span></li>
+          <li><span>Spend Treats to play cards</span></li>
+          <li><span>Attack with Characters</span></li>
+          <li><span>Reduce opponent to 0 HP</span></li>
+        </ol>
+      </div>
+      <div class="tapestry-text">
+        <h2>How to Play</h2>
+        <p>Each player starts with 20 Health Points and a deck of 20 cards. On your turn, you gain Treats (the currency of battle), play cards from your hand, and command your Nanos to attack.</p>
+        <p>The first player to reduce their opponent's HP to zero wins the kingdom!</p>
+        <ol class="rules-list" aria-label="Turn order">
+          <li><span><strong>Gain Treats:</strong> Add Treat cards to your pool to fuel your plays.</span></li>
+          <li><span><strong>Play Cards:</strong> Pay a card's Treat cost to summon it.</span></li>
+          <li><span><strong>Battle Phase:</strong> Your Characters attack the opponent's field.</span></li>
+          <li><span><strong>End Turn:</strong> Draw back up to 5 cards.</span></li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Card types -->
+    <div class="tapestry-section">
+      <div class="tapestry-text">
+        <h2>The Three Card Types</h2>
+        <p>Every card in the Nano deck belongs to one of three types. A balanced deck uses all three in harmony.</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4)">
+          <div class="card-type-row">
+            <div class="card-type-dot dot-character" aria-hidden="true"></div>
+            <div class="card-type-info">
+              <h4>Character</h4>
+              <p>Nanos that fight on the battlefield. They have Attack and Defense values. Protect your own; destroy your opponent's.</p>
+            </div>
+          </div>
+          <div class="card-type-row">
+            <div class="card-type-dot dot-action" aria-hidden="true"></div>
+            <div class="card-type-info">
+              <h4>Action</h4>
+              <p>Powerful one-time effects: debuffs, redirects, board sweepers. Play at the right moment to turn the tide.</p>
+            </div>
+          </div>
+          <div class="card-type-row">
+            <div class="card-type-dot dot-treat" aria-hidden="true"></div>
+            <div class="card-type-info">
+              <h4>Treat</h4>
+              <p>Resource cards with zero Treat cost. Play them to add Treats to your pool and unlock bigger plays sooner.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tapestry-visual">
+        <div class="tapestry-visual-icon">🐾</div>
+        <p style="color:var(--color-gold);font-family:var(--font-display);font-size:var(--fs-small);text-align:center">Card Types</p>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);margin-top:var(--space-2)">
+          <span class="card-type-badge card-type-Character" style="text-align:center">Character — Fights</span>
+          <span class="card-type-badge card-type-Action"    style="text-align:center">Action — One-time Effect</span>
+          <span class="card-type-badge card-type-Treat"     style="text-align:center">Treat — Adds Resources</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deck building -->
+    <div class="tapestry-section">
+      <div class="tapestry-visual">
+        <div class="tapestry-visual-icon">📚</div>
+        <div style="display:flex;flex-direction:column;gap:var(--space-2);font-family:var(--font-mono);font-size:var(--fs-small);color:var(--color-ink)">
+          <div style="background:var(--color-forest);color:var(--color-bone);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm)">Characters × 10</div>
+          <div style="background:var(--color-blood);color:var(--color-bone);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm)">Actions × 5</div>
+          <div style="background:var(--color-treat);color:var(--color-bone);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm)">Treats × 5</div>
+          <div style="border:var(--border-gold);padding:var(--space-2) var(--space-3);border-radius:var(--radius-sm);color:var(--color-ink);text-align:center"><strong>= 20 cards total</strong></div>
+        </div>
+      </div>
+      <div class="tapestry-text">
+        <h2>Building Your Deck</h2>
+        <p>Your deck must contain exactly 20 cards. Each card has a <em>cardCount</em> limit — Rares are limited to 1 copy, Uncommons to 2, and Commons to 3 or 4.</p>
+        <p>Head to the <a href="deck.html">Scriptorium</a> to browse all cards and assemble your deck. The balance visualizer shows your treat-cost curve and attack/defense totals so you can tune your strategy.</p>
+        <ul style="list-style:disc;padding-left:var(--space-6);color:var(--color-bone);font-size:var(--fs-small)">
+          <li>Rare cards: max 1 copy</li>
+          <li>Uncommon cards: max 2 copies</li>
+          <li>Common cards: max 3–4 copies (per card)</li>
+          <li>Total deck size: 20 cards</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Stats explainer -->
+    <div class="tapestry-section">
+      <div class="tapestry-text">
+        <h2>Reading a Card</h2>
+        <p>Each Character card displays three key numbers:</p>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:var(--space-3);margin-top:var(--space-4)">
+          <li style="display:flex;gap:var(--space-3);align-items:center">
+            <span style="font-family:var(--font-mono);color:var(--color-blood);font-size:var(--fs-stat)">⚔ ATK</span>
+            <span style="color:var(--color-bone);font-size:var(--fs-small)">Attack — damage dealt when this Character attacks</span>
+          </li>
+          <li style="display:flex;gap:var(--space-3);align-items:center">
+            <span style="font-family:var(--font-mono);color:var(--color-forest);font-size:var(--fs-stat)">🛡 DEF</span>
+            <span style="color:var(--color-bone);font-size:var(--fs-small)">Defense — how much damage is needed to destroy it</span>
+          </li>
+          <li style="display:flex;gap:var(--space-3);align-items:center">
+            <span style="font-family:var(--font-mono);color:var(--color-treat);font-size:var(--fs-stat)">🦴 COST</span>
+            <span style="color:var(--color-bone);font-size:var(--fs-small)">Treat cost — Treats you must spend to play this card</span>
+          </li>
+        </ul>
+      </div>
+      <div class="tapestry-visual">
+        <div class="tapestry-visual-icon">📖</div>
+        <p style="text-align:center;font-family:var(--font-display);font-size:var(--fs-small);color:var(--color-gold)">Programmer Nano</p>
+        <div style="display:flex;justify-content:center;gap:var(--space-6);font-family:var(--font-mono);margin-top:var(--space-3)">
+          <span class="card-stat-atk" style="color:var(--color-blood)">⚔ 3</span>
+          <span class="card-stat-def" style="color:var(--color-forest)">🛡 2</span>
+          <span class="card-stat-cost" style="color:var(--color-treat)">🦴 5</span>
+        </div>
+        <p style="color:var(--color-bone);font-size:0.75rem;text-align:center;margin-top:var(--space-3);font-style:italic">"He debugs by glaring at the screen until the bug becomes ashamed."</p>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container" style="text-align:center;padding-bottom:var(--space-16)">
+      <h2 style="margin-bottom:var(--space-4)">Ready to Battle?</h2>
+      <div style="display:flex;gap:var(--space-4);justify-content:center;flex-wrap:wrap">
+        <a href="deck.html" class="btn">Build a Deck</a>
+        <a href="play.html" class="btn btn-ghost">Play Demo</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nano TCG &mdash; Team 2, CSC 391</p>
+    <p style="margin-top:var(--space-2)"><a href="https://github.com/your-team/nano-tcg" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+  </footer>
+
+  <!-- Cookie consent modal -->
+  <div id="cookie-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="modal">
+      <h2 id="cookie-modal-title" class="modal-title">Accept Nano Treats? 🦴</h2>
+      <div class="modal-body">
+        <!-- TODO: Final legal copy needed from team -->
+        <p>This site uses browser storage (localStorage) to remember your deck, cart, and preferences. No tracking cookies are used. Your data stays on your device.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cookie-decline-btn" class="btn btn-ghost">Decline</button>
+        <button id="cookie-accept-btn" class="btn">Accept Treats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup modal -->
+  <div id="signup-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="modal">
+      <button id="signup-close-btn" class="modal-close" aria-label="Close sign up modal">&times;</button>
+      <h2 id="signup-modal-title" class="modal-title">Join the Kingdom</h2>
+      <div class="modal-body">
+        <p>Enter your name to claim your free starter deck and save your progress.</p>
+      </div>
+      <form id="signup-form" novalidate>
+        <div class="modal-form-row">
+          <label for="signup-name-input">Your Name</label>
+          <input id="signup-name-input" type="text" name="name" placeholder="Enter your warrior name" required autocomplete="name">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn">Enter the Hall</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/learn.js"></script>
+</body>
+</html>

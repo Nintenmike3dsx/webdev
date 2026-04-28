@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nano TCG — Enter the Main Hall</title>
+  <meta name="description" content="Nano is a medieval trading card game featuring adorable but mighty terriers. Collect cards, build decks, and battle for the kingdom!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="data-error-banner" role="alert" aria-live="assertive"></div>
+
+  <!-- Navigation -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Nano TCG Home">⚔ NANO</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html" aria-current="page">Main Hall<span class="nav-sub">Home</span></a></li>
+        <li><a href="learn.html">Library<span class="nav-sub">Learn Nano</span></a></li>
+        <li><a href="deck.html">Scriptorium<span class="nav-sub">Cards &amp; Deck</span></a></li>
+        <li><a href="play.html">Battlefield<span class="nav-sub">Play Demo</span></a></li>
+        <li><a href="shop.html">Armory<span class="nav-sub">Shop</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <span id="nav-user-display" aria-live="polite"></span>
+        <button id="nav-signup-btn" class="btn btn-sm">Sign Up</button>
+        <button id="nav-signout-btn" class="btn btn-sm btn-ghost" hidden>Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Home hero: Main Hall -->
+  <header class="home-hero">
+    <p class="hero-eyebrow" aria-hidden="true">✦ Welcome to the Kingdom ✦</p>
+    <h1 class="hero-title">NANO</h1>
+    <p class="hero-subtitle">A medieval trading card game where terriers battle for glory, treats, and the throne.</p>
+    <div class="hero-cta-group">
+      <a href="deck.html" class="btn animate-pulse-cta">Browse Cards</a>
+      <a href="play.html" class="btn btn-ghost">Play Demo</a>
+    </div>
+    <!-- TODO: Replace with real demo.mp4 when team supplies it -->
+    <div class="home-video-wrap">
+      <div class="video-placeholder" aria-label="Demo video placeholder">
+        <span class="play-icon" aria-hidden="true">▶</span>
+        <p>Demo Video<br><small>Coming Soon</small></p>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Explore</span>
+      <span>▼</span>
+    </div>
+  </header>
+
+  <!-- Castle rooms navigation -->
+  <section class="castle-rooms-section" aria-labelledby="rooms-heading">
+    <h2 id="rooms-heading" class="section-title" style="text-align:center;margin-bottom:var(--space-8)">Explore the Castle</h2>
+    <div class="castle-rooms" role="list">
+        <a href="learn.html" class="room-card" role="listitem">
+          <span class="room-card-icon" aria-hidden="true">📜</span>
+          <div class="room-card-title">Library</div>
+          <p class="room-card-desc">Learn the lore and rules of Nano</p>
+        </a>
+        <a href="deck.html" class="room-card" role="listitem">
+          <span class="room-card-icon" aria-hidden="true">📚</span>
+          <div class="room-card-title">Scriptorium</div>
+          <p class="room-card-desc">Browse all cards and build your deck</p>
+        </a>
+        <a href="play.html" class="room-card" role="listitem">
+          <span class="room-card-icon" aria-hidden="true">⚔️</span>
+          <div class="room-card-title">Battlefield</div>
+          <p class="room-card-desc">Play a 3-turn demo battle</p>
+        </a>
+        <a href="shop.html" class="room-card" role="listitem">
+          <span class="room-card-icon" aria-hidden="true">🛡️</span>
+          <div class="room-card-title">Armory</div>
+          <p class="room-card-desc">Shop for cards and packs</p>
+        </a>
+      </div>
+  </section>
+
+  <!-- Featured cards -->
+  <section class="home-featured section" aria-labelledby="featured-heading">
+    <div class="section-intro">
+      <h2 id="featured-heading">Featured Warriors</h2>
+      <p>These legendary Nanos are ready for battle. Click any card to explore the full collection.</p>
+    </div>
+    <div id="featured-cards" class="featured-grid" aria-live="polite" aria-label="Featured cards"></div>
+  </section>
+
+  <!-- Signup CTA -->
+  <div class="container">
+    <div class="home-signup-banner" role="complementary">
+      <h2>Claim Your Free Starter Deck</h2>
+      <p>Sign up and receive a starter deck of 20 cards — including two rare Nanos — absolutely free.</p>
+      <button id="home-signup-cta" class="btn animate-pulse-cta">Claim Starter Deck</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Nano TCG &mdash; Team 2, CSC 391</p>
+    <p style="margin-top:var(--space-2)"><a href="https://github.com/your-team/nano-tcg" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+  </footer>
+
+  <!-- Cookie consent modal -->
+  <div id="cookie-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="modal">
+      <h2 id="cookie-modal-title" class="modal-title">Accept Nano Treats? 🦴</h2>
+      <div class="modal-body">
+        <!-- TODO: Final legal copy needed from team -->
+        <p>This site uses browser storage (localStorage) to remember your deck, cart, and preferences. No tracking cookies are used. Your data stays on your device.</p>
+        <p style="margin-top:var(--space-3);font-size:var(--fs-small);color:var(--color-ink-muted)">TODO: Final cookie consent legal copy to be supplied by the team.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cookie-decline-btn" class="btn btn-ghost">Decline</button>
+        <button id="cookie-accept-btn" class="btn">Accept Treats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup modal -->
+  <div id="signup-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="modal">
+      <button id="signup-close-btn" class="modal-close" aria-label="Close sign up modal">&times;</button>
+      <h2 id="signup-modal-title" class="modal-title">Join the Kingdom</h2>
+      <div class="modal-body">
+        <p>Enter your name to claim your free starter deck and save your progress.</p>
+      </div>
+      <form id="signup-form" novalidate>
+        <div class="modal-form-row">
+          <label for="signup-name-input">Your Name</label>
+          <input id="signup-name-input" type="text" name="name" placeholder="Enter your warrior name" required autocomplete="name">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn">Enter the Hall</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/home.js"></script>
+  <script type="module">
+    document.getElementById('home-signup-cta')?.addEventListener('click', () => {
+      document.getElementById('nav-signup-btn')?.click();
+    });
+  </script>
+</body>
+</html>

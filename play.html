@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Play Nano — Battlefield</title>
+  <meta name="description" content="Play a 3-turn scripted demo battle of Nano TCG on the king's-eye battlefield.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="data-error-banner" role="alert" aria-live="assertive"></div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Nano TCG Home">⚔ NANO</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Main Hall<span class="nav-sub">Home</span></a></li>
+        <li><a href="learn.html">Library<span class="nav-sub">Learn Nano</span></a></li>
+        <li><a href="deck.html">Scriptorium<span class="nav-sub">Cards &amp; Deck</span></a></li>
+        <li><a href="play.html" aria-current="page">Battlefield<span class="nav-sub">Play Demo</span></a></li>
+        <li><a href="shop.html">Armory<span class="nav-sub">Shop</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <span id="nav-user-display" aria-live="polite"></span>
+        <button id="nav-signup-btn" class="btn btn-sm">Sign Up</button>
+        <button id="nav-signout-btn" class="btn btn-sm btn-ghost" hidden>Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="play-layout">
+
+      <!-- Header row: title + health bars + turn -->
+      <div class="play-header">
+        <h1>Battlefield</h1>
+        <div class="health-display" aria-label="Opponent health">
+          <div class="health-label">
+            <span>Opponent</span>
+            <span class="health-value" id="opponent-hp-val" aria-live="polite">20</span>
+          </div>
+          <div class="health-bar-track">
+            <div id="opponent-hp-fill" class="health-bar-fill health-bar-fill-opponent" style="width:100%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20" aria-label="Opponent HP"></div>
+          </div>
+        </div>
+        <div id="turn-indicator" class="turn-indicator" aria-live="polite" aria-atomic="true">Turn 1 — Your Move</div>
+        <div class="health-display" aria-label="Your health">
+          <div class="health-label">
+            <span>You</span>
+            <span class="health-value" id="player-hp-val" aria-live="polite">20</span>
+          </div>
+          <div class="health-bar-track">
+            <div id="player-hp-fill" class="health-bar-fill health-bar-fill-player" style="width:100%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="20" aria-label="Your HP"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Battlefield -->
+      <div id="battlefield" class="battlefield" aria-label="Battlefield">
+        <!-- Opponent field -->
+        <div>
+          <div class="field-zone-label">Opponent's Field</div>
+          <div id="opponent-field" class="field-zone" aria-label="Opponent's cards in play" aria-live="polite">
+            <!-- Cards rendered by JS -->
+          </div>
+        </div>
+
+        <div class="field-zone-divider" role="separator" aria-label="Battlefield center line"></div>
+
+        <!-- Player field -->
+        <div>
+          <div class="field-zone-label">Your Field</div>
+          <div id="player-field" class="field-zone" aria-label="Your cards in play" aria-live="polite">
+            <!-- Cards rendered by JS -->
+          </div>
+        </div>
+
+        <!-- Game result overlay -->
+        <div id="game-result-overlay" class="game-result-overlay" role="alertdialog" aria-modal="true" aria-labelledby="result-title">
+          <div id="result-title" class="result-title result-win">Victory!</div>
+          <p id="result-msg" style="color:var(--color-bone);margin-bottom:var(--space-8)"></p>
+          <div style="display:flex;gap:var(--space-4);flex-wrap:wrap;justify-content:center">
+            <button id="result-play-again" class="btn">Play Again</button>
+            <a href="deck.html" class="btn btn-ghost">Build a Deck</a>
+            <a href="shop.html" class="btn btn-ghost">Visit Armory</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player hand -->
+      <section class="player-hand-section" aria-labelledby="hand-heading">
+        <div class="player-hand-label" id="hand-heading">Your Hand — Click any card to inspect it</div>
+        <div id="player-hand" class="player-hand" aria-label="Cards in your hand" aria-live="polite">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
+      <!-- Battle controls -->
+      <div class="battle-controls" role="group" aria-label="Battle actions">
+        <button id="end-turn-btn" class="btn btn-ghost">End Turn (Pass)</button>
+        <button id="restart-btn" class="btn btn-danger btn-sm">Restart</button>
+        <div class="treat-pool" aria-live="polite" aria-label="Your treat pool">
+          🦴 <span id="treat-pool-val">0</span> <span>Treats</span>
+        </div>
+      </div>
+
+      <!-- Battle log -->
+      <div class="battle-log-section">
+        <div class="battle-log-title" id="battle-log-heading">Battle Log</div>
+        <ul id="battle-log" class="battle-log" aria-labelledby="battle-log-heading" aria-live="polite" aria-relevant="additions"></ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Card zoom overlay -->
+  <div id="card-zoom-scrim" class="card-zoom-scrim" role="dialog" aria-modal="true" aria-labelledby="zoom-card-name">
+    <div class="card-zoom-panel">
+      <button id="zoom-close-btn" class="zoom-close-btn" aria-label="Close card view">✕</button>
+
+      <div class="card-zoom-body">
+        <!-- Art column -->
+        <div class="zoom-art-col">
+          <img id="zoom-img" class="zoom-img" src="" alt="">
+          <div class="zoom-stats-row">
+            <span id="zoom-atk" class="zoom-stat zoom-stat-atk"></span>
+            <span id="zoom-def" class="zoom-stat zoom-stat-def"></span>
+            <span id="zoom-cost" class="zoom-stat zoom-stat-cost"></span>
+          </div>
+        </div>
+
+        <!-- Info column -->
+        <div class="zoom-info-col">
+          <div id="zoom-type-badge" class="card-type-badge"></div>
+          <h2 id="zoom-card-name" class="zoom-card-name"></h2>
+          <p id="zoom-role" class="zoom-role"></p>
+
+          <div id="zoom-rules" class="zoom-rules"></div>
+          <p id="zoom-flavor" class="zoom-flavor"></p>
+          <p id="zoom-details" class="zoom-details"></p>
+
+          <div class="zoom-actions">
+            <button id="zoom-play-btn" class="btn">⚔ Play This Card</button>
+            <button id="zoom-back-btn" class="btn btn-ghost">← Back to Hand</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Nano TCG &mdash; Team 2, CSC 391</p>
+    <p style="margin-top:var(--space-2)"><a href="https://github.com/your-team/nano-tcg" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+  </footer>
+
+  <!-- Cookie consent modal -->
+  <div id="cookie-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="modal">
+      <h2 id="cookie-modal-title" class="modal-title">Accept Nano Treats? 🦴</h2>
+      <div class="modal-body">
+        <!-- TODO: Final legal copy needed from team -->
+        <p>This site uses browser storage (localStorage) to remember your deck, cart, and preferences. No tracking cookies are used. Your data stays on your device.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cookie-decline-btn" class="btn btn-ghost">Decline</button>
+        <button id="cookie-accept-btn" class="btn">Accept Treats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup modal -->
+  <div id="signup-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="modal">
+      <button id="signup-close-btn" class="modal-close" aria-label="Close sign up modal">&times;</button>
+      <h2 id="signup-modal-title" class="modal-title">Join the Kingdom</h2>
+      <div class="modal-body">
+        <p>Enter your name to claim your free starter deck and save your progress.</p>
+      </div>
+      <form id="signup-form" novalidate>
+        <div class="modal-form-row">
+          <label for="signup-name-input">Your Name</label>
+          <input id="signup-name-input" type="text" name="name" placeholder="Enter your warrior name" required autocomplete="name">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn">Enter the Hall</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/play.js"></script>
+</body>
+</html>

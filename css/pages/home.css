@@ -1,0 +1,263 @@
+/* ── Home: Main Hall ── */
+
+.home-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6) var(--space-24);
+
+  /* Castle background — fixed so content scrolls over it */
+  background-color: var(--color-stone-dark); /* fallback while image loads */
+  background-image: url('../../img/ui/bg-home.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* parallax: image stays, content scrolls over */
+  background-repeat: no-repeat;
+
+  position: relative;
+  /* No overflow:hidden so ::after gradient can extend cleanly */
+}
+
+/* Layered overlay: readable top, rich middle, deep fade to stone at bottom */
+.home-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(10, 10, 10, 0.55) 0%,    /* dark top — nav + eyebrow legibility */
+      rgba(10, 10, 10, 0.15) 30%,   /* open window — castle shows clearly  */
+      rgba(10, 10, 10, 0.25) 60%,   /* subtle mid vignette                 */
+      rgba(10, 10, 10, 0.75) 88%,   /* deep fade begins                    */
+      var(--color-stone-dark) 100%  /* seamless merge with next section    */
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Every direct child sits above the overlay */
+.home-hero > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile: fixed-attachment is poorly supported on iOS, degrade gracefully */
+@media (max-width: 600px) {
+  .home-hero {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
+
+/* ── Hero text ── */
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--color-gold-bright);
+  margin-bottom: var(--space-4);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.8);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  line-height: 1.05;
+  color: var(--color-gold);
+  margin-bottom: var(--space-4);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.9), 0 0 40px rgba(201,162,75,0.2);
+  letter-spacing: 0.1em;
+}
+
+.hero-subtitle {
+  font-size: var(--fs-h3);
+  color: var(--color-bone);
+  margin-bottom: var(--space-8);
+  max-width: 540px;
+  line-height: 1.5;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.8);
+}
+
+.hero-cta-group {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: var(--space-12);
+}
+
+/* Demo video */
+.home-video-wrap {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-stone-dark);
+  position: relative;
+  box-shadow: var(--shadow-deep);
+}
+
+.home-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 15, 15, 0.7);
+  color: var(--color-gold);
+  font-family: var(--font-display);
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.video-placeholder .play-icon {
+  font-size: 3rem;
+  margin-bottom: var(--space-4);
+  opacity: 0.7;
+}
+
+/* ── Scroll-down hint ── */
+.scroll-hint {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-gold);
+  opacity: 0.7;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  animation: scroll-bounce 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(6px); }
+}
+
+/* ── Sections below hero — must be solid to cover the fixed bg ── */
+
+/* Castle rooms */
+.castle-rooms-section {
+  background: var(--color-stone-dark);
+  padding: var(--space-12) var(--space-6);
+}
+
+.castle-rooms {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-6);
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+
+.room-card {
+  display: block;
+  background: var(--color-stone);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  text-align: center;
+  text-decoration: none;
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+}
+
+.room-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-gold-bright);
+}
+
+.room-card:focus-visible {
+  outline: 2px solid var(--color-gold-bright);
+  outline-offset: 2px;
+}
+
+.room-card-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: var(--space-3);
+}
+
+.room-card-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  color: var(--color-gold);
+  margin-bottom: var(--space-2);
+}
+
+.room-card-desc {
+  font-size: var(--fs-small);
+  color: var(--color-bone);
+  opacity: 0.8;
+}
+
+/* Featured cards strip */
+.home-featured {
+  padding: var(--space-16) var(--space-6);
+  background: var(--color-stone-dark);
+  border-top: var(--border-thin);
+}
+
+.home-featured .section-intro {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.home-featured .section-intro p {
+  color: var(--color-bone);
+  margin-inline: auto;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--space-6);
+  max-width: var(--max-w);
+  margin-inline: auto;
+}
+
+/* Signup CTA banner */
+.home-signup-banner {
+  background: linear-gradient(135deg, var(--color-stone), var(--color-stone-dark));
+  border: var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-8);
+  text-align: center;
+  max-width: 680px;
+  margin: var(--space-16) auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.home-signup-banner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(201,162,75,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.home-signup-banner h2 { margin-bottom: var(--space-4); }
+.home-signup-banner p  { color: var(--color-bone); margin-inline: auto; margin-bottom: var(--space-6); }

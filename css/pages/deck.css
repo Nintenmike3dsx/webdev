@@ -1,0 +1,262 @@
+/* ── Deck Builder: Library Scriptorium ── */
+
+.deck-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-6);
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: var(--space-8) var(--space-6);
+  align-items: start;
+}
+
+/* Card browser (left pane) */
+.card-browser { min-width: 0; }
+
+.browser-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  align-items: center;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: var(--color-stone);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+}
+
+.search-input::placeholder { color: var(--color-stone-light); }
+.search-input:focus-visible { outline: 2px solid var(--color-gold-bright); outline-offset: 1px; }
+
+.filter-select {
+  padding: var(--space-3) var(--space-4);
+  border: var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: var(--color-stone);
+  color: var(--color-bone);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  cursor: pointer;
+}
+
+.filter-select:focus-visible { outline: 2px solid var(--color-gold-bright); outline-offset: 1px; }
+
+#card-count-display {
+  font-size: var(--fs-small);
+  color: var(--color-gold);
+  font-family: var(--font-mono);
+  margin-left: auto;
+}
+
+/* Deck builder sidebar (right pane) */
+.deck-sidebar {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gold) var(--color-stone);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.deck-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-4);
+}
+
+.deck-name-input {
+  flex: 1;
+  min-width: 120px;
+  padding: var(--space-2) var(--space-3);
+  border: var(--border-gold);
+  border-radius: var(--radius-sm);
+  background: var(--color-parchment-dim);
+  color: var(--color-ink);
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+}
+
+.deck-count-badge {
+  font-family: var(--font-mono);
+  font-size: var(--fs-h3);
+  color: var(--color-treat);
+  font-weight: 700;
+}
+
+.deck-count-badge span { color: var(--color-ink-muted); }
+
+/* Deck list */
+.deck-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  min-height: 80px;
+}
+
+.deck-list-empty {
+  text-align: center;
+  color: var(--color-ink-muted);
+  font-size: var(--fs-small);
+  padding: var(--space-6);
+  border: 1px dashed var(--color-parchment-dim);
+  border-radius: var(--radius-sm);
+}
+
+.deck-list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  background: var(--color-parchment-dim);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+}
+
+.deck-list-item-name {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--color-ink);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.deck-list-item-qty {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-treat);
+  flex-shrink: 0;
+}
+
+.deck-list-item-remove {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-blood);
+  font-size: var(--fs-body);
+  line-height: 1;
+  padding: var(--space-1);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+.deck-list-item-remove:hover { background: rgba(122,31,31,0.15); }
+
+/* Balance racks */
+.balance-racks { display: flex; flex-direction: column; gap: var(--space-4); }
+
+.rack-label {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.rack-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.rack-bar-track {
+  flex: 1;
+  height: 12px;
+  background: var(--color-parchment-dim);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.rack-bar-fill {
+  height: 100%;
+  border-radius: var(--radius-sm);
+  transition: width 300ms ease-out;
+  min-width: 0;
+}
+
+.rack-bar-fill-atk { background: var(--color-blood); }
+.rack-bar-fill-def { background: var(--color-forest); }
+.rack-bar-fill-treat { background: var(--color-treat); }
+
+.rack-value {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-ink);
+  min-width: 24px;
+  text-align: right;
+}
+
+/* Treat-cost histogram */
+.treat-curve {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 48px;
+  margin-top: var(--space-2);
+}
+
+.treat-curve-bar {
+  flex: 1;
+  background: var(--color-treat);
+  border-radius: 2px 2px 0 0;
+  min-height: 2px;
+  transition: height 300ms ease-out;
+  position: relative;
+}
+
+.treat-curve-bar::after {
+  content: attr(data-cost);
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  font-family: var(--font-mono);
+  color: var(--color-ink-muted);
+}
+
+/* Type mix pills */
+.type-mix {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.type-mix-pill {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-small);
+  font-family: var(--font-mono);
+}
+
+.type-pill-character { background: var(--color-forest); color: var(--color-bone); }
+.type-pill-action    { background: var(--color-blood);  color: var(--color-bone); }
+.type-pill-treat     { background: var(--color-treat);  color: var(--color-bone); }
+
+/* Deck actions */
+.deck-actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .deck-layout { grid-template-columns: 1fr; }
+  .deck-sidebar { position: static; max-height: none; }
+}

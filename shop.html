@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armory — Nano TCG Shop</title>
+  <meta name="description" content="Shop for Nano TCG cards, packs, and pre-built decks in the Armory. Display-only — no real transactions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="data-error-banner" role="alert" aria-live="assertive"></div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Nano TCG Home">⚔ NANO</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Main Hall<span class="nav-sub">Home</span></a></li>
+        <li><a href="learn.html">Library<span class="nav-sub">Learn Nano</span></a></li>
+        <li><a href="deck.html">Scriptorium<span class="nav-sub">Cards &amp; Deck</span></a></li>
+        <li><a href="play.html">Battlefield<span class="nav-sub">Play Demo</span></a></li>
+        <li><a href="shop.html" aria-current="page">Armory<span class="nav-sub">Shop</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <span id="nav-user-display" aria-live="polite"></span>
+        <button id="nav-signup-btn" class="btn btn-sm">Sign Up</button>
+        <button id="nav-signout-btn" class="btn btn-sm btn-ghost" hidden>Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="shop-hero">
+    <h1>The Armory</h1>
+    <p>Browse the full roster of Nano warriors. Add to cart and prepare for battle.</p>
+    <p style="margin-top:var(--space-3);font-size:var(--fs-small);color:var(--color-stone-light)">Display-only — no real transactions. Prices TBD.</p>
+  </header>
+
+  <main>
+
+    <!-- Starter deck banner (hidden until signed in) -->
+    <div class="container">
+      <div id="starter-deck-banner" class="starter-deck-banner" hidden aria-label="Free starter deck offer">
+        <h2>🎁 Your Free Starter Deck Awaits</h2>
+        <p>As a new member of the kingdom, you are entitled to a 20-card starter deck — including two powerful Nano warriors — completely free.</p>
+        <button id="claim-starter-btn" class="btn">Claim Starter Deck</button>
+      </div>
+    </div>
+
+    <div class="shop-layout">
+
+      <!-- Product listings (left) -->
+      <div>
+        <div class="shop-section-title">
+          <h2>🛡 Card Roster</h2>
+        </div>
+        <div id="shop-grid" class="shop-grid" aria-label="Card shop listings" aria-live="polite">
+          <p style="color:var(--color-bone);padding:var(--space-8)">Loading the armory…</p>
+        </div>
+      </div>
+
+      <!-- Cart (right) -->
+      <aside aria-labelledby="cart-heading">
+        <div class="panel">
+          <h2 id="cart-heading" style="font-size:var(--fs-h3);margin-bottom:var(--space-4)">🛒 Your Cart</h2>
+          <p id="cart-empty" class="cart-empty">Your cart is empty. Add cards from the roster.</p>
+          <div id="cart-list" aria-label="Cart items" aria-live="polite"></div>
+          <div class="cart-total">
+            <span>Total</span>
+            <span id="cart-total-value" class="cart-total-value">$0.00</span>
+          </div>
+          <div style="padding:var(--space-3);padding-top:0">
+            <button id="checkout-btn" class="btn" style="width:100%">Proceed to Checkout</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Nano TCG &mdash; Team 2, CSC 391</p>
+    <p style="margin-top:var(--space-2)"><a href="https://github.com/your-team/nano-tcg" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+  </footer>
+
+  <!-- Checkout modal (Coming Soon) -->
+  <div id="checkout-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="checkout-title">
+    <div class="modal">
+      <button id="checkout-close" class="modal-close" aria-label="Close checkout">&times;</button>
+      <h2 id="checkout-title" class="modal-title">Checkout</h2>
+      <div class="modal-body">
+        <p style="font-size:2rem;text-align:center;margin-bottom:var(--space-4)">🏗️</p>
+        <p><strong>Coming Soon!</strong> Secure payment processing is in development. No charges will be applied.</p>
+        <p style="margin-top:var(--space-3)">Your cart will be cleared as a confirmation, but this is a display-only demo.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="checkout-confirm-btn" class="btn">Confirm Order (Demo)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cookie consent modal -->
+  <div id="cookie-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="modal">
+      <h2 id="cookie-modal-title" class="modal-title">Accept Nano Treats? 🦴</h2>
+      <div class="modal-body">
+        <!-- TODO: Final legal copy needed from team -->
+        <p>This site uses browser storage (localStorage) to remember your deck, cart, and preferences. No tracking cookies are used. Your data stays on your device.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cookie-decline-btn" class="btn btn-ghost">Decline</button>
+        <button id="cookie-accept-btn" class="btn">Accept Treats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup modal -->
+  <div id="signup-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="modal">
+      <button id="signup-close-btn" class="modal-close" aria-label="Close sign up modal">&times;</button>
+      <h2 id="signup-modal-title" class="modal-title">Join the Kingdom</h2>
+      <div class="modal-body">
+        <p>Enter your name to claim your free starter deck and save your progress.</p>
+      </div>
+      <form id="signup-form" novalidate>
+        <div class="modal-form-row">
+          <label for="signup-name-input">Your Name</label>
+          <input id="signup-name-input" type="text" name="name" placeholder="Enter your warrior name" required autocomplete="name">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn">Enter the Hall</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/shop.js"></script>
+</body>
+</html>

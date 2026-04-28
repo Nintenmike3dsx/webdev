@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book of Cards &amp; Deck Builder — Scriptorium</title>
+  <meta name="description" content="Browse all Nano TCG cards, search and filter, and build your perfect 20-card deck.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+  <div id="data-error-banner" role="alert" aria-live="assertive"></div>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="Nano TCG Home">⚔ NANO</a>
+      <ul class="nav-links" role="list">
+        <li><a href="index.html">Main Hall<span class="nav-sub">Home</span></a></li>
+        <li><a href="learn.html">Library<span class="nav-sub">Learn Nano</span></a></li>
+        <li><a href="deck.html" aria-current="page">Scriptorium<span class="nav-sub">Cards &amp; Deck</span></a></li>
+        <li><a href="play.html">Battlefield<span class="nav-sub">Play Demo</span></a></li>
+        <li><a href="shop.html">Armory<span class="nav-sub">Shop</span></a></li>
+      </ul>
+      <div class="nav-actions">
+        <span id="nav-user-display" aria-live="polite"></span>
+        <button id="nav-signup-btn" class="btn btn-sm">Sign Up</button>
+        <button id="nav-signout-btn" class="btn btn-sm btn-ghost" hidden>Sign Out</button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <div class="deck-layout">
+
+      <!-- Card browser (left) -->
+      <section class="card-browser" aria-labelledby="browser-heading">
+        <h1 id="browser-heading" style="margin-bottom:var(--space-6)">Book of Cards</h1>
+
+        <div class="browser-controls" role="search" aria-label="Card search and filters">
+          <label for="card-search" class="sr-only">Search cards</label>
+          <input id="card-search" class="search-input" type="search" placeholder="Search by name, role, or rules…" aria-label="Search cards">
+
+          <label for="filter-type" class="sr-only">Filter by type</label>
+          <select id="filter-type" class="filter-select" aria-label="Filter by card type">
+            <option value="">All Types</option>
+            <option value="Character">Character</option>
+            <option value="Action">Action</option>
+            <option value="Treat">Treat</option>
+          </select>
+
+          <label for="filter-rarity" class="sr-only">Filter by rarity</label>
+          <select id="filter-rarity" class="filter-select" aria-label="Filter by rarity">
+            <option value="">All Rarities</option>
+            <option value="Common">Common</option>
+            <option value="Uncommon">Uncommon</option>
+            <option value="Rare">Rare</option>
+          </select>
+
+          <label for="filter-cost" class="sr-only">Filter by treat cost</label>
+          <select id="filter-cost" class="filter-select" aria-label="Filter by treat cost">
+            <option value="">Any Cost</option>
+            <option value="0">0 🦴</option>
+            <option value="1">1 🦴</option>
+            <option value="2">2 🦴</option>
+            <option value="3">3 🦴</option>
+            <option value="4">4 🦴</option>
+            <option value="5">5 🦴</option>
+            <option value="6">6 🦴</option>
+            <option value="7">7 🦴</option>
+            <option value="8">8 🦴</option>
+            <option value="9">9 🦴</option>
+          </select>
+
+          <span id="card-count-display" aria-live="polite" aria-atomic="true"></span>
+        </div>
+
+        <div id="card-grid" class="card-grid" aria-label="Card collection" aria-live="polite">
+          <p style="color:var(--color-bone);padding:var(--space-8)">Loading cards…</p>
+        </div>
+      </section>
+
+      <!-- Deck builder sidebar (right) -->
+      <aside class="deck-sidebar" aria-labelledby="deck-heading">
+        <div class="panel">
+          <div class="deck-header">
+            <h2 id="deck-heading" style="font-size:var(--fs-h3);margin-bottom:0">Your Deck</h2>
+            <div id="deck-count" class="deck-count-badge" aria-live="polite" aria-atomic="true">0<span> / 20</span></div>
+          </div>
+
+          <label for="deck-name-input" class="sr-only">Deck name</label>
+          <input id="deck-name-input" class="deck-name-input" type="text" placeholder="Deck name…" maxlength="40" aria-label="Deck name">
+
+          <ul id="deck-list" class="deck-list" aria-label="Cards in deck" aria-live="polite">
+            <li class="deck-list-empty">No cards yet. Click a card to add it.</li>
+          </ul>
+
+          <div class="deck-actions">
+            <button id="save-deck-btn" class="btn btn-sm">Save Deck</button>
+            <button id="new-deck-btn" class="btn btn-sm btn-ghost">New Deck</button>
+          </div>
+        </div>
+
+        <!-- Balance racks -->
+        <div class="panel balance-racks" aria-labelledby="balance-heading">
+          <h3 id="balance-heading">Deck Balance</h3>
+
+          <!-- Attack rack -->
+          <div>
+            <div class="rack-label">⚔ Attack Power</div>
+            <div class="rack-bar-wrap">
+              <div class="rack-bar-track" role="progressbar" aria-label="Total attack" aria-valuemin="0" aria-valuemax="40">
+                <div id="rack-atk-fill" class="rack-bar-fill rack-bar-fill-atk" style="width:0%"></div>
+              </div>
+              <span id="rack-atk-val" class="rack-value" aria-live="polite">0</span>
+            </div>
+          </div>
+
+          <!-- Defense rack -->
+          <div>
+            <div class="rack-label">🛡 Defense Total</div>
+            <div class="rack-bar-wrap">
+              <div class="rack-bar-track" role="progressbar" aria-label="Total defense" aria-valuemin="0" aria-valuemax="40">
+                <div id="rack-def-fill" class="rack-bar-fill rack-bar-fill-def" style="width:0%"></div>
+              </div>
+              <span id="rack-def-val" class="rack-value" aria-live="polite">0</span>
+            </div>
+          </div>
+
+          <!-- Type mix -->
+          <div>
+            <div class="rack-label">📜 Type Mix</div>
+            <div class="type-mix" aria-label="Card type distribution" aria-live="polite">
+              <span id="mix-character" class="type-mix-pill type-pill-character" aria-label="Character count">⚔ 0</span>
+              <span id="mix-action"    class="type-mix-pill type-pill-action"    aria-label="Action count">✦ 0</span>
+              <span id="mix-treat"     class="type-mix-pill type-pill-treat"     aria-label="Treat count">🦴 0</span>
+            </div>
+          </div>
+
+          <!-- Treat cost curve -->
+          <div>
+            <div class="rack-label">🦴 Treat Cost Curve</div>
+            <div id="treat-curve" class="treat-curve" aria-label="Treat cost distribution" role="img"></div>
+            <div style="display:flex;justify-content:space-between;font-size:0.6rem;color:var(--color-ink-muted);font-family:var(--font-mono);margin-top:var(--space-4)">
+              <span>0</span><span>5</span><span>10</span>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Card detail modal -->
+  <div id="card-detail-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="card-detail-title">
+    <div class="modal modal-wide">
+      <button id="card-detail-close" class="modal-close" aria-label="Close card detail">&times;</button>
+      <h2 id="card-detail-title" class="modal-title"></h2>
+      <div id="card-detail-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Nano TCG &mdash; Team 2, CSC 391</p>
+    <p style="margin-top:var(--space-2)"><a href="https://github.com/your-team/nano-tcg" target="_blank" rel="noopener noreferrer">View on GitHub</a></p>
+  </footer>
+
+  <!-- Cookie consent modal -->
+  <div id="cookie-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="cookie-modal-title">
+    <div class="modal">
+      <h2 id="cookie-modal-title" class="modal-title">Accept Nano Treats? 🦴</h2>
+      <div class="modal-body">
+        <!-- TODO: Final legal copy needed from team -->
+        <p>This site uses browser storage (localStorage) to remember your deck, cart, and preferences. No tracking cookies are used. Your data stays on your device.</p>
+      </div>
+      <div class="modal-footer">
+        <button id="cookie-decline-btn" class="btn btn-ghost">Decline</button>
+        <button id="cookie-accept-btn" class="btn">Accept Treats</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Signup modal -->
+  <div id="signup-modal-scrim" class="modal-scrim" role="dialog" aria-modal="true" aria-labelledby="signup-modal-title">
+    <div class="modal">
+      <button id="signup-close-btn" class="modal-close" aria-label="Close sign up modal">&times;</button>
+      <h2 id="signup-modal-title" class="modal-title">Join the Kingdom</h2>
+      <div class="modal-body">
+        <p>Enter your name to claim your free starter deck and save your progress.</p>
+      </div>
+      <form id="signup-form" novalidate>
+        <div class="modal-form-row">
+          <label for="signup-name-input">Your Name</label>
+          <input id="signup-name-input" type="text" name="name" placeholder="Enter your warrior name" required autocomplete="name">
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn">Enter the Hall</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script type="module" src="js/pages/deck.js"></script>
+</body>
+</html>

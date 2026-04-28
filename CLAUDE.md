@@ -168,3 +168,114 @@ A task is complete only when **all** of the following are true:
 - **Data/asset mismatches** (tracked in DATA.md, repeated here for visibility):
   - `nano-data/media/nano-snow.png` is missing — referenced by card 116 ("Snow Nano").
   - `nano-data/media/treat-slamon.png` exists, but card 203 ("Salmon Treat") points to `treat-salmon.png`. Filename typo to resolve with the team.
+
+Functionality Table
+The table below captures the functionality the site needs to ship. Items are scored Must (required for launch), Should (high value, ship soon after), or Nice (theme-deepening polish).
+#
+Functionality Item
+Why it matters for this site
+How it uses the dataset (if applicable)
+Priority (Must / Should / Nice)
+1
+Card search / Book of Cards
+Competitive players need to find specific cards by name or attribute fast — this is the spine of the site.
+Reads name, type, and stat columns from nano_cards.csv to power keyword and filter search.
+Must
+2
+Filter cards by type (e.g., strength, strategy, magic)
+Power users build around archetypes; multi-attribute filters let them assemble themed decks.
+Reads the type column from nano_cards.csv (and supports multi-select).
+Must
+3
+Deck builder
+Core competitive tool — lets users assemble, save, and iterate on decks from the full roster.
+Pulls the full nano_cards.csv roster; saves the user's deck list to local storage and (when signed in) the database.
+Must
+4
+Deck balance visualizer (sword rack / mead glass)
+Visual feedback on a deck's strength / strategy / magic balance reinforces the medieval theme and helps power users tune builds.
+Aggregates stat columns from nano_cards.csv across the user's selected deck.
+Should
+5
+Demo Game (Play Nano)
+Try-before-buy interactive battle vs. an AI opponent on a king's-eye battlefield UI; converts visitors to signups.
+Reads card stats and ability text from nano_cards.csv to drive turn resolution.
+Must
+6
+Pack-opening animation
+Dopamine moment that mirrors the physical TCG experience and drives repeat engagement.
+Randomly draws cards from nano_cards.csv weighted by a rarity column.
+Must
+7
+Shop (Armory page)
+Primary revenue driver — sells single cards, packs, and pre-built decks via the armory metaphor.
+Reads price and availability columns from nano_cards.csv to populate listings.
+Must
+8
+Free starter deck on signup
+Acquisition incentive that turns curious visitors into accounts and recurring players.
+Triggers a curated draw of starter cards from nano_cards.csv on first login.
+Should
+9
+Card detail / hover animation
+Lets competitive players inspect art, full stat block, and lore without leaving the Book of Cards.
+Renders all columns of the selected nano_cards.csv row in the detail overlay.
+Should
+10
+Learn Nano — AI-generated lore page
+Sustains world-building and gives newcomers a hook beyond raw mechanics.
+Optionally seeds the AI prompt with notable card names pulled from nano_cards.csv.
+Should
+11
+User accounts / sign-in
+Persists decks, collection, and signup rewards across sessions; required for shop checkout.
+Does not read nano_cards.csv directly; stores user_id references that join against it.
+Must
+12
+Card collection / inventory
+Tracks which cards each user owns so the deck builder can flag legal vs. unowned cards.
+Cross-references user inventory rows with nano_cards.csv to render owned/unowned states.
+Should
+13
+"Accept Nano Treats" cookie consent pop-up
+Legal compliance for cookies / local storage, delivered in on-theme medieval flavor copy.
+N/A — operates on browser storage, not the dataset.
+Must
+14
+Secure payment processing
+Required to monetize the shop while keeping card and payment data safe.
+N/A — handled by a third-party processor (e.g., Stripe); only order metadata touches the cards table.
+Must
+
+ 
+Style Table
+The table below captures the visual and experiential decisions that make the castle metaphor work and keep the site usable for power users.
+#
+Style Item
+Specification
+Rationale
+1
+Color palette
+Primary #2A1810 (castle stone-brown), Accent #C9A961 (gold leaf), Highlight #8B0000 (banner red), Parchment #F4E8D0 (page background), Ink #1B1209 (body text).
+Stone-brown and parchment evoke a castle interior; gold and banner-red read as royalty and battle without overwhelming. Parchment gives long stat tables enough contrast to stay readable for power users.
+2
+Typography
+Headings: Cinzel (or IM Fell English) serif. Body: Lora (or EB Garamond) serif at 16 px / 1.6 line-height. Card stats: tabular-figure variant for column alignment.
+Period-appropriate display type sells the medieval fantasy; legible serif body type and tabular figures keep dense card data scannable for competitive players.
+3
+Iconography and imagery
+AI-generated banners, tapestries, shields, scrolls; image-as-button navigation; consistent illuminated-manuscript framing on cards and modals.
+Reinforces the "you are inside a castle" metaphor and lets the site lead with visuals over text — the user needs to feel the world before reading about it.
+4
+Page metaphor and layout
+Each page is a room of the castle. Home = main hall (overview banners, sale pillars). Learn Nano = interactive tapestry. Book of Cards / Build a Deck = library + scriptorium. Shop = armory (cards mounted on shields). Play Nano = battlefield (king's-eye-view UI). Transitions zoom into the next room.
+Turns navigation into exploration so dwell time goes up and the brand feels like a place rather than a menu. Each room also primes the user emotionally for the task on that page (study in the library, fight on the battlefield).
+5
+Animation and interactivity
+Card hover lift + glow on the Book of Cards. Multi-stage pack-opening reveal (seal-break → fan-out → flip). Demo Game battle animations (troop march, spell flash). Deck balance visualized with filling mead glasses and stocked sword racks.
+Provides the tactile feedback competitive players expect — a digital TCG that feels lifeless loses to physical play. The mead-glass / sword-rack visuals also tie analytics back to the medieval theme.
+6
+Soundscape (optional, default off)
+Ambient layer per room: crackling fire on Home, page-turning on Learn Nano, marketplace murmur on Shop, clashing steel on Play Nano. Global mute toggle in the nav bar.
+Deepens immersion without forcing it on competitive players who often grind deck builds in silence or with their own audio.
+

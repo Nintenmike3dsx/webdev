@@ -1,0 +1,183 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.card {
+  background: var(--color-parchment);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+  position: relative;
+  color: var(--color-ink);
+}
+
+.card:hover,
+.card:focus-visible {
+  transform: translateY(-6px) rotate(-1deg);
+  box-shadow: var(--shadow-soft);
+  z-index: var(--z-raised);
+  outline: none;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-gold-bright);
+  outline-offset: 2px;
+}
+
+.card-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--color-stone);
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-img[data-art-missing] {
+  opacity: 0;
+}
+
+.card-img-wrap[data-missing-art]::after {
+  content: attr(data-card-name);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--color-gold);
+  background: var(--color-stone);
+  padding: var(--space-2);
+  text-align: center;
+}
+
+.card-body {
+  padding: var(--space-3);
+}
+
+.card-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: var(--space-1);
+}
+
+.card-type-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-display);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-2);
+}
+
+.card-type-Character { background: var(--color-forest); color: var(--color-bone); }
+.card-type-Action { background: var(--color-blood); color: var(--color-bone); }
+.card-type-Treat { background: var(--color-treat); color: var(--color-bone); }
+
+.card-stats {
+  display: flex;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+}
+
+.card-stat-atk { color: var(--color-blood); }
+.card-stat-def { color: var(--color-forest); }
+.card-stat-cost {
+  margin-left: auto;
+  color: var(--color-treat);
+  font-weight: 600;
+}
+
+.card-rarity {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  font-size: 0.6rem;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  background: rgba(0,0,0,0.6);
+}
+
+.card-rarity-Common { color: var(--color-bone); }
+.card-rarity-Uncommon { color: var(--color-gold); }
+.card-rarity-Rare { color: var(--color-gold-bright); }
+
+/* Card in deck/hand context — smaller */
+.card-mini {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  background: var(--color-parchment);
+  border: var(--border-thin);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  color: var(--color-ink);
+}
+
+.card-mini-img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  background: var(--color-stone);
+}
+
+.card-mini-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-mini-cost {
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  color: var(--color-treat);
+  flex-shrink: 0;
+}
+
+/* Card selected state in deck builder */
+.card.in-deck::after {
+  content: '✓';
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  width: 24px;
+  height: 24px;
+  background: var(--color-forest);
+  color: var(--color-bone);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  z-index: var(--z-raised);
+}
+
+.card.at-limit {
+  opacity: 0.6;
+}

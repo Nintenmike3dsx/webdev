@@ -1,0 +1,151 @@
+/* ── Learn Nano: Tapestry / Library ── */
+
+.learn-hero {
+  padding: var(--space-16) var(--space-6) var(--space-12);
+  text-align: center;
+  background: linear-gradient(180deg, var(--color-stone-dark) 0%, var(--color-stone) 100%);
+  border-bottom: var(--border-gold);
+}
+
+.learn-hero h1 { margin-bottom: var(--space-4); }
+
+.learn-hero p {
+  font-size: var(--fs-h3);
+  color: var(--color-bone);
+  max-width: 600px;
+  margin-inline: auto;
+}
+
+/* Tapestry sections */
+.tapestry-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: var(--space-12) var(--space-6);
+  border-bottom: var(--border-thin);
+}
+
+.tapestry-section:nth-child(even) .tapestry-visual {
+  order: -1;
+}
+
+.tapestry-text h2 {
+  margin-bottom: var(--space-4);
+}
+
+.tapestry-text p {
+  color: var(--color-bone);
+  margin-bottom: var(--space-4);
+}
+
+.tapestry-visual {
+  background: var(--color-stone);
+  border: var(--border-gold);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-height: 200px;
+}
+
+.tapestry-visual-icon {
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Card type explainer */
+.card-type-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3);
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.05);
+  border: var(--border-thin);
+}
+
+.card-type-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.dot-character { background: var(--color-forest); }
+.dot-action    { background: var(--color-blood); }
+.dot-treat     { background: var(--color-treat); }
+
+.card-type-info h4 {
+  font-family: var(--font-display);
+  font-size: var(--fs-small);
+  color: var(--color-gold);
+  margin-bottom: var(--space-1);
+}
+
+.card-type-info p {
+  font-size: var(--fs-small);
+  color: var(--color-bone);
+  opacity: 0.85;
+  margin-bottom: 0;
+}
+
+/* Step-by-step rules list */
+.rules-list {
+  list-style: none;
+  counter-reset: steps;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.rules-list li {
+  counter-increment: steps;
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+}
+
+.rules-list li::before {
+  content: counter(steps);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  background: var(--color-gold);
+  color: var(--color-ink);
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-small);
+  flex-shrink: 0;
+}
+
+.rules-list li span {
+  color: var(--color-bone);
+  font-size: var(--fs-small);
+  padding-top: var(--space-2);
+}
+
+/* Lore quote */
+.lore-quote {
+  border-left: 4px solid var(--color-gold);
+  padding-left: var(--space-6);
+  margin: var(--space-8) 0;
+  font-style: italic;
+  color: var(--color-bone);
+  font-size: var(--fs-h3);
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .tapestry-section {
+    grid-template-columns: 1fr;
+  }
+  .tapestry-section:nth-child(even) .tapestry-visual {
+    order: 0;
+  }
+}
