@@ -1,0 +1,67 @@
+[
+  {
+    "id": 101,
+    "name": "Programmer Nano",
+    "type": "Character",
+    "role": "Code Hound",
+    "treatCost": [3, 2],
+    "attack": 3,
+    "defense": 2,
+    "rulesText": "When Programmer Nano enters play, look at the top 3 cards of your deck. Put one into your hand and the rest on the bottom in any order.",
+    "flavorText": "\"He debugs by glaring at the screen until the bug becomes ashamed.\"",
+    "details": "Programmer Nano gives you card advantage on entry, letting you dig for the piece you need most.",
+    "image": "media/nano-programmer.png"
+  },
+  {
+    "id": 102,
+    "name": "Couch Nap Nano",
+    "type": "Character",
+    "role": "Resting Terrier",
+    "treatCost": [1, 2],
+    "attack": 1,
+    "defense": 3,
+    "rulesText": "When Couch Nap Nano is attacked, the attacking Character loses 1 Attack until end of turn. If Couch Nap Nano survives the attack, you gain 1 Treat. If you control 2 or more Naps, all Nanos get +1 Defense.",
+    "flavorText": "\"You woke him. That was your first mistake.\"",
+    "details": "Couch Nap Nano is a defensive anchor — punishes attackers, rewards survival, and amplifies your whole board if you build around the Nap synergy.",
+    "image": "media/nano-couchnap.png"
+  },
+  {
+    "id": 103,
+    "name": "Bossman Nano",
+    "type": "Character",
+    "role": "Executive Terrier",
+    "treatCost": [3, 3, 3],
+    "attack": 4,
+    "defense": 4,
+    "rulesText": "Other Character cards you control get +1 attack. At the start of your turn, gain 1 Treat.",
+    "flavorText": "\"No one knows who put him in charge. Everyone obeys anyway.\"",
+    "details": "Bossman Nano strengthens your entire board and steadily increases your resources over time.",
+    "image": "media/nano-bossman.png"
+  },
+  {
+    "id": 104,
+    "name": "Deep Sleep Nano",
+    "type": "Character",
+    "role": "Dreaming Terrier",
+    "treatCost": [1, 2],
+    "attack": 0,
+    "defense": 5,
+    "rulesText": "When Deep Sleep Nano is attacked, the attacking Character skips its next attack. If Deep Sleep Nano survives the attack, draw a card. If you control 3 or more Naps, your opponent's Characters enter play exhausted.",
+    "flavorText": "\"He's not waking up. You, however, might regret this.\"",
+    "details": "Deep Sleep Nano is a fortress — massive defense, attack denial, card draw on survival, and a board-locking passive when paired with enough Nap cards.",
+    "image": "media/nano-deepsleep.png"
+  },
+  {
+    "id": 105,
+    "name": "Aloha Watch Nano",
+    "type": "Character",
+    "role": "Beach Sentinel",
+    "treatCost": [3, 3, 3, 3],
+    "attack": 2,
+    "defense": 3,
+    "rulesText": "At the end of your turn, if you did not play a Character, gain 1 Treat. Whenever a Character enters play, Aloha Watch Nano gets +1 Attack until end of turn.",
+    "flavorText": "\"He's not in a hurry. The sun, the breeze, and the moment will come to him.\"",
+    "details": "Aloha Watch Nano rewards patient play and scales in combat every time the board gets more crowded.",
+    "image": "media/nano-aloha.png"
+  }
+]
