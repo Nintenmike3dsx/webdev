@@ -92,13 +92,38 @@
             <form class="d-flex ms-auto" onsubmit="return false">
               <input class="form-control me-1" type="search" placeholder="Search..." id="search-input">
             </form>
-            <button class="side-panel-toggle" type="button">
+            <!-- <button class="side-panel-toggle" type="button">
               <span class="material-icons sp-icon-open">keyboard_double_arrow_right</span>
               <span class="material-icons sp-icon-close">keyboard_double_arrow_left</span>
-            </button>
+            </button> -->
         </div>
     </div>
 </nav>
+
+<!-- Working on side panel -->
+<button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button>
+
+<div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <div class="dropdown mt-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <div class="wrapper">
   <div class="main">
@@ -108,16 +133,19 @@
       </div>
     </div>
   </div>
-  <div class="side-panel">
+  <!-- <div class="side-panel">
     This is the side panel filter content
-  </div>
+  </div> -->
 </div>
 
-<script>
+<!-- <script>
   document.querySelector(".side-panel-toggle").addEventListener("click", () => {
     document.querySelector(".wrapper").classList.toggle("side-panel-open");
   });
-</script>
+</script> -->
+
+
+
 
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
     <a href="https://github.com/Nintenmike3dsx/webdev/tree/clientFinal" class="btn btn-outline-light btn-sm" style="color: white;" target="_blank">Visit Github</a>
