@@ -84,12 +84,11 @@
 
 <!-- Button for back to Home -->
 <div class="container py-4">
-  <a class="btn btn-secondary" href="index.html">Back to Home</a>
+  <div class="d-flex justify-content-between align-items-center">
+    <a class="btn btn-secondary" href="all_recipes.html">Back to Recipes</a>
 
-  <button type="button" class="btn btn-secondary" id="favoriteBtn"><i class="bi bi-heart"></i></button>
-  <button type="button" class="btn btn-secondary" onclick="copyLink()">Copy Link</button>
-  <button type="button" class="btn btn-secondary" onclick="shareOnTwitter()"><img src="x.png" alt="Share on X" style="height:20px;width:20px;"></button>
-  <button type="button" class="btn btn-secondary" onclick="shareOnFacebook()"><img src="facebook.png" alt="Share on Facebook" style="height:20px;width:20px;"></button>
+    <button type="button" class="btn btn-secondary d-flex align-items-center gap-1" id="favoriteBtn"><i class="bi bi-heart"></i> Favorite</button>
+  </div>
   <!-- <button type="button" class="btn btn-secondary" onclick="shareOnInsta()">Share on Instagram</button> -->
   
   <!-- Recipe name -->
@@ -272,6 +271,13 @@ function setupFavoriteButton(recipe) {
   });
 }
 </script>
+
+<div class="d-flex justify-content-center align-items-center gap-4 my-3">
+  <img src="link.png" alt="Copy Link" class="logo-click" onclick="copyLink()" style="height:2rem;width:2rem;cursor:pointer;">
+  <img src="x.png" alt="Share on X" class="logo-click" onclick="shareOnTwitter()" style="height:2rem;width:2rem;cursor:pointer;">
+  <img src="facebook.png" alt="Share on Facebook" class="logo-click" onclick="shareOnFacebook()" style="height:2rem;width:2rem;cursor:pointer;">
+  <!-- <img src="instagram.png" alt="Share on Instagram" onclick="shareOnInsta()" style="height:2rem;width:2rem;cursor:pointer;"> -->
+</div>
 
 <!-- Bottom footer -->
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
