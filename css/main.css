@@ -92,6 +92,39 @@ body {
   line-height: 1.55;
 }
 
+/* Per-page background images */
+body.page-home {
+  background-image: url('../img/homebackground.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+body.page-play {
+  background-image: url('../img/battlebackground.png');
+  background-size: cover;
+  background-position: center top;
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+}
+
+body.page-shop {
+  background-image: url('../img/armorybackground.png');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 600px) {
+  body.page-home,
+  body.page-shop {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+}
+
 .container {
   max-width: var(--max-w);
   margin-inline: auto;

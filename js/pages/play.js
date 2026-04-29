@@ -111,8 +111,9 @@ function initZoomOverlay() {
 
   zoomPlayBtn?.addEventListener('click', () => {
     if (_zoomedCardId === null) return;
+    const idToPlay = _zoomedCardId;
     closeCardZoom();
-    playCardById(_zoomedCardId);
+    playCardById(idToPlay);
   });
 
   // Close on scrim click or Escape

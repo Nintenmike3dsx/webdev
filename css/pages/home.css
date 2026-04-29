@@ -9,13 +9,7 @@
   text-align: center;
   padding: var(--space-16) var(--space-6) var(--space-24);
 
-  /* Castle background — fixed so content scrolls over it */
-  background-color: var(--color-stone-dark); /* fallback while image loads */
-  background-image: url('../../img/ui/bg-home.png');
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed; /* parallax: image stays, content scrolls over */
-  background-repeat: no-repeat;
+  background-color: transparent;
 
   position: relative;
   /* No overflow:hidden so ::after gradient can extend cleanly */
@@ -43,14 +37,6 @@
 .home-hero > * {
   position: relative;
   z-index: 1;
-}
-
-/* Mobile: fixed-attachment is poorly supported on iOS, degrade gracefully */
-@media (max-width: 600px) {
-  .home-hero {
-    background-attachment: scroll;
-    background-position: center top;
-  }
 }
 
 /* ── Hero text ── */
