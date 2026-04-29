@@ -88,7 +88,7 @@
 <!-- Button for back to Home -->
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center">
-    <a class="btn btn-secondary" href="all_recipes.html">Back to Recipes</a>
+    <a class="btn btn-secondary" href="submission.html">Back to My Recipes</a>
 
     <button type="button" class="btn btn-secondary d-flex align-items-center gap-1" id="favoriteBtn"><i class="bi bi-heart"></i> Favorite</button>
   </div>
@@ -173,21 +173,14 @@
   function renderRecipe(recipe) {
 // Gets name
     document.getElementById('recipe-title').textContent = recipe.name;
+    recipe.imageDataUrl
+      document.getElementById('images-content').innerHTML =
+        `<img src="${recipe.imageDataUrl}" class="recipe-img">`;
 
-//Gets images
-    document.getElementById('images-content').innerHTML =
-      recipe.images.map(img => `<img src="dataset/images/${img}" class="recipe-img">`).join('');
+//If we add this in later change this
+    document.getElementById('box-details').style.display = 'none';
 
-//Gets recipe information
-    document.getElementById('details-content').innerHTML = `
-      <p><b>Category:</b> ${recipe.category}</p>
-      <p><b>Cuisine:</b> ${recipe.cuisine}</p>
-      <p><b>Season:</b> ${recipe.season}</p>
-      <p><b>Difficulty:</b> ${recipe.difficulty}</p>
-      <p><b>Prep Time:</b> ${recipe.prep_time}</p>
-      <p><b>Dietary:</b> ${recipe.dietary ? recipe.dietary.join(', ') : 'N/A'}</p>
-    `;
-//Formatting ingrediants
+//Formatting ingredients
     baseIngredients = recipe.ingredients;
     document.getElementById('serving-input').value = 1;
     document.getElementById('ingredients-content').innerHTML =
@@ -195,29 +188,15 @@
 //Formatting steps
     document.getElementById('steps-content').innerHTML =
       recipe.steps.map(s => `<li>${s}</li>`).join('');
-//Fetching the story from the separate .json file
-    fetch('dataset/recipes/All_recipe_stories.json')
-      .then(res => res.json())
-      .then(stories => {
-        const story = stories.find(s => s.id === recipe.id);
-        document.getElementById('storytext').textContent = story ? story.story : '';
-      });
+//Story 
+    document.getElementById('storytext').textContent = recipe.story || '';
   setupFavoriteButton(recipe);
   }
-  
-  const url = new URLSearchParams(window.location.search).get('id');
 
-  if (url) {
-    // Load recipe by ID thanks jonah :)
-    (async () => {
-      const recipes = await fetch('dataset/recipes/all_recipes.json').then(res => res.json());
-      const recipe = recipes.find(r => r.id == url);
-      if (recipe) {
-        localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
-        document.querySelector('.boxes-grid').classList.add('fade-in');
-        renderRecipe(recipe);
-      }
-    })();
+  const recipe = JSON.parse(localStorage.getItem('selectedRecipe') || 'null');
+  if (recipe) {
+    document.querySelector('.boxes-grid').classList.add('fade-in');
+    renderRecipe(recipe);
   }
 </script>
 

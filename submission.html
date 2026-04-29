@@ -4,15 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="theme.js"></script>
-    <style>
-      [main-theme="dark"] .container { color: white; }
-    </style>
     <script defer src="js/bootstrap.bundle.min.js"></script>
-    <title>About - Comany Secrets</title>
+    <script defer src="recipes.js"></script>
+    <title>Submissions - Company Secrets</title>
 </head>
 
-<body class="text-center">
+<body>
 
 <div class="d-flex align-items-center position-relative header-bar">
   <a href="index.html" class="logo-click"><img src="logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
@@ -34,9 +33,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
-        </li>
+        
       </ul>
 
   <div class="btn-group">
@@ -73,22 +70,77 @@
   </div>
 </nav>
 
-<div class="container py-4">
-
-  <img src="TV_Logo.png" alt="TV Logo" class="img-fluid mb-4" style="max-height: 200px;">
-
-  <h2><b>About the Show</b></h2>
-  <p><b>Scavenge & Simmer</b> is a survival cooking competition unlike anything on television. Inspired by the chaos and terror of <em>Lethal Company</em>, contestants are dropped into dangerous, monster-infested maps with one mission: find the ingredients and cook before you become something's dinner.</p>
-  <p>Each episode sends a new group of contestants into an abandoned facility or alien landscape filled with deadly creatures lurking in every shadow. Their goal? Scavenge the map for fresh ingredients, exotic spices, and rare finds — all while staying alive. The catch: the monsters never sleep, and the clock is always ticking.</p>
-  <p>Contestants must balance speed and stealth as they hunt for ingredients. Make too much noise opening a cabinet and you might attract something you really don't want to meet. Find the perfect haul and you'll earn the chance to cook a masterpiece back at base. Get caught empty-handed — or worse, get caught at all — and you're going home.</p>
-  <p>Part cooking show. Part survival horror. All chaos. <b>Scavenge & Simmer</b> — where every meal could be your last.</p>
-
-  <img src="TV_I_Want.png" alt="TV" class="img-fluid" style="max-height: 350px;">
-
+<div class="container-fluid px-4 py-4">
+  <h2 class="text-center mb-4 text-white">Submitted Recipes</h2>
+  <!-- uses a different id than #recipe-grid so recipes.js doesn't overwrite it -->
+  <div class="row" id="submitted-grid"></div>
 </div>
+
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
     <a href="https://github.com/Nintenmike3dsx/webdev/tree/clientFinal" class="btn btn-outline-light btn-sm" style="color: white;" target="_blank">Visit Github</a>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('submitted-grid');
+  const recipes = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+
+  if (recipes.length === 0) {
+    grid.innerHTML = '<p class="text-center w-100 mt-4 text-white"><b>No recipes submitted yet. <a href="index.html">Submit one!</a></b></p>';
+    return;
+  }
+
+  recipes.forEach(recipe => {
+    const col = document.createElement('div');
+    col.className = 'col-6 col-md-3 mb-4 fade-in';
+    const favorited = isFavorite(recipe.id);
+
+    // Same card structure as recipes.js — image falls back to a placeholder div if none was uploaded
+    const imgHtml = recipe.imageDataUrl
+      ? `<img src="${recipe.imageDataUrl}" class="card-img-top" style="height:180px;object-fit:cover;">`
+      : `<div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height:180px;"><span class="text-white">No Image</span></div>`;
+
+    col.innerHTML = `
+      <div class="card h-100" style="cursor:pointer;">
+        <div style="position:relative;">
+          ${imgHtml}
+          <button class="heart-btn" data-id="${recipe.id}" style="position:absolute;top:6px;right:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
+            <span class="material-icons" style="font-size:26px;color:${favorited ? '#e74c3c' : 'rgba(255,255,255,0.8)'};text-shadow:0 1px 3px rgba(0,0,0,0.6);">${favorited ? 'favorite' : 'favorite_border'}</span>
+          </button>
+        </div>
+        <div class="card-body bg-dark text-white">
+          <h6 class="card-title fw-bold text-center">${recipe.name}</h6>
+        </div>
+      </div>`;
+
+    col.addEventListener('click', () => {
+      localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
+      window.location.href = 'submission_display.html';
+    });
+
+    col.querySelector('.heart-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const icon = e.currentTarget.querySelector('.material-icons');
+      if (isFavorite(recipe.id)) {
+        removeFromFavorites(recipe.id);
+        icon.textContent = 'favorite_border';
+        icon.style.color = 'rgba(255,255,255,0.8)';
+        showFavoriteToast(`${recipe.name} removed from favorites`);
+      } else {
+        addToFavorites(recipe);
+        icon.textContent = 'favorite';
+        icon.style.color = '#e74c3c';
+        showFavoriteToast(`${recipe.name} added to favorites`);
+      }
+      icon.classList.remove('heart-pop');
+      void icon.offsetWidth;
+      icon.classList.add('heart-pop');
+    });
+
+    grid.appendChild(col);
+  });
+});
+</script>
 
 </body>
 </html>

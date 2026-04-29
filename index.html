@@ -53,6 +53,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
+        </li>
       </ul>
 
   <div class="btn-group">
@@ -160,6 +163,11 @@
       </div>
 
       <div class="mb-3">
+        <label for="submit-story" class="form-label fw-bold">Recipe Story</label>
+        <textarea class="form-control" id="submit-story" rows="4"></textarea>
+      </div>
+
+      <div class="mb-3">
         <label for="submit-image" class="form-label fw-bold">Recipe Image <span class="text-muted fw-normal"></span></label>
         <input type="file" class="form-control" id="submit-image" accept="image/*">
         <div id="image-preview-wrap" class="mt-2 d-none">
@@ -184,6 +192,65 @@
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
     <a href="https://github.com/Nintenmike3dsx/webdev/tree/clientFinal" class="btn btn-outline-light btn-sm" style="color: white;" target="_blank">Visit Github</a>
 </footer>
+
+<script>
+  // Image file preview
+  document.getElementById('submit-image').addEventListener('change', function() {
+    const file = this.files[0];
+    const wrap = document.getElementById('image-preview-wrap');
+    const preview = document.getElementById('image-preview');
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = e => { preview.src = e.target.result; wrap.classList.remove('d-none'); };
+      reader.readAsDataURL(file);
+    } else {
+      wrap.classList.add('d-none');
+    }
+  });
+
+  // Form submission — saves to localStorage and redirects to submission.html
+  document.getElementById('recipe-submit-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nameEl = document.getElementById('submit-name');
+    const ingredientsEl = document.getElementById('submit-ingredients');
+    const stepsEl = document.getElementById('submit-steps');
+
+    let valid = true;
+    [nameEl, ingredientsEl, stepsEl].forEach(el => {
+      if (!el.value.trim()) { el.classList.add('is-invalid'); valid = false; }
+      else el.classList.remove('is-invalid');
+    });
+    if (!valid) return;
+
+    const ingredients = ingredientsEl.value.trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const steps = stepsEl.value.trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const story = document.getElementById('submit-story').value.trim();
+    const imageFile = document.getElementById('submit-image').files[0];
+
+    function saveAndRedirect(imageDataUrl) {
+      const recipe = {
+        id: 'submitted-' + Date.now(),
+        name: nameEl.value.trim(),
+        ingredients,
+        steps,
+        story,
+        imageDataUrl: imageDataUrl || ''
+      };
+      const existing = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+      existing.push(recipe);
+      localStorage.setItem('submittedRecipes', JSON.stringify(existing));
+      window.location.href = 'submission.html';
+    }
+
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onload = e => saveAndRedirect(e.target.result);
+      reader.readAsDataURL(imageFile);
+    } else {
+      saveAndRedirect('');
+    }
+  });
+</script>
 
 </body>
 </html>
