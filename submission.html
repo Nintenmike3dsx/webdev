@@ -107,6 +107,9 @@ document.addEventListener('DOMContentLoaded', () => {
           <button class="heart-btn" data-id="${recipe.id}" style="position:absolute;top:6px;right:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
             <span class="material-icons" style="font-size:26px;color:${favorited ? '#e74c3c' : 'rgba(255,255,255,0.8)'};text-shadow:0 1px 3px rgba(0,0,0,0.6);">${favorited ? 'favorite' : 'favorite_border'}</span>
           </button>
+          <button class="delete-btn" data-id="${recipe.id}" style="position:absolute;top:6px;left:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
+            <span class="material-icons" style="font-size:26px;color:rgba(255,255,255,0.8);text-shadow:0 1px 3px rgba(0,0,0,0.6);">delete</span>
+          </button>
         </div>
         <div class="card-body bg-dark text-white">
           <h6 class="card-title fw-bold text-center">${recipe.name}</h6>
@@ -116,6 +119,13 @@ document.addEventListener('DOMContentLoaded', () => {
     col.addEventListener('click', () => {
       localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
       window.location.href = 'submission_display.html';
+    });
+
+    col.querySelector('.delete-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const all = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+      localStorage.setItem('submittedRecipes', JSON.stringify(all.filter(r => r.id !== recipe.id)));
+      col.remove();
     });
 
     col.querySelector('.heart-btn').addEventListener('click', e => {
