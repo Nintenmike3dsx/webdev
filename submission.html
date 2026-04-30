@@ -104,8 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="card h-100" style="cursor:pointer;">
         <div style="position:relative;">
           ${imgHtml}
-          <button class="heart-btn" data-id="${recipe.id}" style="position:absolute;top:6px;right:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
-            <span class="material-icons" style="font-size:26px;color:${favorited ? '#e74c3c' : 'rgba(255,255,255,0.8)'};text-shadow:0 1px 3px rgba(0,0,0,0.6);">${favorited ? 'favorite' : 'favorite_border'}</span>
           </button>
           <button class="delete-btn" data-id="${recipe.id}" style="position:absolute;top:6px;left:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
             <span class="material-icons" style="font-size:26px;color:rgba(255,255,255,0.8);text-shadow:0 1px 3px rgba(0,0,0,0.6);">delete</span>
@@ -127,26 +125,6 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('submittedRecipes', JSON.stringify(all.filter(r => r.id !== recipe.id)));
       col.remove();
     });
-
-    col.querySelector('.heart-btn').addEventListener('click', e => {
-      e.stopPropagation();
-      const icon = e.currentTarget.querySelector('.material-icons');
-      if (isFavorite(recipe.id)) {
-        removeFromFavorites(recipe.id);
-        icon.textContent = 'favorite_border';
-        icon.style.color = 'rgba(255,255,255,0.8)';
-        showFavoriteToast(`${recipe.name} removed from favorites`);
-      } else {
-        addToFavorites(recipe);
-        icon.textContent = 'favorite';
-        icon.style.color = '#e74c3c';
-        showFavoriteToast(`${recipe.name} added to favorites`);
-      }
-      icon.classList.remove('heart-pop');
-      void icon.offsetWidth;
-      icon.classList.add('heart-pop');
-    });
-
     grid.appendChild(col);
   });
 });

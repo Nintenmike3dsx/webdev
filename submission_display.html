@@ -89,8 +89,6 @@
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center">
     <a class="btn btn-secondary" href="submission.html">Back to My Recipes</a>
-
-    <button type="button" class="btn btn-secondary d-flex align-items-center gap-1" id="favoriteBtn"><i class="bi bi-heart"></i> Favorite</button>
   </div>
   <!-- <button type="button" class="btn btn-secondary" onclick="shareOnInsta()">Share on Instagram</button> -->
   
@@ -198,60 +196,6 @@
     document.querySelector('.boxes-grid').classList.add('fade-in');
     renderRecipe(recipe);
   }
-</script>
-
-<script>
-const favBtn = document.getElementById("favoriteBtn");
-
-//Pop up function
-function showFavoriteToast(message) {
-  const toastEl = document.getElementById("favoriteToast");
-  const toastBody = document.getElementById("favoriteToastBody");
-
-  toastBody.textContent = message;
-
-  const toast = bootstrap.Toast.getOrCreateInstance(toastEl, {
-    autohide: true,
-    delay: 2500
-  });
-
-  toast.show();
-}
-
-//Favorite
-function setupFavoriteButton(recipe) {
-  if (!favBtn) return;
-
-  function setFavorited() {
-    favBtn.querySelector("i").classList.remove("bi-heart");
-    favBtn.querySelector("i").classList.add("bi-heart-fill");
-    favBtn.classList.remove("btn-secondary");
-    favBtn.classList.add("btn-danger");
-  }
-
-  function setUnfavorited() {
-    favBtn.querySelector("i").classList.remove("bi-heart-fill");
-    favBtn.querySelector("i").classList.add("bi-heart");
-    favBtn.classList.remove("btn-danger");
-    favBtn.classList.add("btn-secondary");
-  }
-
-  if (isFavorite(recipe.id)) {
-    setFavorited();
-  }
-
-  favBtn.addEventListener("click", () => {
-    if (isFavorite(recipe.id)) {
-      removeFromFavorites(recipe.id);
-      setUnfavorited();
-      showFavoriteToast(`${recipe.name} removed from favorites`);
-    } else {
-      addToFavorites(recipe);
-      setFavorited();
-      showFavoriteToast(`${recipe.name} added to favorites`);
-    }
-  });
-}
 </script>
 
 <div class="d-flex justify-content-center align-items-center gap-4 my-3">
