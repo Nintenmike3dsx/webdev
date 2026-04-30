@@ -186,9 +186,8 @@
 //Formatting steps
     document.getElementById('steps-content').innerHTML =
       recipe.steps.map(s => `<li>${s}</li>`).join('');
-//Story 
+//Story
     document.getElementById('storytext').textContent = recipe.story || '';
-  setupFavoriteButton(recipe);
   }
 
   const recipe = JSON.parse(localStorage.getItem('selectedRecipe') || 'null');
