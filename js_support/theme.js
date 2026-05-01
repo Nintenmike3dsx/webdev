@@ -1,6 +1,6 @@
 (function () {
   var stored = localStorage.getItem("theme");
-  var theme = stored !== null ? stored : "dark";
+  var theme = stored !== null ? stored : "light";
   document.documentElement.setAttribute("main-theme", theme);
 })();
 

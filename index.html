@@ -1,3 +1,4 @@
+<!-- Starting Garbage -->
 <html lang="en" main-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -5,17 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme.css">
-    <script src="theme.js"></script>
+    <script src="js_support/theme.js"></script>
     <style>
       [main-theme="dark"] .container { color: white; }
     </style>
     <script defer src="js/bootstrap.bundle.min.js"></script>
-    <!-- Taking out for index <script defer src="recipes.js"></script> -->
+    <!-- Taking out for index <script defer src="js_support/recipes.js"></script> -->
     <title>Home - Company Secrets</title>
 </head>
 
 <body> <!-- Now using bootstrap -->
 
+
+<!-- Welcome Message, AI wrote the text in this --> 
 <dialog open>
     <h2>Welcome to Company Secrets</h2>
     <p>Home of the recipes from <b>Scavenge & Simmer</b> — the survival cooking competition where contestants are dropped into monster-infested maps with one mission: find the ingredients and cook before you become something's dinner.</p>
@@ -25,6 +28,8 @@
     </form>
 </dialog>
 
+
+<!-- Saves when user closes the dialog so it doesnt re-appear -->
 <script>
   const dialog = document.querySelector("dialog");
   if (localStorage.getItem("dialogDismissed")) {
@@ -33,11 +38,14 @@
   dialog.addEventListener("close", () => localStorage.setItem("dialogDismissed", "true"));
 </script>
 
-<div class="d-flex align-items-center position-relative header-bar">
-  <a href="index.html" class="logo-click"><img src="logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
-  <span class="h1 mb-0 position-absolute start-50 translate-middle-x text-white"><b>Company Secrets</b></span>
+<!-- Logo / Name -->
+<div class="d-flex align-items-center header-bar position-relative flex-column flex-md-row">
+  <a href="index.html" class="logo-click"><img src="images/logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
+  <span class="h1 mb-0 text-white header-title"><b>Company Secrets</b></span>
 </div>
 
+
+<!-- Nav Bar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -53,8 +61,13 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
+        </li>
       </ul>
 
+
+      <!-- Seasonal Sorting -->
   <div class="btn-group">
     <a href="all_recipes.html" class="btn btn-primary text-white">RECIPES</a>
     <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
@@ -76,6 +89,8 @@
         </ul>
   </div>
 
+
+  <!-- Theme Switcher -->
     <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="theme-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Dark Mode
@@ -89,6 +104,7 @@
   </div>
 </nav>
 
+<!-- Recipe of th Day Carousel-->
 <div class="container-sm text-center">
   <div class="row">
     <div class="col-sm-3 mx-auto">
@@ -133,12 +149,16 @@
 
 <hr>
 
+<!-- Welcome Message - AI wrote the text -->
+
 <div class="container my-4" style="max-width: 700px;">
   <p class="text-center">Welcome to <strong>Company Secrets</strong> — your home for every recipe born out of chaos on <em>Scavenge & Simmer</em>. From quick foraged snacks to full survival feasts, browse dishes cooked under pressure, catalogued by season, and ranked by the brave souls who made it out. Use the search bar below or jump straight into the recipe archive to find your next meal.</p>
   <div class="text-center">
     <a href="all_recipes.html" class="btn btn-warning text-white">All Recipes</a>
   </div>
 
+
+  <!-- Submission Form -->
   <div class="textbox mt-4">
     <h3><b>Recipe Submission Form</b></h3>
 
@@ -160,6 +180,11 @@
       </div>
 
       <div class="mb-3">
+        <label for="submit-story" class="form-label fw-bold">Recipe Story</label>
+        <textarea class="form-control" id="submit-story" rows="4"></textarea>
+      </div>
+
+      <div class="mb-3">
         <label for="submit-image" class="form-label fw-bold">Recipe Image <span class="text-muted fw-normal"></span></label>
         <input type="file" class="form-control" id="submit-image" accept="image/*">
         <div id="image-preview-wrap" class="mt-2 d-none">
@@ -175,6 +200,8 @@
   </div>
 </div>
 
+<!-- Footer -->
+
 <div class="container-fluid px-4 py-4" id="Recipes">
   <div class="row" id="recipe-grid">
     <div class="col-12 text-center py-5">
@@ -184,6 +211,65 @@
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
     <a href="https://github.com/Nintenmike3dsx/webdev/tree/clientFinal" class="btn btn-outline-light btn-sm" style="color: white;" target="_blank">Visit Github</a>
 </footer>
+
+<script>
+  // Image file preview
+  document.getElementById('submit-image').addEventListener('change', function() {
+    const file = this.files[0];
+    const wrap = document.getElementById('image-preview-wrap');
+    const preview = document.getElementById('image-preview');
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = e => { preview.src = e.target.result; wrap.classList.remove('d-none'); };
+      reader.readAsDataURL(file);
+    } else {
+      wrap.classList.add('d-none');
+    }
+  });
+
+  // Form submission - same system that recipe.js uses
+  document.getElementById('recipe-submit-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nameEl = document.getElementById('submit-name');
+    const ingredientsEl = document.getElementById('submit-ingredients');
+    const stepsEl = document.getElementById('submit-steps');
+
+    let valid = true;
+    [nameEl, ingredientsEl, stepsEl].forEach(el => {
+      if (!el.value.trim()) { el.classList.add('is-invalid'); valid = false; }
+      else el.classList.remove('is-invalid');
+    });
+    if (!valid) return;
+
+    const ingredients = ingredientsEl.value.trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const steps = stepsEl.value.trim().split('\n').map(l => l.trim()).filter(Boolean);
+    const story = document.getElementById('submit-story').value.trim();
+    const imageFile = document.getElementById('submit-image').files[0];
+
+    function saveAndRedirect(imageDataUrl) {
+      const recipe = {
+        id: 'submitted-' + Date.now(),
+        name: nameEl.value.trim(),
+        ingredients,
+        steps,
+        story,
+        imageDataUrl: imageDataUrl || ''
+      };
+      const existing = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+      existing.push(recipe);
+      localStorage.setItem('submittedRecipes', JSON.stringify(existing));
+      window.location.href = 'submission.html';
+    }
+
+    if (imageFile) {
+      const reader = new FileReader();
+      reader.onload = e => saveAndRedirect(e.target.result);
+      reader.readAsDataURL(imageFile);
+    } else {
+      saveAndRedirect('');
+    }
+  });
+</script>
 
 </body>
 </html>

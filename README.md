@@ -5,16 +5,18 @@ Test Plan Doc: https://docs.google.com/document/d/1P93zT3HQXQmgYx85dN1JsP0v0HizC
 
 Optional Features Selected: (We need 70 points total at least)
 Advanced Dynamic Search (10)
-Theme Switcher (10)
+Theme Switcher (10) - Done
 Dynamic Recipe Filter & Sorting (10)
-Recipe Sharing (15)
-Submission Form (10)
-Animation for Recipe Actions (10)
-Seasonal Recipes (5)
-Total: (70)
+Recipe Sharing (15) - Done
+Submission Form (10) - Done
+Animation for Recipe Actions (10) - Done
+Seasonal Recipes (5) - Done
+Serving Size Changer - Done
+Nano
 
 
-Michael: Worked on initial structure of page. Added all of the dataset linking code. Added text boxes for the recipes page based on what I made on my portfolio site. Added searching function along with search check. Added limiting function to not display all recipes at once. Added theme switching and recipe sharing
+
+Michael: Worked on initial structure of page. Added all of the dataset linking code. Added text boxes for the recipes page based on what I made on my portfolio site. Added searching function along with search check. Added limiting function to not display all recipes at once. Added theme switching and recipe sharing. Added submission form and animations.
 
 David: Worked on initial structure of the page. Edited key styling. Added favorites functionally. Added recipe filtering by season. Refactored home page and website layout.
 

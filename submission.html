@@ -4,33 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js_support/theme.js"></script>
     <script defer src="js/bootstrap.bundle.min.js"></script>
     <script defer src="js_support/recipes.js"></script>
-    <script defer src="js_support/sidepanel.js"></script>
-    <title>Home - Company Secrets</title>
+    <title>Submissions - Company Secrets</title>
 </head>
 
-<body> <!-- Now using bootstrap -->
-
-<dialog open>
-    <h2>Welcome to Company Secrets</h2>
-    <p>Home of the recipes from <b>Scavenge & Simmer</b> — the survival cooking competition where contestants are dropped into monster-infested maps with one mission: find the ingredients and cook before you become something's dinner.</p>
-    <p>Browse the dishes crafted under pressure, in the dark, with creatures lurking around every corner. Part cooking show. Part survival horror. All chaos.</p>
-    <form method="dialog">
-        <button class="btn btn-secondary">Enter the Kitchen...If You Dare</button>
-    </form>
-</dialog>
-
-<script>
-  const dialog = document.querySelector("dialog");
-  if (localStorage.getItem("dialogDismissed")) {
-    dialog.removeAttribute("open");
-  }
-  dialog.addEventListener("close", () => localStorage.setItem("dialogDismissed", "true"));
-</script>
+<body>
 
 <!-- Logo / Name -->
 <div class="d-flex align-items-center header-bar position-relative flex-column flex-md-row">
@@ -53,9 +34,7 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
-        </li>
+        
       </ul>
 
   <div class="btn-group">
@@ -90,72 +69,66 @@
         </ul>
       </div>
   </div>
-
-    <div class="search-bar">
-        <div class="input-group">
-            <form class="d-flex ms-auto" onsubmit="return false">
-              <input class="form-control me-1" type="search" placeholder="Search..." id="search-input">
-            </form>
-            <!-- <button class="side-panel-toggle" type="button">
-              <span class="material-icons sp-icon-open">keyboard_double_arrow_right</span>
-              <span class="material-icons sp-icon-close">keyboard_double_arrow_left</span>
-            </button> -->
-        </div>
-    </div>
 </nav>
 
-<!-- Working on side panel -->
-<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Recipe Filters</button>
-
-<div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
- <div class="offcanvas-header">
-    <h5>Filters</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-  </div>
-
-  <div class="offcanvas-body">
-
-    <div id="filter-groups"></div>
-
-    <button id="apply-filters" class="btn btn-primary w-100 mt-3">
-      Apply Filters
-    </button>
-
-    <button id="clear-filters" class="btn btn-outline-light w-100 mt-2">
-      Clear Filters
-    </button>
-
-  </div>
+<div class="container-fluid px-4 py-4">
+  <h2 class="text-center mb-4 text-white">Submitted Recipes</h2>
+  <!-- uses a different id than #recipe-grid so recipes.js doesn't overwrite it -->
+  <div class="row" id="submitted-grid"></div>
 </div>
-
-<!-- RECIPES GRID -->
-  cha<div class="container-fluid px-4 py-4" id="Recipes">
-    <div class="row" id="recipe-grid"></div>
-  </div>
-</div>
-
-<div class="wrapper">
-  <div class="main">
-    <div class="container-fluid px-4 py-4" id="Recipes">
-      <div class="row" id="recipe-grid">
-        <div class="col-12 text-center py-5"></div>
-      </div>
-    </div>
-  </div>
-  <!-- <div class="side-panel">
-    This is the side panel filter content
-  </div> -->
-</div>
-
-<!-- <script>
-  document.querySelector(".side-panel-toggle").addEventListener("click", () => {
-    document.querySelector(".wrapper").classList.toggle("side-panel-open");
-  });
-</script> -->
 
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
     <a href="https://github.com/Nintenmike3dsx/webdev/tree/clientFinal" class="btn btn-outline-light btn-sm" style="color: white;" target="_blank">Visit Github</a>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.getElementById('submitted-grid');
+  const recipes = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+
+  if (recipes.length === 0) {
+    grid.innerHTML = '<p class="text-center w-100 mt-4 text-white"><b>No recipes submitted yet. <a href="index.html">Submit one!</a></b></p>';
+    return;
+  }
+
+  recipes.forEach(recipe => {
+    const col = document.createElement('div');
+    col.className = 'col-6 col-md-3 mb-4 fade-in';
+    const favorited = isFavorite(recipe.id);
+
+    // Same card structure as recipes.js — image falls back to a placeholder div if none was uploaded
+    const imgHtml = recipe.imageDataUrl
+      ? `<img src="${recipe.imageDataUrl}" class="card-img-top" style="height:180px;object-fit:cover;">`
+      : `<div class="card-img-top bg-secondary d-flex align-items-center justify-content-center" style="height:180px;"><span class="text-white">No Image</span></div>`;
+
+    col.innerHTML = `
+      <div class="card h-100" style="cursor:pointer;">
+        <div style="position:relative;">
+          ${imgHtml}
+          </button>
+          <button class="delete-btn" data-id="${recipe.id}" style="position:absolute;top:6px;left:8px;background:none;border:none;padding:0;cursor:pointer;line-height:1;">
+            <span class="material-icons" style="font-size:26px;color:rgba(255,255,255,0.8);text-shadow:0 1px 3px rgba(0,0,0,0.6);">delete</span>
+          </button>
+        </div>
+        <div class="card-body bg-dark text-white">
+          <h6 class="card-title fw-bold text-center">${recipe.name}</h6>
+        </div>
+      </div>`;
+
+    col.addEventListener('click', () => {
+      localStorage.setItem('selectedRecipe', JSON.stringify(recipe));
+      window.location.href = 'submission_display.html';
+    });
+
+    col.querySelector('.delete-btn').addEventListener('click', e => {
+      e.stopPropagation();
+      const all = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
+      localStorage.setItem('submittedRecipes', JSON.stringify(all.filter(r => r.id !== recipe.id)));
+      col.remove();
+    });
+    grid.appendChild(col);
+  });
+});
+</script>
 </body>
 </html>

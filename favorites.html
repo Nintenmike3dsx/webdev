@@ -4,21 +4,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme.css">
-    <script src="theme.js"></script>
+    <script src="js_support/theme.js"></script>
     <style>
       [main-theme="dark"] .container { color: white; }
     </style>
     <script defer src="js/bootstrap.bundle.min.js"></script>
-    <script defer src="recipes.js"></script>
-    <script defer src="favorites.js"></script>
+    <script defer src="js_support/recipes.js"></script>
+    <script defer src="js_support/favorites.js"></script>
     <title>Favorites - Company Secrets</title>
 </head>
 
 <body> <!-- Now using bootstrap -->
 
-<div class="d-flex align-items-center position-relative header-bar">
-  <a href="index.html" class="logo-click"><img src="logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
-  <span class="h1 mb-0 position-absolute start-50 translate-middle-x text-white"><b>Company Secrets</b></span>
+<!-- Logo / Name -->
+<div class="d-flex align-items-center header-bar position-relative flex-column flex-md-row">
+  <a href="index.html" class="logo-click"><img src="images/logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
+  <span class="h1 mb-0 text-white header-title"><b>Company Secrets</b></span>
 </div>
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
@@ -35,6 +36,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
         </li>
       </ul>
 

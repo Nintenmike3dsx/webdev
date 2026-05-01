@@ -12316,4 +12316,17 @@ dialog {
 }
 
 
+.header-title {
+  text-align: center;
+}
+
+@media (min-width: 800px) {
+  .header-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+  }
+}
+
 /*# sourceMappingURL=custom.css.map */

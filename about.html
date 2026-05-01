@@ -1,10 +1,11 @@
+<!-- Starting Garbage -->
 <html lang="en" main-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/theme.css">
-    <script src="theme.js"></script>
+    <script src="js_support/theme.js"></script>
     <style>
       [main-theme="dark"] .container { color: white; }
     </style>
@@ -14,10 +15,14 @@
 
 <body class="text-center">
 
-<div class="d-flex align-items-center position-relative header-bar">
-  <a href="index.html" class="logo-click"><img src="logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
-  <span class="h1 mb-0 position-absolute start-50 translate-middle-x text-white"><b>Company Secrets</b></span>
+
+<!-- Logo / Name -->
+<div class="d-flex align-items-center header-bar position-relative flex-column flex-md-row">
+  <a href="index.html" class="logo-click"><img src="images/logo.png" alt="Logo" class="img-fluid me-2" style="height: 100px;"></a>
+  <span class="h1 mb-0 text-white header-title"><b>Company Secrets</b></span>
 </div>
+
+<!-- Nav Bar -->
 
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,6 +38,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="favorites.html">FAVORITES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="submission.html">MY RECIPES</a>
         </li>
       </ul>
 
@@ -70,9 +78,11 @@
   </div>
 </nav>
 
+<!-- About the Show Text - AI wrote this text -->
+
 <div class="container py-4">
 
-  <img src="TV_Logo.png" alt="TV Logo" class="img-fluid mb-4" style="max-height: 200px;">
+  <img src="images/TV_Logo.png" alt="TV Logo" class="img-fluid mb-4" style="max-height: 200px;">
 
   <h2><b>About the Show</b></h2>
   <p><b>Scavenge & Simmer</b> is a survival cooking competition unlike anything on television. Inspired by the chaos and terror of <em>Lethal Company</em>, contestants are dropped into dangerous, monster-infested maps with one mission: find the ingredients and cook before you become something's dinner.</p>
@@ -80,7 +90,7 @@
   <p>Contestants must balance speed and stealth as they hunt for ingredients. Make too much noise opening a cabinet and you might attract something you really don't want to meet. Find the perfect haul and you'll earn the chance to cook a masterpiece back at base. Get caught empty-handed — or worse, get caught at all — and you're going home.</p>
   <p>Part cooking show. Part survival horror. All chaos. <b>Scavenge & Simmer</b> — where every meal could be your last.</p>
 
-  <img src="TV_I_Want.png" alt="TV" class="img-fluid" style="max-height: 350px;">
+  <img src="images/TV_I_Want.png" alt="TV" class="img-fluid" style="max-height: 350px;">
 
 </div>
 <footer class="d-flex justify-content-center align-items-center py-2 header-bar">
