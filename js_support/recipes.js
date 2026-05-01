@@ -173,47 +173,47 @@ function showFavoriteToast(message) {
 
   toast.show();
 }
+
 function renderFeaturedCarousel() {
-    if (!allRecipes || allRecipes.length === 0) return;
+  if (!allRecipes || allRecipes.length === 0) return;
 
-    const d = new Date();
-    let index = ((d.getDate() + d.getMonth()) * d.getFullYear()) % allRecipes.length;
-    const recipe = allRecipes[index];
+  const d = new Date();
+  let index = ((d.getDate() + d.getMonth()) * d.getFullYear()) % allRecipes.length;
+  const recipe = allRecipes[index];
 
-    const carouselInner = document.getElementById("featured-carousel-inner");
-    if (!carouselInner) return;
+  const carouselInner = document.getElementById("featured-carousel-inner");
+  if (!carouselInner) return;
 
-    // If no images, don't crash
-    const images = recipe.images && recipe.images.length > 0
-        ? recipe.images
-        : ["placeholder.jpg"];
+  const images = recipe.images && recipe.images.length > 0
+    ? recipe.images
+    : ["placeholder.jpg"];
 
-    carouselInner.innerHTML = images.map((img, i) => `
-        <div class="carousel-item ${i === 0 ? "active" : ""}">
-            <img src="dataset/images/${img}" class="d-block w-100" alt="${recipe.name}">
-        </div>
+  carouselInner.innerHTML = images.map((img, i) => `
+    <div class="carousel-item ${i === 0 ? "active" : ""}">
+      <img src="dataset/images/${img}" class="d-block w-100" alt="${recipe.name}">
+    </div>
+  `).join("");
+
+  const indicators = document.querySelector("#carouselIndicators .carousel-indicators");
+  if (indicators) {
+    indicators.innerHTML = images.map((_, i) => `
+      <button type="button"
+        data-bs-target="#carouselIndicators"
+        data-bs-slide-to="${i}"
+        class="${i === 0 ? "active" : ""}"
+        ${i === 0 ? 'aria-current="true"' : ""}
+        aria-label="Slide ${i + 1}">
+      </button>
     `).join("");
+  }
 
-    const indicators = document.querySelector("#carouselIndicators .carousel-indicators");
-    if (indicators) {
-        indicators.innerHTML = images.map((_, i) => `
-            <button type="button"
-                data-bs-target="#carouselIndicators"
-                data-bs-slide-to="${i}"
-                class="${i === 0 ? "active" : ""}"
-                ${i === 0 ? 'aria-current="true"' : ""}
-                aria-label="Slide ${i + 1}">
-            </button>
-        `).join("");
-    }
+  const nameEl = document.getElementById("recipe-of-the-day-name");
+  if (nameEl) nameEl.innerHTML = `<a href="recipe.html?id=${recipe.id}">${recipe.name}</a>`;
 
-    const nameEl = document.getElementById("recipe-of-the-day-name");
-    if (nameEl) nameEl.innerHTML = `<a href="recipe.html?id=${recipe.id}">${recipe.name}</a>`;
-
-    const carouselEl = document.getElementById("carouselIndicators");
-    if (carouselEl && window.bootstrap) {
-        const existing = bootstrap.Carousel.getInstance(carouselEl);
-        if (existing) existing.dispose();
-        new bootstrap.Carousel(carouselEl, { interval: 4000, ride: true });
-    }
+  const carouselEl = document.getElementById("carouselIndicators");
+  if (carouselEl && window.bootstrap) {
+    const existing = bootstrap.Carousel.getInstance(carouselEl);
+    if (existing) existing.dispose();
+    new bootstrap.Carousel(carouselEl, { interval: 4000, ride: true });
+  }
 }
