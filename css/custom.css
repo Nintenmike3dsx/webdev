@@ -12308,6 +12308,8 @@ dialog {
 
 .logo-click:hover {
   transform: scale(1.2);
+  background-color: transparent !important;
+  color: white !important;
 }
 
 .logo-click:active {
