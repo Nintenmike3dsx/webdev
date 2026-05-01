@@ -4,10 +4,16 @@ Test Plan Doc: https://docs.google.com/document/d/1P93zT3HQXQmgYx85dN1JsP0v0HizC
 
 Michael: Worked on initial structure of page. Added all of the dataset linking code. Added text boxes for the recipes page based on what I made on my portfolio site. Added basic searching function along with search check. Added limiting function to not display all recipes at once. Added theme switching and recipe sharing. Added submission form and animations.
 
-David: Worked on initial structure of the page. Edited key styling. Added favorites functionally. Added recipe filtering by season. Refactored home page and website layout.
+David: Worked on initial structure of the page. Edited key styling. Added favorites functionally. Added recipe filtering by season. Refactored home page and website layout. Many small theme changes. Main features worked on: Recipe of the day, Seasonal recipes, offcanvas side panel, side panel filters. 
 
-AI: AI was used to generate all images / logos for the webpage. Including logo, recipe pictures, etc. AI was used to create the text about the webpage/show in about.html and index.html. Comments are present were AI was used.
-AI was used to help debug the favorites page and functionality. AI was used to help debug text issues with the dropdown menus. AI was used to help create scripts to fix the dataset issues: removing references to images that didnt exist, and added missing recipes from the season json files. AI was used to find errors in the dataset, for example what recipes refernces pictures that didnt exist, or pictures that did exist but were not referenced by a recipe
+AI: AI was used to generate all images / logos for the webpage. Including logo, recipe pictures, etc. 
+-AI was used to create the text about the webpage/show in about.html and index.html. Comments are present were AI was used.
+-AI was used to help debug the favorites page and functionality. 
+-AI was used to help debug text issues with the dropdown menus. 
+-AI was used to help create scripts to fix the dataset issues: removing references to images that didnt exist, and added missing recipes from the season json files. 
+-AI was used to find errors in the dataset, for example what recipes refernces pictures that didnt exist, or pictures that did exist but were not referenced by a recipe
+-AI was used to help debug the off canvas filter in html and in js.
+-AI was used to help debug the recipe of the day not showing up on different days.
 
 Sources:
 
@@ -18,7 +24,6 @@ https://www.experts-exchange.com/questions/29267942/amend-this-jQuery-code-to-al
 https://teamtreehouse.com/community/how-do-i-make-my-favorites-button-show-a-heart-emoji-above-my-recipetitle-with-localstorage-when-it-is-clicked
 
 https://dev.to/larainnepasion/make-a-beating-heart-using-css-beginner-friendly-tutorial-25ff#:~:text=Bring%20the%20.,it%2050px%20from%20the%20left.&text=Time%20for%20the%20fun%20part,t%20tilt%20during%20the%20animation.&text=The%20last%20thing%20we%20need,give%20it%20an%20infinite%20loop.&text=This%20Pen%20is%20owned%20by%20La%20Rainne%20Pasion%20on%20CodePen.
-
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
 
@@ -83,6 +88,14 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 https://developer.mozilla.org/en-US/docs/Web/API/Window/open
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+https://www.commcarehq.org/styleguide/b5/molecules/searching/
+
+https://mdbootstrap.com/docs/standard/extended/sidebar/
+
+https://bootstrapexamples.com/@mason/interactive-shop-catalog-layout
+
+https://getbootstrap.com/docs/5.3/forms/checks-radios/#without-labels
 
 
 
