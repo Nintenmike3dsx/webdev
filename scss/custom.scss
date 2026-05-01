@@ -31,86 +31,7 @@ $border-radius:    8px;
   text-decoration: underline;
 }
 
-/* Grid Layouts
-.grid-container-introduction {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 10px 75px;
-  gap: 1em;
-}*/
-
-.item-introduction {
-  height: 300px;
-  padding: 2rem;
-  background-color: rgb(138, 36, 36);
-  color: black;
-  text-align: center;
-  border-radius: 8px;
-  font-size: 1.5rem;
-}
-.grid-container-review {
-  display: grid;
-  grid-template-columns: 1fr;
-  margin: 10px 75px;
-  gap: 1em;
-}
-.item-steam-review {
-  height: 650px;
-  padding: .75rem;
-  background-color: rgb(236, 124, 44);
-  color: black;
-  text-align: left;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.item-gameplay {
-  height: 1000px;
-  padding: .75rem;
-  background-color: rgb(208, 88, 33);
-  color: black;
-  text-align: left;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.item-monsters {
-  height: 200px;
-  padding: .75rem;
-  background-color: rgb(178, 49, 23);
-  color: black;
-  text-align: left;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.item-moons {
-  height: 300px;
-  padding: .75rem;
-  background-color: rgb(167, 42, 28);
-  color: black;
-  text-align: left;
-  border-radius: 8px;
-  font-size: 1rem;
-}
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
 // Headings
-h1.title {
-  background-color: rgba(130, 1, 1, .50);
-  text-align: center;
-  padding: 50px 0;
-  font-family: 'Montserrat';
-  width: auto;
-  height: auto;
-}
-/*h2 {
-  background-color: rgb(192, 192, 192);
-  text-align: center;
-  letter-spacing: 2px;
-  font-family: 'Montserrat';
-}*/
 h3 {
   padding: .75rem;
   background-color: rgb(157, 107, 107);
@@ -121,74 +42,7 @@ h3 {
   font-family: 'Montserrat';
 }
 
-// Banner
-div.lethalbanner {
-  margin: 0;
-  background-color: rgb(110, 28, 28);
-  width: auto;
-  height: auto;
-}
-
-// Typography
-p.impact {
-  font-family: 'Franklin Gothic Medium';
-  line-height: 1.2;
-  text-align: justify;
-}
-p.arial {
-  font-family: Helvetica;
-  line-height: 0.9;
-  text-align: justify;
-}
-
-// Div classes
-div.arial {
-  width: auto;
-  background-color: rgb(181, 94, 94);
-  color: rgb(255, 255, 255);
-  line-height: 20px;
-  padding: 10px;
-  margin: 10px 50px;
-}
-div.impact {
-  width: auto;
-  background-color: rgb(181, 94, 94);
-  color: rgb(255, 255, 255);
-  line-height: 25%;
-  padding: 10px;
-  margin: 20px 50px;
-}
-div.boxed {
-  padding: 5px;
-  border: 1px solid rgb(0, 0, 0);
-}
-div.fiftyPx {
-  height: 50px;
-  margin: 20px 0;
-}
-
 // Navigation
-div.Nav {
-  margin: 0;
-  padding: 2px;
-  background-image: url("LCHiDef.jpg");
-  width: auto;
-  height: auto;
-}
-nav.Navbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  padding: 2px 0;
-  margin: 0;
-  background-color: rgb(127, 0, 0);
-  text-align: center;
-  word-spacing: 5px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
 nav a {
   background-color: rgb(166, 133, 133);
   border: none;
@@ -210,7 +64,6 @@ nav a:hover {
 a:link    { color: rgb(197, 29, 29); }
 a:visited { color: rgb(93, 11, 56); }
 a:hover   { color: rgb(255, 255, 255); }
-a.direction { font-family: sans-serif; }
 
 // Buttons
 button {
@@ -225,69 +78,13 @@ button {
   cursor: pointer;
 }
 
-// Images
-img.banner {
-  display: block;
-  margin: 0 200px;
-  width: 1000px;
-  height: auto;
-}
-img.pc {
-  display: block;
-  margin: auto;
-  width: 700px;
-  height: auto;
-}
-figcaption {
-  color: #666;
-  font-style: italic;
-  text-align: center;
-  margin-top: 8px;
-  margin-bottom: 20px;
-  padding: 5px 10px;
-  border-left: 3px solid #aa0404;
-  display: inline-block;
-}
-
-// Footer & Misc
+// Footer
 footer {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 0.9;
   text-align: justify;
 }
-div.end-box {
-  border: 2px solid #ccc;
-  border-top: 8px solid #4c99af;
-  padding: 15px;
-  margin: 20px;
-  background: #fff;
-}
 
-// Gallery
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-.shotbox {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-  border: 3px solid #000000;
-  border-radius: 8px;
-  transition: filter 0.3s ease;
-}
-.shotbox:hover {
-  filter: grayscale(100%);
-}
-.videobox {
-  border: 3px solid #333;
-  border-radius: 10px;
-  max-width: 800px;
-  margin: 20px auto;
-  background: black;
-}
 // Recipe page
 .textbox {
   background-color: white;
@@ -313,15 +110,5 @@ div.end-box {
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-  }
-}
-
-.recipe-header {
-  margin-bottom: 10px;
-
-  img {
-    height: 160px;
-    border-radius: 8px;
-    object-fit: cover;
   }
 }

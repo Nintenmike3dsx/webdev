@@ -61,6 +61,10 @@ body {
   color: var(--title-color);
 }
 
+#submitrecipe{
+color: var(--title-color);
+}
+
 .form-label {
   color: var(--form-label-color) !important;
 }

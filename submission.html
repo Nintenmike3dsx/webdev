@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="css/theme.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="js_support/theme.js"></script>
+    <style>
+      [main-theme="dark"] .container { color: white; }
+    </style>
     <script defer src="js/bootstrap.bundle.min.js"></script>
     <script defer src="js_support/recipes.js"></script>
     <title>Submissions - Company Secrets</title>
@@ -72,7 +75,7 @@
 </nav>
 
 <div class="container-fluid px-4 py-4">
-  <h2 class="text-center mb-4 text-white">Submitted Recipes</h2>
+  <h2 id="submitrecipe" class="text-center mb-4">Submitted Recipes</h2>
   <!-- uses a different id than #recipe-grid so recipes.js doesn't overwrite it -->
   <div class="row" id="submitted-grid"></div>
 </div>
@@ -87,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const recipes = JSON.parse(localStorage.getItem('submittedRecipes') || '[]');
 
   if (recipes.length === 0) {
-    grid.innerHTML = '<p class="text-center w-100 mt-4 text-white"><b>No recipes submitted yet. <a href="index.html">Submit one!</a></b></p>';
+    grid.innerHTML = '<p id="submitrecipe" class="text-center w-100 mt-4"> <b> No recipes submitted yet. <a href="index.html">Submit one!</a></b></p>';
     return;
   }
 
