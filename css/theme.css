@@ -3,7 +3,7 @@
   --bs-body-bg: rgb(137, 0, 0);
   --bs-body-color: #212529;
   --title-color: white;
-  --form-label-color: black;
+  --form-label-color: white;
   --form-control-bg: #2b2b2b;
   --form-control-color: white;
   --form-control-border: #555;
@@ -73,13 +73,24 @@ color: var(--title-color);
 .form-select,
 textarea.form-control,
 input.form-control {
-  background-color: var(--form-control-bg);
-  color: var(--form-control-color);
-  border-color: var(--form-control-border);
+  background-color: var(--form-control-bg) !important;
+  color: var(--form-control-color) !important;
+  border-color: var(--form-control-border) !important;
 }
 
 .form-control::placeholder {
   color: color-mix(in srgb, var(--form-control-color) 65%, transparent);
+}
+
+[main-theme="dark"] .textbox {
+  background-color: #1e1e1e;
+  border-color: #555;
+}
+
+[main-theme="dark"] .textbox h3,
+[main-theme="dark"] .textbox .h3 {
+  color: white;
+  border-bottom-color: #555;
 }
 
 [main-theme="dark"] .navbar .dropdown-menu .dropdown-item {
