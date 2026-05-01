@@ -178,9 +178,6 @@ function showFavoriteToast(message) {
 }
 
 
-let featuredRecipes = []; // for featured recipe on homepage
-const featuredContainer = document.getElementById('featured-recipe');
-
 function renderFeaturedCarousel() {
     if (!allRecipes || allRecipes.length === 0) return;
 

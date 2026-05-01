@@ -93,7 +93,6 @@
 
     <button type="button" class="btn btn-secondary d-flex align-items-center gap-1" id="favoriteBtn"><i class="bi bi-heart"></i> Favorite</button>
   </div>
-  <!-- <button type="button" class="btn btn-secondary" onclick="shareOnInsta()">Share on Instagram</button> -->
   
   <!-- Recipe name -->
   <h1 id="recipe-title" class="text-center fw-bold my-4"></h1>
@@ -144,14 +143,6 @@
     const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
     window.open(facebookUrl, '_blank');
   }
-
-  //Function for sharing to Instagram
-  //function shareOnInsta() {
-   // const url = encodeURIComponent(window.location.href);
-    //const insta = ();
-    //window.open(insta, '_blank');
-  //}
-  
 
   //Function for copying link
   async function copyLink() {
@@ -280,7 +271,6 @@ function setupFavoriteButton(recipe) {
   <img src="images/link.png" alt="Copy Link" class="logo-click" onclick="copyLink()" style="height:2rem;width:2rem;cursor:pointer;">
   <img src="images/x.png" alt="Share on X" class="logo-click" onclick="shareOnTwitter()" style="height:2rem;width:2rem;cursor:pointer;">
   <img src="images/facebook.png" alt="Share on Facebook" class="logo-click" onclick="shareOnFacebook()" style="height:2rem;width:2rem;cursor:pointer;">
-  <!-- <img src="instagram.png" alt="Share on Instagram" onclick="shareOnInsta()" style="height:2rem;width:2rem;cursor:pointer;"> -->
 </div>
 
 <!-- Bottom footer -->
