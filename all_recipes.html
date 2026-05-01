@@ -9,6 +9,7 @@
     <script src="js_support/theme.js"></script>
     <script defer src="js/bootstrap.bundle.min.js"></script>
     <script defer src="js_support/recipes.js"></script>
+    <script defer src="js_support/filters.js"></script>
     <script defer src="js_support/sidepanel.js"></script>
     <title>Home - Company Secrets</title>
 </head>
@@ -105,36 +106,116 @@
 </nav>
 
 <!-- Working on side panel -->
-<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Recipe Filters</button>
+<button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+  Recipe Filters
+</button>
 
 <div class="offcanvas offcanvas-start text-bg-dark" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
- <div class="offcanvas-header">
-    <h5>Filters</h5>
-    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Filters</h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
 
   <div class="offcanvas-body">
 
-    <div id="filter-groups"></div>
+    <div class="filter-group mb-4">
+      <h6 class="mb-3">Difficulty</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Easy" data-group="difficulty" id="difficulty-easy">
+        <label class="form-check-label" for="difficulty-easy">Easy</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Moderate" data-group="difficulty" id="difficulty-moderate">
+        <label class="form-check-label" for="difficulty-moderate">Moderate</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Hard" data-group="difficulty" id="difficulty-hard">
+        <label class="form-check-label" for="difficulty-hard">Hard</label>
+      </div>
+    </div>
 
-    <button id="apply-filters" class="btn btn-primary w-100 mt-3">
-      Apply Filters
-    </button>
+    <div class="filter-group mb-4">
+      <h6 class="mb-3">Dietary</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Vegetarian" data-group="dietary" id="dietary-vegetarian">
+        <label class="form-check-label" for="dietary-vegetarian">Vegetarian</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Vegan" data-group="dietary" id="dietary-vegan">
+        <label class="form-check-label" for="dietary-vegan">Vegan</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Gluten-Free" data-group="dietary" id="dietary-glutenfree">
+        <label class="form-check-label" for="dietary-glutenfree">Gluten-Free</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="High-Protein" data-group="dietary" id="dietary-highprotein">
+        <label class="form-check-label" for="dietary-highprotein">High-Protein</label>
+      </div>
+    </div>
 
-    <button id="clear-filters" class="btn btn-outline-light w-100 mt-2">
-      Clear Filters
-    </button>
+    <div class="filter-group mb-4">
+      <h6 class="mb-3">Meat / Protein</h6>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Beef" data-group="protein" id="protein-beef">
+        <label class="form-check-label" for="protein-beef">Beef</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Chicken" data-group="protein" id="protein-chicken">
+        <label class="form-check-label" for="protein-chicken">Chicken</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Pork" data-group="protein" id="protein-pork">
+        <label class="form-check-label" for="protein-pork">Pork</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Turkey" data-group="protein" id="protein-turkey">
+        <label class="form-check-label" for="protein-turkey">Turkey</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Seafood" data-group="protein" id="protein-seafood">
+        <label class="form-check-label" for="protein-seafood">Seafood</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="Vegetarian" data-group="protein" id="protein-vegetarian">
+        <label class="form-check-label" for="protein-vegetarian">Vegetarian</label>
+      </div>
+    </div>
 
+    <div class="filter-group mb-4">
+      <h6 class="mb-3">Cook Time</h6>
+      <label for="cook-time-slider" class="form-label mb-2">
+        Show recipes up to: <span id="cook-time-value">All</span>
+      </label>
+      <input
+        type="range"
+        class="form-range"
+        id="cook-time-slider"
+        min="0"
+        max="360"
+        step="5"
+        value="360"
+      >
+      <div class="d-flex justify-content-between small opacity-75 mt-1">
+        <span>Shortest</span>
+        <span>Longest</span>
+      </div>
+    </div>
+
+<button id="apply-filters" type="button" class="btn btn-primary w-100 mt-3">Apply Filters</button>
+<button id="clear-filters" type="button" class="btn btn-outline-light w-100 mt-2">Clear Filters</button>
+
+    <div id="results-count" class="text-center mt-3 small opacity-75"></div>
   </div>
 </div>
 
 <!-- RECIPES GRID -->
-  cha<div class="container-fluid px-4 py-4" id="Recipes">
+<div class="container-fluid px-4 py-4" id="Recipes">
     <div class="row" id="recipe-grid"></div>
   </div>
 </div>
 
-<div class="wrapper">
+<!--<div class="wrapper">
   <div class="main">
     <div class="container-fluid px-4 py-4" id="Recipes">
       <div class="row" id="recipe-grid">
@@ -142,10 +223,10 @@
       </div>
     </div>
   </div>
-  <!-- <div class="side-panel">
+   <div class="side-panel">
     This is the side panel filter content
-  </div> -->
-</div>
+  </div> 
+</div>-->
 
 <!-- <script>
   document.querySelector(".side-panel-toggle").addEventListener("click", () => {

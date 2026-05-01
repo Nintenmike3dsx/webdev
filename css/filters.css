@@ -1,16 +1,26 @@
-.offcanvas {
+.offcanvas.text-bg-dark {
   background-color: var(--bs-body-bg);
   color: var(--bs-body-color);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+#filter-groups {
+  display: grid;
+  gap: 1rem;
 }
 
 .filter-group {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 1rem;
 }
 
 .filter-group h6 {
-  font-weight: 600;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.form-check {
+  margin-bottom: 0.35rem;
 }
 
 .form-check-label {
@@ -18,9 +28,13 @@
 }
 
 #apply-filters {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 #clear-filters {
   border-width: 2px;
+}
+
+#cook-time-slider {
+  cursor: pointer;
 }
