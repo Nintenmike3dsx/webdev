@@ -216,7 +216,7 @@ function renderFeaturedCarousel() {
     }
 
     const nameEl = document.getElementById("recipe-of-the-day-name");
-    if (nameEl) nameEl.textContent = recipe.name;
+    if (nameEl) nameEl.innerHTML = `<a href="recipe.html?id=${recipe.id}">${recipe.name}</a>`;
 
     const carouselEl = document.getElementById("carouselIndicators");
     if (carouselEl && window.bootstrap) {
