@@ -97,16 +97,13 @@ function displayRecipes() {
 }
 
 async function loadRecipes() {
-  const grid = document.getElementById('recipe-grid');
-  if (!grid) return;
-
   const res = await fetch('dataset/recipes/all_recipes.json');
   allRecipes = await res.json();
 
   // This is the important part for filters.js
   window.recipes = allRecipes;
 
-  showRecipes(allRecipes);
+  if (document.getElementById('recipe-grid')) showRecipes(allRecipes);
   renderFeaturedCarousel();
 }
 
@@ -176,8 +173,6 @@ function showFavoriteToast(message) {
 
   toast.show();
 }
-
-
 function renderFeaturedCarousel() {
     if (!allRecipes || allRecipes.length === 0) return;
 
