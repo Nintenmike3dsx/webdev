@@ -85,7 +85,7 @@ function displayRecipes() {
   if (limiter < filteredRecipes.length) {
     const btnCol = document.createElement('div');
     btnCol.className = 'col-12 text-center mt-2 mb-4';
-    btnCol.innerHTML = `<button class="btn btn-dark" id="more" type="button">More</button>`;
+    btnCol.innerHTML = `<button class="btn btn-dark " id="more" type="button">More</button>`;
     grid.appendChild(btnCol);
 
     document.getElementById('more').addEventListener('click', () => {
